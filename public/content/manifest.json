@@ -4,13 +4,13 @@
     "label": "Way Things Work, The (1994)(Dorling Kindersley).iso",
     "sha256": "e1e2a6aec6dff4d8aa648b754efd37507ffdf2ba395ace9c6b8aa0a5a954777f"
   },
-  "generatedAt": "2026-09-09T16:08:08.509Z",
+  "generatedAt": "2026-09-09T21:12:50.995Z",
   "totals": {
     "topics": 203,
     "images": 1698,
     "animations": 497,
     "audio": 100,
-    "hotspots": 1563
+    "hotspots": 1573
   },
   "sections": [
     {
@@ -32855,6 +32855,28 @@
                 },
                 {
                   "rect": [
+                    309,
+                    398,
+                    336,
+                    420
+                  ],
+                  "action": "open",
+                  "target": "THER1Z",
+                  "url": "/content/images/ARTICLE3/THER/THER1Z.webp"
+                },
+                {
+                  "rect": [
+                    19,
+                    326,
+                    81,
+                    405
+                  ],
+                  "action": "open",
+                  "target": "THER0Z",
+                  "url": "/content/images/ARTICLE3/THER/THER0Z.webp"
+                },
+                {
+                  "rect": [
                     480,
                     266,
                     537,
@@ -32863,6 +32885,28 @@
                   "action": "open",
                   "target": "THER3N",
                   "url": "/content/images/ARTICLE3/THER/THER3N.webp"
+                },
+                {
+                  "rect": [
+                    215,
+                    389,
+                    312,
+                    438
+                  ],
+                  "action": "open",
+                  "target": "THER1Z",
+                  "url": "/content/images/ARTICLE3/THER/THER1Z.webp"
+                },
+                {
+                  "rect": [
+                    353,
+                    47,
+                    450,
+                    96
+                  ],
+                  "action": "open",
+                  "target": "THER1N",
+                  "url": "/content/images/ARTICLE3/THER/THER1N.webp"
                 },
                 {
                   "rect": [
@@ -32885,6 +32929,29 @@
                   "action": "open",
                   "target": "THER2N",
                   "url": "/content/images/ARTICLE3/THER/THER2N.webp"
+                },
+                {
+                  "rect": [
+                    3,
+                    400,
+                    95,
+                    438
+                  ],
+                  "action": "open",
+                  "target": "THER0Z",
+                  "url": "/content/images/ARTICLE3/THER/THER0Z.webp"
+                },
+                {
+                  "rect": [
+                    114,
+                    163,
+                    189,
+                    182
+                  ],
+                  "action": "navigate",
+                  "target": "Heat",
+                  "topicId": "PRINCIPL/QHEA",
+                  "url": "#/topic/PRINCIPL%2FQHEA"
                 }
               ]
             },
@@ -32902,7 +32969,21 @@
               "url": "/content/images/ARTICLE3/THER/THER1N.webp",
               "bytes": 3174,
               "width": 167,
-              "height": 145
+              "height": 145,
+              "hotspots": [
+                {
+                  "rect": [
+                    110,
+                    83,
+                    167,
+                    102
+                  ],
+                  "action": "navigate",
+                  "target": "Heat",
+                  "topicId": "PRINCIPL/QHEA",
+                  "url": "#/topic/PRINCIPL%2FQHEA"
+                }
+              ]
             },
             {
               "id": "THER2N",
@@ -32918,7 +32999,21 @@
               "url": "/content/images/ARTICLE3/THER/THER3N.webp",
               "bytes": 2930,
               "width": 211,
-              "height": 116
+              "height": 116,
+              "hotspots": [
+                {
+                  "rect": [
+                    68,
+                    58,
+                    138,
+                    76
+                  ],
+                  "action": "navigate",
+                  "target": "Heat",
+                  "topicId": "PRINCIPL/QHEA",
+                  "url": "#/topic/PRINCIPL%2FQHEA"
+                }
+              ]
             },
             {
               "id": "THER0Z",
@@ -32957,6 +33052,30 @@
                   "action": "open",
                   "target": "THER2N",
                   "url": "/content/images/ARTICLE3/THER/THER2N.webp"
+                },
+                {
+                  "rect": [
+                    51,
+                    40,
+                    121,
+                    58
+                  ],
+                  "action": "navigate",
+                  "target": "Heat",
+                  "topicId": "PRINCIPL/QHEA",
+                  "url": "#/topic/PRINCIPL%2FQHEA"
+                },
+                {
+                  "rect": [
+                    117,
+                    296,
+                    192,
+                    315
+                  ],
+                  "action": "navigate",
+                  "target": "Heat",
+                  "topicId": "PRINCIPL/QHEA",
+                  "url": "#/topic/PRINCIPL%2FQHEA"
                 }
               ]
             },

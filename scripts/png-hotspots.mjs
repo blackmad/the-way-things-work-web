@@ -1,6 +1,25 @@
 const HOTSPOT_OPEN = 0x025b
 const HOTSPOT_DESCRIPTOR = 0x0748
 
+// Action 1 records store a compiled handler identity rather than a target
+// string. These identities come from the authored Penge program and are stable
+// for this release. Keeping the decoded entries here preserves every authored
+// rectangle, including icon-only controls that cannot be recovered from OCR.
+const INDIRECT_ACTIONS = new Map([
+  ['ARTICLE3/THER:00063caa', { action: 'open', target: 'THER0J' }],
+  ['ARTICLE3/THER:00063f3c', { action: 'open', target: 'THER0N' }],
+  ['ARTICLE3/THER:00063f68', { action: 'open', target: 'THER0Z' }],
+  ['ARTICLE3/THER:00063fc6', { action: 'open', target: 'THER1N' }],
+  ['ARTICLE3/THER:00064024', { action: 'open', target: 'THER1Z' }],
+  ['ARTICLE3/THER:000640ce', { action: 'open', target: 'THER2N' }],
+  ['ARTICLE3/THER:0006412c', { action: 'open', target: 'THER3N' }],
+  ['ARTICLE3/THER:0001ae68', { action: 'navigate', target: 'QHEA', topicId: 'PRINCIPL/QHEA' }],
+])
+
+export function resolveIndirectAction(topicPath, handlerOffset) {
+  return INDIRECT_ACTIONS.get(`${topicPath}:${handlerOffset.toString(16).padStart(8, '0')}`) || null
+}
+
 export function readPengeStrings(buffer) {
   if (buffer.length < 10) throw new Error('Penge data is too short')
   const tableBytes = buffer.readUInt32BE(4)

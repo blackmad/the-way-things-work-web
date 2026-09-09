@@ -40,7 +40,7 @@ TWTW_JOBS=4 npm run import -- "/absolute/path/to/Way Things Work.iso"
 - The fixed 540×450-era compositions scale down without cropping on small screens.
 - `/classic` presents the original screens as a centered CD-ROM-style stage with in-place cards, animations, contents, and page controls.
 
-The importer recovers authored animation, page/card, red-label, See Also, related-subject, and Inventors-book navigation rectangles from the compiled Penge database. OCR is used only to identify text inside an authored indirect rectangle; it never invents the hit area. Remaining compatibility work covers the wider long-tail of indirect concept handlers and one alternate ANI variant used by two lever-principle files. See [docs/PORTING.md](docs/PORTING.md).
+The importer recovers authored animation, page/card, red-label, See Also, related-subject, and Inventors-book navigation rectangles from the compiled Penge database. Decoded indirect handler identities are the source of truth; OCR remains a conservative fallback for handlers that have not yet been decoded and never invents a hit area. Remaining compatibility work covers the wider long-tail of indirect concept handlers and one alternate ANI variant used by two lever-principle files. See [docs/PORTING.md](docs/PORTING.md).
 
 ## Commands
 

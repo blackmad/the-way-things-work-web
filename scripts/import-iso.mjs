@@ -6,12 +6,12 @@ import { promisify } from 'node:util'
 import { fileURLToPath } from 'node:url'
 import { imageCompare, naturalCompare, SECTION_TITLES, sha256, titleFromOcr, topicPath, TOPIC_TITLES } from './import-utils.mjs'
 import { renderAni } from './render-ani.mjs'
-import { animationBaseId, extractBookNavigationHotspots, extractIndirectHotspots, extractMediaHotspots, extractTopicNavigationHotspots, matchCardLabel, normalizeHotspotLabel } from './png-hotspots.mjs'
+import { animationBaseId, extractBookNavigationHotspots, extractIndirectHotspots, extractMediaHotspots, extractTopicNavigationHotspots, matchCardLabel, normalizeHotspotLabel, resolveIndirectAction } from './png-hotspots.mjs'
 
 const exec = promisify(execFile)
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const iso = resolve(process.argv[2] || process.env.TWTW_ISO || '')
-const cache = join(root, '.cache', 'twtw', 'raw')
+let cache = join(root, '.cache', 'twtw', 'raw')
 const output = join(root, 'public', 'content')
 
 // The Inventors book's alphabet tabs use shared compiled handlers. Keeping the
@@ -141,15 +141,21 @@ async function main() {
   if (!process.argv[2] && !process.env.TWTW_ISO) {
     throw new Error('Usage: npm run import -- /absolute/path/to/disc.iso')
   }
-  await stat(iso)
+  const input = await stat(iso)
+  const extractedInput = input.isDirectory()
+  if (extractedInput) cache = iso
   await mkdir(dirname(cache), { recursive: true })
-  await rm(cache, { recursive: true, force: true })
+  if (!extractedInput) await rm(cache, { recursive: true, force: true })
   await rm(output, { recursive: true, force: true })
-  await mkdir(cache, { recursive: true })
+  if (!extractedInput) await mkdir(cache, { recursive: true })
   await mkdir(output, { recursive: true })
 
-  console.log('Extracting ISO…')
-  await command('7z', ['x', '-y', `-o${cache}`, iso])
+  if (extractedInput) {
+    console.log('Using previously extracted CD-ROM files…')
+  } else {
+    console.log('Extracting ISO…')
+    await command('7z', ['x', '-y', `-o${cache}`, iso])
+  }
   const files = await walk(cache)
   const filesByPath = new Map(files.map((file) => [file.toLowerCase(), file]))
   const bitmapsByName = new Map(files.filter((file) => extname(file).toUpperCase() === '.DIB').map((file) => [basename(file).toLowerCase(), file]))
@@ -340,11 +346,40 @@ async function main() {
           Math.min(hotspot.rect[2], sourceImage.width),
           Math.min(hotspot.rect[3], sourceImage.height),
         ]
-        if (clippedRect[2] <= clippedRect[0] || clippedRect[3] <= clippedRect[1] || !hasRedInk(rgb, sourceImage.width, clippedRect)) continue
+        if (clippedRect[2] <= clippedRect[0] || clippedRect[3] <= clippedRect[1]) continue
+
+        const decoded = resolveIndirectAction(sourceImage.topicPath, hotspot.handlerOffset)
+        if (decoded) {
+          if (decoded.action === 'open') {
+            const target = imageByTopicAndId.get(`${sourceImage.topicPath}/${decoded.target}`.toLowerCase())
+            if (!target) continue
+            const key = `${sourceImage.topicPath}/${sourceImage.id}/${clippedRect.join(',')}/open/${target.topicPath}/${target.id}`.toLowerCase()
+            if (attached.has(key)) continue
+            attached.add(key)
+            sourceImage.hotspots ||= []
+            sourceImage.hotspots.push({ rect: clippedRect, action: 'open', target: target.id, url: target.url })
+          } else {
+            const key = `${sourceImage.topicPath}/${sourceImage.id}/${clippedRect.join(',')}/navigate/${decoded.topicId}`.toLowerCase()
+            if (attached.has(key)) continue
+            attached.add(key)
+            sourceImage.hotspots ||= []
+            sourceImage.hotspots.push({
+              rect: clippedRect,
+              action: 'navigate',
+              target: TOPIC_TITLES[decoded.target] || decoded.target,
+              topicId: decoded.topicId,
+              url: `#/topic/${encodeURIComponent(decoded.topicId)}`,
+            })
+          }
+          hotspotCount++
+          continue
+        }
+
+        if (!hasRedInk(rgb, sourceImage.width, clippedRect)) continue
         const label = await ocrCrop(join(cache, sourceImage.source), clippedRect)
+        const principleCode = PRINCIPLE_CROSS_REFERENCES.get(normalizeHotspotLabel(label))
         const match = matchCardLabel(label, titledCards.map(({ card, title }) => ({ ...card, title })))
         if (!match) {
-          const principleCode = PRINCIPLE_CROSS_REFERENCES.get(normalizeHotspotLabel(label))
           if (principleCode) {
             const topicId = `PRINCIPL/${principleCode}`
             const key = `${sourceImage.topicPath}/${sourceImage.id}/${clippedRect.join(',')}/navigate/${topicId}`.toLowerCase()
@@ -517,7 +552,10 @@ async function main() {
 
   const manifest = {
     schemaVersion: 1,
-    source: { label: basename(iso), sha256: await sha256(iso) },
+    source: {
+      label: process.env.TWTW_SOURCE_LABEL || (extractedInput ? 'TWTW.PNG from extracted CD-ROM' : basename(iso)),
+      sha256: process.env.TWTW_SOURCE_SHA256 || await sha256(extractedInput ? pengeData : iso),
+    },
     generatedAt: new Date().toISOString(),
     totals: {
       topics: topics.length,

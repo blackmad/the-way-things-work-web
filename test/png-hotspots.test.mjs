@@ -1,6 +1,6 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { animationBaseId, extractAnimationHotspots, extractTopicNavigationHotspots, matchCardLabel, normalizeHotspotLabel, readPengeStrings } from '../scripts/png-hotspots.mjs'
+import { animationBaseId, extractAnimationHotspots, extractTopicNavigationHotspots, matchCardLabel, normalizeHotspotLabel, readPengeStrings, resolveIndirectAction } from '../scripts/png-hotspots.mjs'
 
 function fixture() {
   const strings = ['Arrow', 'AIRP0m0a', 'AIRP0m2a']
@@ -67,4 +67,17 @@ test('matches a red label only to one card title', () => {
   assert.equal(normalizeHotspotLabel(' Burner '), 'burner')
   assert.equal(matchCardLabel('BURNER', cards)?.id, 'BALO0N')
   assert.equal(matchCardLabel('unknown', cards), null)
+})
+
+test('resolves Thermometer indirect handlers without reading artwork text', () => {
+  assert.deepEqual(resolveIndirectAction('ARTICLE3/THER', 0x00063f68), {
+    action: 'open',
+    target: 'THER0Z',
+  })
+  assert.deepEqual(resolveIndirectAction('ARTICLE3/THER', 0x0001ae68), {
+    action: 'navigate',
+    target: 'QHEA',
+    topicId: 'PRINCIPL/QHEA',
+  })
+  assert.equal(resolveIndirectAction('ARTICLE3/THER', 0xdeadbeef), null)
 })
