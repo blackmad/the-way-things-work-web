@@ -1,0 +1,27 @@
+{
+  "name": "the-way-things-work-web",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "pages:build": "npm run build && node scripts/prepare-pages.mjs",
+    "preview": "vite preview",
+    "import": "node scripts/import-iso.mjs",
+    "validate": "node scripts/validate-content.mjs",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "@vitejs/plugin-react": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "typescript": "latest",
+    "vite": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.2"
+  }
+}
