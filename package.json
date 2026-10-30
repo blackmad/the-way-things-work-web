@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "import": "node scripts/import-iso.mjs",
     "hotspots": "node scripts/refresh-hotspots.mjs",
-    "animations": "node scripts/render-animations.mjs",
+    "animations": "node scripts/render-animations.mjs && node scripts/animation-regions.mjs",
     "validate": "node scripts/validate-content.mjs",
     "test": "node --test"
   },

@@ -12,6 +12,8 @@ export interface MediaAsset {
   duration?: number
   inferredBase?: boolean
   baseId?: string
+  /** Area of the base bitmap that an animation paints, left/top/right/bottom. */
+  region?: [number, number, number, number]
   hotspots?: Hotspot[]
 }
 

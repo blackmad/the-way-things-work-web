@@ -266,6 +266,7 @@ function CardOverlay({ asset, fallback, close, activate, animation, playAnimatio
   // A card's own animation paints into a blank area of its artwork, so the
   // film is shown in place, paused on its first frame until it is asked for.
   const videoRef = useRef<HTMLVideoElement>(null)
+  const [filmPlaying, setFilmPlaying] = useState(false)
   const inlineFilm = animation && animation.width === width && animation.height === height ? animation : undefined
   function playInline() {
     const video = videoRef.current
@@ -291,8 +292,23 @@ function CardOverlay({ asset, fallback, close, activate, animation, playAnimatio
         playsInline
         autoPlay={false}
         onClick={(event) => event.stopPropagation()}
+        onPlay={() => setFilmPlaying(true)}
+        onPause={() => setFilmPlaying(false)}
+        onEnded={() => setFilmPlaying(false)}
         aria-label={`Original animation ${inlineFilm.id}`}
       />}
+      {inlineFilm && !filmPlaying && <button
+        className="film-badge"
+        style={inlineFilm.region
+          ? { left: `${(inlineFilm.region[0] + inlineFilm.region[2]) / 2 / width * 100}%`, top: `${(inlineFilm.region[1] + inlineFilm.region[3]) / 2 / height * 100}%` }
+          : { left: '50%', top: '50%' }}
+        onClick={(event) => {
+          event.stopPropagation()
+          playInline()
+        }}
+        aria-label={`Play original animation ${inlineFilm.id}`}
+        title="Play animation"
+      >▶</button>}
       {asset?.hotspots?.map((hotspot, index) => (
         <button
           key={`${hotspot.target}-${index}`}
