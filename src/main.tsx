@@ -264,11 +264,9 @@ function CardOverlay({ asset, fallback, close, activate, animation, playAnimatio
     ? percentBox(fallback.at[0], fallback.at[1], width, height, page.width, page.height)
     : null
   // A card's own animation paints into a blank area of its artwork, so the
-  // film is shown in place: it starts at once unless the card has a film
-  // icon, in which case the first frame waits for a click.
+  // film is shown in place, paused on its first frame until it is asked for.
   const videoRef = useRef<HTMLVideoElement>(null)
   const inlineFilm = animation && animation.width === width && animation.height === height ? animation : undefined
-  const waitsForClick = Boolean(asset?.hotspots?.some((hotspot) => hotspot.action === 'play'))
   function playInline() {
     const video = videoRef.current
     if (!video) return false
@@ -291,14 +289,10 @@ function CardOverlay({ asset, fallback, close, activate, animation, playAnimatio
         src={assetUrl(inlineFilm.url)}
         preload="auto"
         playsInline
-        autoPlay={!waitsForClick}
+        autoPlay={false}
         onClick={(event) => event.stopPropagation()}
         aria-label={`Original animation ${inlineFilm.id}`}
       />}
-      {animation && playAnimation && <button className="card-play" onClick={(event) => {
-        event.stopPropagation()
-        if (!playInline()) playAnimation()
-      }}>▶ Play animation</button>}
       {asset?.hotspots?.map((hotspot, index) => (
         <button
           key={`${hotspot.target}-${index}`}
@@ -314,6 +308,10 @@ function CardOverlay({ asset, fallback, close, activate, animation, playAnimatio
         />
       ))}
     </div>
+    {animation && playAnimation && <button className="card-play" onClick={(event) => {
+      event.stopPropagation()
+      if (!playInline()) playAnimation()
+    }}>▶ Play animation</button>}
     <button className="close-card" onClick={close} aria-label="Close card">×</button>
   </div>
 }
