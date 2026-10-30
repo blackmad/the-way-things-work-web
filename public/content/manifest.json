@@ -10,7 +10,7 @@
     "images": 1698,
     "animations": 497,
     "audio": 100,
-    "hotspots": 10252
+    "hotspots": 10292
   },
   "sections": [
     {
@@ -19817,7 +19817,61 @@
               "url": "/content/images/AZAZ/AZAZ0M.webp",
               "bytes": 77386,
               "width": 540,
-              "height": 451
+              "height": 451,
+              "hotspots": [
+                {
+                  "rect": [
+                    150,
+                    70,
+                    390,
+                    215
+                  ],
+                  "action": "navigate",
+                  "target": "A–Z",
+                  "topicId": "AZAZ",
+                  "screen": 0,
+                  "url": "#/topic/AZAZ"
+                },
+                {
+                  "rect": [
+                    170,
+                    215,
+                    235,
+                    250
+                  ],
+                  "action": "navigate",
+                  "target": "A–Z",
+                  "topicId": "AZAZ",
+                  "screen": 0,
+                  "url": "#/topic/AZAZ"
+                },
+                {
+                  "rect": [
+                    300,
+                    215,
+                    365,
+                    250
+                  ],
+                  "action": "navigate",
+                  "target": "A–Z",
+                  "topicId": "AZAZ",
+                  "screen": 0,
+                  "url": "#/topic/AZAZ"
+                },
+                {
+                  "rect": [
+                    320,
+                    295,
+                    370,
+                    322
+                  ],
+                  "action": "navigate",
+                  "target": "A–Z",
+                  "topicId": "AZAZ",
+                  "screen": 0,
+                  "url": "#/topic/AZAZ"
+                }
+              ]
             },
             {
               "id": "AZAZ0MAA",
@@ -147935,7 +147989,282 @@
               "url": "/content/images/PRINCIPL/QQQQ0M.webp",
               "bytes": 83026,
               "width": 540,
-              "height": 450
+              "height": 450,
+              "hotspots": [
+                {
+                  "rect": [
+                    358,
+                    58,
+                    436,
+                    88
+                  ],
+                  "action": "navigate",
+                  "target": "Gears",
+                  "topicId": "PRINCIPL/QGEA",
+                  "screen": 0,
+                  "url": "#/topic/PRINCIPL%2FQGEA"
+                },
+                {
+                  "rect": [
+                    24,
+                    76,
+                    152,
+                    106
+                  ],
+                  "action": "navigate",
+                  "target": "Electromagnetism",
+                  "topicId": "PRINCIPL/QEMG",
+                  "screen": 0,
+                  "url": "#/topic/PRINCIPL%2FQEMG"
+                },
+                {
+                  "rect": [
+                    458,
+                    160,
+                    500,
+                    178
+                  ],
+                  "action": "navigate",
+                  "target": "Flying",
+                  "topicId": "PRINCIPL/QFLY",
+                  "screen": 0,
+                  "url": "#/topic/PRINCIPL%2FQFLY"
+                },
+                {
+                  "rect": [
+                    100,
+                    163,
+                    162,
+                    181
+                  ],
+                  "action": "navigate",
+                  "target": "Springs",
+                  "topicId": "PRINCIPL/QSPR",
+                  "screen": 0,
+                  "url": "#/topic/PRINCIPL%2FQSPR"
+                },
+                {
+                  "rect": [
+                    184,
+                    158,
+                    238,
+                    188
+                  ],
+                  "action": "navigate",
+                  "target": "Screws",
+                  "topicId": "PRINCIPL/QSCR",
+                  "screen": 0,
+                  "url": "#/topic/PRINCIPL%2FQSCR"
+                },
+                {
+                  "rect": [
+                    308,
+                    164,
+                    375,
+                    194
+                  ],
+                  "action": "navigate",
+                  "target": "Inclined Planes",
+                  "topicId": "PRINCIPL/QINC",
+                  "screen": 0,
+                  "url": "#/topic/PRINCIPL%2FQINC"
+                },
+                {
+                  "rect": [
+                    148,
+                    219,
+                    214,
+                    236
+                  ],
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "topicId": "PRINCIPL/QPRE",
+                  "screen": 0,
+                  "url": "#/topic/PRINCIPL%2FQPRE"
+                },
+                {
+                  "rect": [
+                    343,
+                    219,
+                    416,
+                    246
+                  ],
+                  "action": "navigate",
+                  "target": "Friction",
+                  "topicId": "PRINCIPL/QFRI",
+                  "screen": 0,
+                  "url": "#/topic/PRINCIPL%2FQFRI"
+                },
+                {
+                  "rect": [
+                    455,
+                    255,
+                    530,
+                    275
+                  ],
+                  "action": "navigate",
+                  "target": "Electricity",
+                  "topicId": "PRINCIPL/QELE",
+                  "screen": 0,
+                  "url": "#/topic/PRINCIPL%2FQELE"
+                },
+                {
+                  "rect": [
+                    238,
+                    264,
+                    312,
+                    288
+                  ],
+                  "action": "navigate",
+                  "target": "Floating",
+                  "topicId": "PRINCIPL/QFLO",
+                  "screen": 0,
+                  "url": "#/topic/PRINCIPL%2FQFLO"
+                },
+                {
+                  "rect": [
+                    14,
+                    272,
+                    118,
+                    294
+                  ],
+                  "action": "navigate",
+                  "target": "Photography",
+                  "topicId": "PRINCIPL/QPHO",
+                  "screen": 0,
+                  "url": "#/topic/PRINCIPL%2FQPHO"
+                },
+                {
+                  "rect": [
+                    322,
+                    300,
+                    378,
+                    324
+                  ],
+                  "action": "navigate",
+                  "target": "Wheels",
+                  "topicId": "PRINCIPL/QWHE",
+                  "screen": 0,
+                  "url": "#/topic/PRINCIPL%2FQWHE"
+                },
+                {
+                  "rect": [
+                    393,
+                    300,
+                    446,
+                    326
+                  ],
+                  "action": "navigate",
+                  "target": "Sound",
+                  "topicId": "PRINCIPL/QSND",
+                  "screen": 0,
+                  "url": "#/topic/PRINCIPL%2FQSND"
+                },
+                {
+                  "rect": [
+                    240,
+                    316,
+                    306,
+                    334
+                  ],
+                  "action": "navigate",
+                  "target": "Cams and Cranks",
+                  "topicId": "PRINCIPL/QCAM",
+                  "screen": 0,
+                  "url": "#/topic/PRINCIPL%2FQCAM"
+                },
+                {
+                  "rect": [
+                    430,
+                    326,
+                    520,
+                    344
+                  ],
+                  "action": "navigate",
+                  "target": "Magnetism",
+                  "topicId": "PRINCIPL/QMAG",
+                  "screen": 0,
+                  "url": "#/topic/PRINCIPL%2FQMAG"
+                },
+                {
+                  "rect": [
+                    178,
+                    334,
+                    228,
+                    348
+                  ],
+                  "action": "navigate",
+                  "target": "Pulleys",
+                  "topicId": "PRINCIPL/QPUL",
+                  "screen": 0,
+                  "url": "#/topic/PRINCIPL%2FQPUL"
+                },
+                {
+                  "rect": [
+                    335,
+                    370,
+                    385,
+                    388
+                  ],
+                  "action": "navigate",
+                  "target": "Levers",
+                  "topicId": "PRINCIPL/QLVR",
+                  "screen": 0,
+                  "url": "#/topic/PRINCIPL%2FQLVR"
+                },
+                {
+                  "rect": [
+                    10,
+                    397,
+                    84,
+                    434
+                  ],
+                  "action": "navigate",
+                  "target": "Light",
+                  "topicId": "PRINCIPL/QLIT",
+                  "screen": 0,
+                  "url": "#/topic/PRINCIPL%2FQLIT"
+                },
+                {
+                  "rect": [
+                    100,
+                    412,
+                    190,
+                    430
+                  ],
+                  "action": "navigate",
+                  "target": "Computers",
+                  "topicId": "PRINCIPL/QCOM",
+                  "screen": 0,
+                  "url": "#/topic/PRINCIPL%2FQCOM"
+                },
+                {
+                  "rect": [
+                    362,
+                    416,
+                    514,
+                    432
+                  ],
+                  "action": "navigate",
+                  "target": "Telecommunications",
+                  "topicId": "PRINCIPL/QTEL",
+                  "screen": 0,
+                  "url": "#/topic/PRINCIPL%2FQTEL"
+                },
+                {
+                  "rect": [
+                    240,
+                    424,
+                    282,
+                    440
+                  ],
+                  "action": "navigate",
+                  "target": "Heat",
+                  "topicId": "PRINCIPL/QHEA",
+                  "screen": 0,
+                  "url": "#/topic/PRINCIPL%2FQHEA"
+                }
+              ]
             }
           ],
           "animations": [
@@ -163930,7 +164259,48 @@
               "url": "/content/images/TIMELINE/TTTT0M.webp",
               "bytes": 63704,
               "width": 540,
-              "height": 450
+              "height": 450,
+              "hotspots": [
+                {
+                  "rect": [
+                    306,
+                    298,
+                    354,
+                    326
+                  ],
+                  "action": "navigate",
+                  "target": "Timeline",
+                  "topicId": "TIMELINE",
+                  "screen": 23,
+                  "url": "#/topic/TIMELINE?screen=23"
+                },
+                {
+                  "rect": [
+                    414,
+                    298,
+                    462,
+                    326
+                  ],
+                  "action": "navigate",
+                  "target": "Timeline",
+                  "topicId": "TIMELINE",
+                  "screen": 21,
+                  "url": "#/topic/TIMELINE?screen=21"
+                },
+                {
+                  "rect": [
+                    310,
+                    366,
+                    356,
+                    420
+                  ],
+                  "action": "navigate",
+                  "target": "Timeline",
+                  "topicId": "TIMELINE",
+                  "screen": 4,
+                  "url": "#/topic/TIMELINE?screen=4"
+                }
+              ]
             },
             {
               "id": "TTTT1M",
@@ -163938,7 +164308,48 @@
               "url": "/content/images/TIMELINE/TTTT1M.webp",
               "bytes": 62500,
               "width": 540,
-              "height": 450
+              "height": 450,
+              "hotspots": [
+                {
+                  "rect": [
+                    306,
+                    298,
+                    354,
+                    326
+                  ],
+                  "action": "navigate",
+                  "target": "Timeline",
+                  "topicId": "TIMELINE",
+                  "screen": 20,
+                  "url": "#/topic/TIMELINE?screen=20"
+                },
+                {
+                  "rect": [
+                    414,
+                    298,
+                    462,
+                    326
+                  ],
+                  "action": "navigate",
+                  "target": "Timeline",
+                  "topicId": "TIMELINE",
+                  "screen": 22,
+                  "url": "#/topic/TIMELINE?screen=22"
+                },
+                {
+                  "rect": [
+                    310,
+                    366,
+                    356,
+                    420
+                  ],
+                  "action": "navigate",
+                  "target": "Timeline",
+                  "topicId": "TIMELINE",
+                  "screen": 7,
+                  "url": "#/topic/TIMELINE?screen=7"
+                }
+              ]
             },
             {
               "id": "TTTT2M",
@@ -163946,7 +164357,48 @@
               "url": "/content/images/TIMELINE/TTTT2M.webp",
               "bytes": 62006,
               "width": 540,
-              "height": 450
+              "height": 450,
+              "hotspots": [
+                {
+                  "rect": [
+                    306,
+                    298,
+                    354,
+                    326
+                  ],
+                  "action": "navigate",
+                  "target": "Timeline",
+                  "topicId": "TIMELINE",
+                  "screen": 21,
+                  "url": "#/topic/TIMELINE?screen=21"
+                },
+                {
+                  "rect": [
+                    414,
+                    298,
+                    462,
+                    326
+                  ],
+                  "action": "navigate",
+                  "target": "Timeline",
+                  "topicId": "TIMELINE",
+                  "screen": 24,
+                  "url": "#/topic/TIMELINE?screen=24"
+                },
+                {
+                  "rect": [
+                    310,
+                    366,
+                    356,
+                    420
+                  ],
+                  "action": "navigate",
+                  "target": "Timeline",
+                  "topicId": "TIMELINE",
+                  "screen": 16,
+                  "url": "#/topic/TIMELINE?screen=16"
+                }
+              ]
             },
             {
               "id": "TTTT3M",
@@ -163954,7 +164406,48 @@
               "url": "/content/images/TIMELINE/TTTT3M.webp",
               "bytes": 63864,
               "width": 540,
-              "height": 450
+              "height": 450,
+              "hotspots": [
+                {
+                  "rect": [
+                    306,
+                    298,
+                    354,
+                    326
+                  ],
+                  "action": "navigate",
+                  "target": "Timeline",
+                  "topicId": "TIMELINE",
+                  "screen": 24,
+                  "url": "#/topic/TIMELINE?screen=24"
+                },
+                {
+                  "rect": [
+                    414,
+                    298,
+                    462,
+                    326
+                  ],
+                  "action": "navigate",
+                  "target": "Timeline",
+                  "topicId": "TIMELINE",
+                  "screen": 20,
+                  "url": "#/topic/TIMELINE?screen=20"
+                },
+                {
+                  "rect": [
+                    310,
+                    366,
+                    356,
+                    420
+                  ],
+                  "action": "navigate",
+                  "target": "Timeline",
+                  "topicId": "TIMELINE",
+                  "screen": 2,
+                  "url": "#/topic/TIMELINE?screen=2"
+                }
+              ]
             },
             {
               "id": "TTTT4M",
@@ -163962,7 +164455,48 @@
               "url": "/content/images/TIMELINE/TTTT4M.webp",
               "bytes": 63400,
               "width": 540,
-              "height": 450
+              "height": 450,
+              "hotspots": [
+                {
+                  "rect": [
+                    306,
+                    298,
+                    354,
+                    326
+                  ],
+                  "action": "navigate",
+                  "target": "Timeline",
+                  "topicId": "TIMELINE",
+                  "screen": 22,
+                  "url": "#/topic/TIMELINE?screen=22"
+                },
+                {
+                  "rect": [
+                    414,
+                    298,
+                    462,
+                    326
+                  ],
+                  "action": "navigate",
+                  "target": "Timeline",
+                  "topicId": "TIMELINE",
+                  "screen": 23,
+                  "url": "#/topic/TIMELINE?screen=23"
+                },
+                {
+                  "rect": [
+                    310,
+                    366,
+                    356,
+                    420
+                  ],
+                  "action": "navigate",
+                  "target": "Timeline",
+                  "topicId": "TIMELINE",
+                  "screen": 0,
+                  "url": "#/topic/TIMELINE"
+                }
+              ]
             }
           ],
           "animations": [

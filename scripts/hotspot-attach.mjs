@@ -1,3 +1,4 @@
+import { builtinHotspots } from './builtin-hotspots.mjs'
 import { imageCompare } from './import-utils.mjs'
 import { HOTSPOT_ACTION, parsePenge, RECORD_TYPE } from './penge.mjs'
 
@@ -99,6 +100,24 @@ export function attachAuthoredHotspots({
       image.hotspots.push(entry)
       stats.hotspots++
     }
+  }
+
+  // Section dials and maps are wired in the executable, not the database.
+  for (const [topicId, imageId, rect, targetTopic, targetImage] of builtinHotspots()) {
+    const image = imagesByKey.get(key(topicId, imageId))
+    const target = imagesByKey.get(key(targetTopic, targetImage))
+    if (!image || !target) continue
+    const screen = screenIndex.get(target) || 0
+    image.hotspots ||= []
+    image.hotspots.push({
+      rect,
+      action: 'navigate',
+      target: titleFor(target.topicPath),
+      topicId: target.topicPath,
+      screen,
+      url: `#/topic/${encodeURIComponent(target.topicPath)}${screen ? `?screen=${screen}` : ''}`,
+    })
+    stats.hotspots++
   }
 
   log(`Attached ${stats.hotspots} authored hotspots from ${stats.records} Penge records.`)
