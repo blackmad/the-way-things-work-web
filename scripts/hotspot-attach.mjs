@@ -90,6 +90,10 @@ export async function attachAuthoredHotspots({
 
   let hotspotCount = 0
   const attached = new Set()
+  // Several controls share a compiled handler. Once OCR has resolved one
+  // occurrence, a later icon with the same handler can reuse that destination
+  // instead of being dropped because it has no text of its own.
+  const resolvedHandlers = new Map()
 
   for (const hotspot of authored) {
     let sourceImage
@@ -131,7 +135,7 @@ export async function attachAuthoredHotspots({
     if (threshold) settings.push('-threshold', threshold)
     await command('magick', [file, ...settings, target])
     try {
-      const { stdout } = await command('tesseract', [target, 'stdout', '--psm', pageSegmentation], { timeout: 20_000 })
+      const { stdout } = await command('tesseract', [target, 'stdout', '--psm', pageSegmentation], { timeout: 8_000 })
       return stdout.split(/\r?\n/).map((line) => line.replace(/[^A-Za-z0-9 &'’-]/g, '').trim()).find((line) => /[A-Za-z]{3}/.test(line)) || ''
     } catch {
       return ''
@@ -143,7 +147,7 @@ export async function attachAuthoredHotspots({
     const target = join(ocrDir, `${ocrSequence++}.png`)
     await command('magick', [file, '-crop', `${right - left}x${bottom - top}+${left}+${top}`, '-resize', scale, '-colorspace', 'gray', '-normalize', target])
     try {
-      const { stdout } = await command('tesseract', [target, 'stdout', '--psm', pageSegmentation], { timeout: 20_000 })
+      const { stdout } = await command('tesseract', [target, 'stdout', '--psm', pageSegmentation], { timeout: 8_000 })
       return stdout.split(/\r?\n/).map((line) => line.replace(/[^A-Za-z0-9 &'’-]/g, '').trim()).filter(Boolean)
     } catch {
       return []
@@ -169,6 +173,32 @@ export async function attachAuthoredHotspots({
     return title
   }
 
+  const rgbCache = new Map()
+  async function rgbFor(asset) {
+    if (rgbCache.has(asset)) return rgbCache.get(asset)
+    let rgb = null
+    try {
+      ({ stdout: rgb } = await command('magick', [sourceFile(asset), '-depth', '8', 'rgb:-'], { encoding: 'buffer', maxBuffer: 32 * 1024 * 1024 }))
+    } catch { /* The candidate is simply unavailable. */ }
+    rgbCache.set(asset, rgb)
+    return rgb
+  }
+
+  async function chooseAuthoredSource(sourceImage, rect) {
+    if (!sourceImage) return null
+    if (rect[2] <= sourceImage.width && rect[3] <= sourceImage.height) return sourceImage
+    const candidates = imageAssets
+      .filter((candidate) => candidate.topicPath === sourceImage.topicPath &&
+        rect[2] <= candidate.width && rect[3] <= candidate.height)
+      .sort((a, b) => a.width * a.height - b.width * b.height)
+    for (const candidate of candidates) {
+      const rgb = await rgbFor(candidate)
+      if (rgb && hasRedInk(rgb, candidate.width, rect)) return candidate
+    }
+    const code = sourceImage.topicPath.split('/').at(-1)
+    return imageByTopicAndId.get(`${sourceImage.topicPath}/${code}0M`.toLowerCase()) || sourceImage
+  }
+
   const indirect = extractIndirectHotspots(pengeBuffer, [...imageAssets, ...animationAssets].map((asset) => asset.id))
   const indirectByImage = new Map()
   for (const hotspot of indirect) {
@@ -178,7 +208,7 @@ export async function attachAuthoredHotspots({
     let sourceImage = sourceAnimation
       ? imageByTopicAndId.get(`${sourceAnimation.topicPath}/${sourceAnimation.baseId || animationBaseId(sourceAnimation.id)}`.toLowerCase())
       : (imagesById.get(hotspot.source.toLowerCase()) || [])[0]
-    sourceImage = fitAuthoredSource(sourceImage, hotspot.rect, imageByTopicAndId)
+    sourceImage = await chooseAuthoredSource(sourceImage, hotspot.rect)
     if (!sourceImage) continue
     const [, , right, bottom] = hotspot.rect
     if (right > sourceImage.width + 32 || bottom > sourceImage.height + 32) continue
@@ -192,10 +222,8 @@ export async function attachAuthoredHotspots({
   }
 
   for (const [sourceImage, group] of indirectByImage) {
-    let rgb
-    try {
-      ({ stdout: rgb } = await command('magick', [sourceFile(sourceImage), '-depth', '8', 'rgb:-'], { encoding: 'buffer', maxBuffer: 32 * 1024 * 1024 }))
-    } catch { continue }
+    const rgb = await rgbFor(sourceImage)
+    if (!rgb) continue
     const titledCards = []
     for (const card of group.cards) titledCards.push({ card, title: await cardTitle(card) })
     for (const hotspot of group.hotspots) {
@@ -207,6 +235,29 @@ export async function attachAuthoredHotspots({
       ]
       if (clippedRect[2] <= clippedRect[0] || clippedRect[3] <= clippedRect[1]) continue
 
+      const reused = resolvedHandlers.get(hotspot.handlerOffset)
+      if (reused) {
+        const width = clippedRect[2] - clippedRect[0]
+        const height = clippedRect[3] - clippedRect[1]
+        // A tiny unlabeled control sharing a card handler is the original
+        // film icon. Prefer the page's own animation when one exists.
+        const pageAnimation = width <= 36 && height <= 36
+          ? (animationsById.get(`${sourceImage.id}0A`.toLowerCase()) || []).find((animation) => animation.playable)
+          : null
+        const target = pageAnimation || reused
+        const action = pageAnimation ? 'play' : reused.action
+        const key = `${sourceImage.topicPath}/${sourceImage.id}/${clippedRect.join(',')}/${action}/${target.id || target.topicId}`.toLowerCase()
+        if (!attached.has(key)) {
+          attached.add(key)
+          sourceImage.hotspots ||= []
+          sourceImage.hotspots.push(action === 'play'
+            ? { rect: clippedRect, action, target: target.id, url: target.url }
+            : { rect: clippedRect, action: reused.action, target: reused.target, url: reused.url, ...(reused.topicId ? { topicId: reused.topicId } : {}) })
+          hotspotCount++
+        }
+        continue
+      }
+
       const decoded = resolveIndirectAction(sourceImage.topicPath, hotspot.handlerOffset)
       if (decoded) {
         if (decoded.action === 'open') {
@@ -217,6 +268,7 @@ export async function attachAuthoredHotspots({
           attached.add(key)
           sourceImage.hotspots ||= []
           sourceImage.hotspots.push({ rect: clippedRect, action: 'open', target: target.id, url: target.url })
+          resolvedHandlers.set(hotspot.handlerOffset, { action: 'open', target: target.id, url: target.url })
         } else {
           const key = `${sourceImage.topicPath}/${sourceImage.id}/${clippedRect.join(',')}/navigate/${decoded.topicId}`.toLowerCase()
           if (attached.has(key)) continue
@@ -229,15 +281,38 @@ export async function attachAuthoredHotspots({
             topicId: decoded.topicId,
             url: `#/topic/${encodeURIComponent(decoded.topicId)}`,
           })
+          resolvedHandlers.set(hotspot.handlerOffset, {
+            action: 'navigate', target: topicTitles[decoded.target] || decoded.target, topicId: decoded.topicId, url: `#/topic/${encodeURIComponent(decoded.topicId)}`,
+          })
         }
         hotspotCount++
         continue
       }
 
       if (!hasRedInk(rgb, sourceImage.width, clippedRect)) continue
-      const label = await ocrCrop(sourceFile(sourceImage), clippedRect)
-      const principleCode = principleCrossReferences.get(normalizeHotspotLabel(label))
-      const match = matchCardLabel(label, titledCards.map(({ card, title }) => ({ ...card, title })))
+      const titled = titledCards.map(({ card, title }) => ({ ...card, title }))
+      let label = await ocrCrop(sourceFile(sourceImage), clippedRect)
+      let principleCode = principleCrossReferences.get(normalizeHotspotLabel(label))
+      let match = matchCardLabel(label, titled)
+      const generic = ['assembly', 'mechanism', 'unit', 'system', 'supply'].includes(label.toLowerCase())
+      const rectHeight = clippedRect[3] - clippedRect[1]
+      const rectWidth = clippedRect[2] - clippedRect[0]
+      if (!match && !principleCode && (generic || (rectHeight >= 22 && rectWidth <= 160))) {
+        // Authored rectangles sometimes cover only one line of a multi-line
+        // callout ("DISK / BRAKE PAD", "… / ASSEMBLY"). Read the whole block,
+        // extending above the rectangle for generic single words, so the
+        // qualifier can disambiguate the target.
+        const pad = generic ? Math.max(10, Math.round(rectHeight * 1.1)) : 0
+        const lines = await ocrLines(sourceFile(sourceImage), [
+          clippedRect[0], Math.max(0, clippedRect[1] - pad), clippedRect[2], clippedRect[3],
+        ])
+        const qualifier = lines.filter((line) => uppercaseRatio(line) >= 0.7).slice(0, 2).join(' ').trim()
+        if (qualifier && normalizeHotspotLabel(qualifier) !== normalizeHotspotLabel(label)) {
+          label = qualifier
+          principleCode = principleCrossReferences.get(normalizeHotspotLabel(label))
+          match = matchCardLabel(label, titled)
+        }
+      }
       if (!match) {
         if (principleCode) {
           const topicId = `PRINCIPL/${principleCode}`
@@ -246,6 +321,7 @@ export async function attachAuthoredHotspots({
             attached.add(key)
             sourceImage.hotspots ||= []
             sourceImage.hotspots.push({ rect: clippedRect, action: 'navigate', target: topicTitles[principleCode] || principleCode, topicId, url: `#/topic/${encodeURIComponent(topicId)}` })
+            resolvedHandlers.set(hotspot.handlerOffset, { action: 'navigate', target: topicTitles[principleCode] || principleCode, topicId, url: `#/topic/${encodeURIComponent(topicId)}` })
             hotspotCount++
           }
           continue
@@ -270,6 +346,7 @@ export async function attachAuthoredHotspots({
       attached.add(key)
       sourceImage.hotspots ||= []
       sourceImage.hotspots.push({ rect: hotspot.rect, action: 'open', target: match.id, url: match.url })
+      resolvedHandlers.set(hotspot.handlerOffset, { action: 'open', target: match.id, url: match.url })
       hotspotCount++
     }
   }

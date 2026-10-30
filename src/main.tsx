@@ -140,11 +140,13 @@ function AnimationShelf({ animations }: { animations: MediaAsset[] }) {
   )
 }
 
-function CardOverlay({ asset, fallback, close, activate, classic = false }: {
+function CardOverlay({ asset, fallback, close, activate, animation, playAnimation, classic = false }: {
   asset?: MediaAsset
   fallback: Hotspot
   close: () => void
   activate: (hotspot: Hotspot) => void
+  animation?: MediaAsset
+  playAnimation?: () => void
   classic?: boolean
 }) {
   useEffect(() => {
@@ -165,6 +167,10 @@ function CardOverlay({ asset, fallback, close, activate, classic = false }: {
   >
     <div className="card-surface" style={{ aspectRatio: `${width} / ${height}` }}>
       <img src={assetUrl(fallback.url)} alt={`Information card ${fallback.target}`} />
+      {animation && playAnimation && <button className="card-play" onClick={(event) => {
+        event.stopPropagation()
+        playAnimation()
+      }}>▶ Play animation</button>}
       {asset?.hotspots?.map((hotspot, index) => {
         const [left, top, right, bottom] = hotspot.rect
         return <button
@@ -192,6 +198,9 @@ function TopicViewer({ topic, initialScreen, imagesByUrl }: { topic: Topic; init
     setActiveAnimation(null)
   }, [topic.id, initialScreen])
   const image = topic.images[screen]
+  const cardAnimation = activeAnimation ? topic.animations.find((animation) =>
+    animation.baseId === activeAnimation.target || animation.id.startsWith(`${activeAnimation.target}0`),
+  ) : undefined
 
   function choose(index: number) {
     setScreen(index)
@@ -226,7 +235,7 @@ function TopicViewer({ topic, initialScreen, imagesByUrl }: { topic: Topic; init
                 <>
                   {activeAnimation.action === 'play'
                     ? <video key={activeAnimation.url} src={assetUrl(activeAnimation.url)} autoPlay controls onEnded={() => setActiveAnimation(null)} aria-label={`Original animation ${activeAnimation.target}`} />
-                    : <CardOverlay asset={imagesByUrl.get(activeAnimation.url)} fallback={activeAnimation} close={() => setActiveAnimation(null)} activate={activate} />}
+                    : <CardOverlay asset={imagesByUrl.get(activeAnimation.url)} fallback={activeAnimation} close={() => setActiveAnimation(null)} activate={activate} animation={cardAnimation} playAnimation={() => cardAnimation && setActiveAnimation({ rect: [0, 0, 0, 0], action: 'play', target: cardAnimation.id, url: cardAnimation.url })} />}
                   {activeAnimation.action === 'play' && <button className="close-animation" onClick={() => setActiveAnimation(null)} aria-label="Close animation">×</button>}
                 </>
               ) : (
@@ -371,6 +380,9 @@ function ClassicApp({ manifest, topic, initialScreen }: { manifest: ContentManif
     if (topic) setContentsOpen(false)
   }, [topic?.id, initialScreen])
   const image = topic?.images[screen]
+  const cardAnimation = active?.action === 'open' ? topic?.animations.find((animation) =>
+    animation.baseId === active.target || animation.id.startsWith(`${active.target}0`),
+  ) : undefined
   const titleTopic = topics.find((candidate) => candidate.id === 'TITLE')
   const workshopTopic = topics.find((candidate) => candidate.id === 'WORKSHOP') || topics[0]
   const showingOpening = !topic || topic.id === 'TITLE'
@@ -417,7 +429,7 @@ function ClassicApp({ manifest, topic, initialScreen }: { manifest: ContentManif
               />
             })}
             {active?.action === 'play' && <div className="classic-media-overlay"><video src={assetUrl(active.url)} autoPlay controls onEnded={() => setActive(null)} /><button onClick={() => setActive(null)} aria-label="Close animation">×</button></div>}
-            {active?.action === 'open' && <CardOverlay asset={imagesByUrl.get(active.url)} fallback={active} close={() => setActive(null)} activate={activate} classic />}
+            {active?.action === 'open' && <CardOverlay asset={imagesByUrl.get(active.url)} fallback={active} close={() => setActive(null)} activate={activate} animation={cardAnimation} playAnimation={() => cardAnimation && setActive({ rect: [0, 0, 0, 0], action: 'play', target: cardAnimation.id, url: cardAnimation.url })} classic />}
           </div>
         ) : (
           <div className="classic-intro">
