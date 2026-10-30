@@ -81,7 +81,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 3px solid 
 .classic-toolbar button, .classic-toolbar > a:last-child, .classic-statusbar button, .classic-intro button { padding: 7px 12px; border: 1px solid rgba(246,236,210,.45); color: #f6ecd2; background: transparent; font: 600 9px 'DM Mono', monospace; text-transform: uppercase; cursor: pointer; }
 .classic-statusbar button:disabled { opacity: .25; cursor: default; }
 .classic-workspace { min-height: 0; display: grid; place-items: center; padding: 18px; overflow: auto; background: radial-gradient(circle at center, #315c55 0, #173734 68%); }
-.classic-screen { position: relative; width: 100%; background: #fff; box-shadow: 0 18px 60px rgba(0,0,0,.5); }
+.classic-screen { position: relative; width: 100%; background: #fff; }
 .classic-screen > img { display: block; width: 100%; height: 100%; object-fit: contain; }
 .classic-hotspot { position: absolute; z-index: 2; min-width: 12px; min-height: 12px; padding: 0; cursor: pointer; border: 1px solid rgba(181,37,30,.55); background: rgba(255,255,255,.08); }
 .classic-hotspot.open { border-style: dashed; }
@@ -188,3 +188,16 @@ footer { margin-top: auto; padding: 20px clamp(20px, 4vw, 64px); border-top: 1px
 }
 
 @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; transition: none !important; } }
+
+/* Classic mode: the original 640×460 window with its navigation panel. */
+.classic-window { position: relative; width: 100%; max-width: 640px; background: #000; box-shadow: 0 18px 60px rgba(0,0,0,.5); }
+.classic-nav { position: absolute; left: 0; top: 0; width: 14.6875%; height: 100%; }
+.classic-nav > img { display: block; width: 100%; height: 100%; }
+.classic-nav-button { position: absolute; padding: 0; border: 1px solid transparent; background: transparent; cursor: pointer; }
+.classic-nav-button:hover, .classic-nav-button:focus-visible { border-color: #e1261c; background: rgba(255,255,255,.18); outline: 2px solid white; }
+.classic-frame { position: absolute; display: block; pointer-events: none; }
+.classic-window .classic-screen { position: absolute; width: auto; }
+.classic-hotspot.sound, .original-hotspot.sound, .card-hotspot.sound { border-style: dotted; }
+.classic-hotspot.navigate, .original-hotspot.navigate { border-style: double; }
+.card-backdrop.positioned { display: block; padding: 0; }
+.card-backdrop.positioned .card-surface { position: absolute; max-height: none; }

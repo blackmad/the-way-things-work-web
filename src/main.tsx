@@ -26,6 +26,46 @@ function navigate(topicId: string, screen = 0) {
   location.hash = `/topic/${encodeURIComponent(topicId)}${screen ? `?screen=${screen}` : ''}`
 }
 
+let currentSound: HTMLAudioElement | null = null
+function playSound(url: string) {
+  currentSound?.pause()
+  currentSound = new Audio(assetUrl(url))
+  currentSound.play().catch(() => { /* Autoplay policies can refuse; the control stays usable. */ })
+}
+
+const HOTSPOT_VERBS: Record<Hotspot['action'], string> = {
+  play: 'Play original animation',
+  open: 'Open original card',
+  navigate: 'Open subject',
+  sound: 'Play original sound',
+}
+const hotspotLabel = (hotspot: Hotspot) => `${HOTSPOT_VERBS[hotspot.action]} ${hotspot.target}`
+
+function hotspotStyle(hotspot: Hotspot, width: number, height: number) {
+  const [left, top, right, bottom] = hotspot.rect
+  return { left: `${left / width * 100}%`, top: `${top / height * 100}%`, width: `${(right - left) / width * 100}%`, height: `${(bottom - top) / height * 100}%` }
+}
+
+// The original window: a 94×460 navigation panel on the left and the 540×450
+// page at (94, 4) inside a thin frame. The panel's buttons are hard-wired in
+// the Windows executable rather than authored in the content database.
+const WINDOW = { width: 640, height: 460 }
+const PAGE_AREA = { left: 94, top: 4, width: 540, height: 450 }
+const NAV_BUTTONS: { label: string; rect: [number, number, number, number]; topicId?: string; image?: string; back?: boolean }[] = [
+  { label: 'Workshop', rect: [4, 4, 90, 78], topicId: 'WORKSHOP' },
+  { label: 'Machines', rect: [4, 85, 90, 150], topicId: 'AZAZ', image: 'AZAZ0M' },
+  { label: 'Principles of Science', rect: [4, 156, 90, 230], topicId: 'PRINCIPL' },
+  { label: 'History', rect: [4, 236, 90, 303], topicId: 'TIMELINE', image: 'TTTT0M' },
+  { label: 'Inventors', rect: [4, 303, 90, 369], topicId: 'INVENTOR/TITLE' },
+  { label: 'Back', rect: [4, 377, 90, 393], back: true },
+  { label: 'Index', rect: [4, 398, 90, 415], topicId: 'INDEX' },
+  { label: 'Options', rect: [4, 417, 90, 434], topicId: 'OPTIONS' },
+  { label: 'Help', rect: [4, 436, 90, 453], topicId: 'HELP' },
+]
+const percentBox = (left: number, top: number, width: number, height: number, areaWidth: number, areaHeight: number) => ({
+  left: `${left / areaWidth * 100}%`, top: `${top / areaHeight * 100}%`, width: `${width / areaWidth * 100}%`, height: `${height / areaHeight * 100}%`,
+})
+
 function MediaSummary({ topic }: { topic: Topic }) {
   return (
     <span className="media-summary">
@@ -140,7 +180,7 @@ function AnimationShelf({ animations }: { animations: MediaAsset[] }) {
   )
 }
 
-function CardOverlay({ asset, fallback, close, activate, animation, playAnimation, classic = false }: {
+function CardOverlay({ asset, fallback, close, activate, animation, playAnimation, classic = false, page }: {
   asset?: MediaAsset
   fallback: Hotspot
   close: () => void
@@ -148,6 +188,8 @@ function CardOverlay({ asset, fallback, close, activate, animation, playAnimatio
   animation?: MediaAsset
   playAnimation?: () => void
   classic?: boolean
+  /** Dimensions of the page the card sits on, used to honour the authored card position. */
+  page?: { width: number; height: number }
 }) {
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
@@ -158,33 +200,37 @@ function CardOverlay({ asset, fallback, close, activate, animation, playAnimatio
   }, [close])
   const width = asset?.width || 242
   const height = asset?.height || 162
+  // Cards are authored for the 540×450 page. Place them where the original
+  // did whenever the card fits inside the page it is shown on.
+  const at = fallback.at && page && fallback.at[0] + width <= page.width + 1 && fallback.at[1] + height <= page.height + 1
+    ? percentBox(fallback.at[0], fallback.at[1], width, height, page.width, page.height)
+    : null
   return <div
-    className={`card-backdrop${classic ? ' classic-card-backdrop' : ''}`}
+    className={`card-backdrop${classic ? ' classic-card-backdrop' : ''}${at ? ' positioned' : ''}`}
     role="dialog"
     aria-modal="true"
     aria-label={`Information card ${fallback.target}. Click anywhere to close.`}
     onClick={close}
   >
-    <div className="card-surface" style={{ aspectRatio: `${width} / ${height}` }}>
+    <div className="card-surface" style={at ? { ...at, aspectRatio: `${width} / ${height}` } : { aspectRatio: `${width} / ${height}` }}>
       <img src={assetUrl(fallback.url)} alt={`Information card ${fallback.target}`} />
       {animation && playAnimation && <button className="card-play" onClick={(event) => {
         event.stopPropagation()
         playAnimation()
       }}>▶ Play animation</button>}
-      {asset?.hotspots?.map((hotspot, index) => {
-        const [left, top, right, bottom] = hotspot.rect
-        return <button
+      {asset?.hotspots?.map((hotspot, index) => (
+        <button
           key={`${hotspot.target}-${index}`}
-          className="card-hotspot"
-          style={{ left: `${left / width * 100}%`, top: `${top / height * 100}%`, width: `${(right - left) / width * 100}%`, height: `${(bottom - top) / height * 100}%` }}
+          className={`card-hotspot ${hotspot.action}`}
+          style={hotspotStyle(hotspot, width, height)}
           onClick={(event) => {
             event.stopPropagation()
             activate(hotspot)
           }}
-          aria-label={`Open ${hotspot.target}`}
-          title={`Open ${hotspot.target}`}
+          aria-label={hotspotLabel(hotspot)}
+          title={hotspotLabel(hotspot)}
         />
-      })}
+      ))}
     </div>
     <button className="close-card" onClick={close} aria-label="Close card">×</button>
   </div>
@@ -209,7 +255,9 @@ function TopicViewer({ topic, initialScreen, imagesByUrl }: { topic: Topic; init
   }
 
   function activate(hotspot: Hotspot) {
-    if (hotspot.action === 'navigate' && hotspot.topicId) navigate(hotspot.topicId)
+    if (hotspot.sound) playSound(hotspot.sound)
+    if (hotspot.action === 'sound') playSound(hotspot.url)
+    else if (hotspot.action === 'navigate' && hotspot.topicId) navigate(hotspot.topicId, hotspot.screen)
     else setActiveAnimation(hotspot)
   }
 
@@ -235,7 +283,7 @@ function TopicViewer({ topic, initialScreen, imagesByUrl }: { topic: Topic; init
                 <>
                   {activeAnimation.action === 'play'
                     ? <video key={activeAnimation.url} src={assetUrl(activeAnimation.url)} autoPlay controls onEnded={() => setActiveAnimation(null)} aria-label={`Original animation ${activeAnimation.target}`} />
-                    : <CardOverlay asset={imagesByUrl.get(activeAnimation.url)} fallback={activeAnimation} close={() => setActiveAnimation(null)} activate={activate} animation={cardAnimation} playAnimation={() => cardAnimation && setActiveAnimation({ rect: [0, 0, 0, 0], action: 'play', target: cardAnimation.id, url: cardAnimation.url })} />}
+                    : <CardOverlay asset={imagesByUrl.get(activeAnimation.url)} fallback={activeAnimation} close={() => setActiveAnimation(null)} activate={activate} animation={cardAnimation} page={{ width: image.width!, height: image.height! }} playAnimation={() => cardAnimation && setActiveAnimation({ rect: [0, 0, 0, 0], action: 'play', target: cardAnimation.id, url: cardAnimation.url })} />}
                   {activeAnimation.action === 'play' && <button className="close-animation" onClick={() => setActiveAnimation(null)} aria-label="Close animation">×</button>}
                 </>
               ) : (
@@ -247,17 +295,16 @@ function TopicViewer({ topic, initialScreen, imagesByUrl }: { topic: Topic; init
                     height={image.height}
                     alt={`${topic.title}, original screen ${screen + 1} of ${topic.images.length}`}
                   />
-                  {image.hotspots?.map((hotspot, index) => {
-                    const [left, top, right, bottom] = hotspot.rect
-                    return <button
+                  {image.hotspots?.map((hotspot, index) => (
+                    <button
                       key={`${hotspot.target}-${index}`}
                       className={`original-hotspot ${hotspot.action}`}
-                      style={{ left: `${left / image.width! * 100}%`, top: `${top / image.height! * 100}%`, width: `${(right - left) / image.width! * 100}%`, height: `${(bottom - top) / image.height! * 100}%` }}
+                      style={hotspotStyle(hotspot, image.width!, image.height!)}
                       onClick={() => activate(hotspot)}
-                      aria-label={`${hotspot.action === 'play' ? 'Play original animation' : hotspot.action === 'navigate' ? 'Open subject' : 'Open original card'} ${hotspot.target}`}
-                      title={`${hotspot.action === 'play' ? 'Play' : 'Open'} ${hotspot.target}`}
+                      aria-label={hotspotLabel(hotspot)}
+                      title={hotspotLabel(hotspot)}
                     />
-                  })}
+                  ))}
                 </>
               )}
             </div>
@@ -399,9 +446,36 @@ function ClassicApp({ manifest, topic, initialScreen }: { manifest: ContentManif
   }
 
   function activate(hotspot: Hotspot) {
-    if (hotspot.action === 'navigate' && hotspot.topicId) location.hash = `/topic/${encodeURIComponent(hotspot.topicId)}`
+    if (hotspot.sound) playSound(hotspot.sound)
+    if (hotspot.action === 'sound') playSound(hotspot.url)
+    else if (hotspot.action === 'navigate' && hotspot.topicId) navigate(hotspot.topicId, hotspot.screen)
     else setActive(hotspot)
   }
+
+  function pressNavButton(button: typeof NAV_BUTTONS[number]) {
+    if (button.back) {
+      history.back()
+      return
+    }
+    const destination = topics.find((candidate) => candidate.id === button.topicId)
+    if (!destination) return
+    const index = button.image ? destination.images.findIndex((candidate) => candidate.id === button.image) : 0
+    navigate(destination.id, Math.max(0, index))
+  }
+
+  const navImage = topics.find((candidate) => candidate.id === 'NAV')?.images
+  const navArt = (id: string) => navImage?.find((candidate) => candidate.id === id)
+  // Fit the current screen inside the original page area, which most screens
+  // fill exactly; help, index, and card screens are smaller and sit centered.
+  const fit = image ? Math.min(PAGE_AREA.width / image.width!, PAGE_AREA.height / image.height!, 1) : 1
+  const screenBox = image ? percentBox(
+    PAGE_AREA.left + (PAGE_AREA.width - image.width! * fit) / 2,
+    PAGE_AREA.top + (PAGE_AREA.height - image.height! * fit) / 2,
+    image.width! * fit,
+    image.height! * fit,
+    WINDOW.width,
+    WINDOW.height,
+  ) : null
 
   return (
     <main className="classic-shell">
@@ -414,22 +488,39 @@ function ClassicApp({ manifest, topic, initialScreen }: { manifest: ContentManif
       <section className="classic-workspace" aria-label="Original-style encyclopedia viewer">
         {showingOpening ? (
           <OpeningSequence topic={titleTopic} onFinish={enterWorkshop} />
-        ) : image ? (
-          <div className="classic-screen" style={{ aspectRatio: `${image.width} / ${image.height}`, maxWidth: image.width }}>
-            <img src={assetUrl(image.url)} width={image.width} height={image.height} alt={`${topic?.title}, screen ${screen + 1}`} />
-            {!active && image.hotspots?.map((hotspot, index) => {
-              const [left, top, right, bottom] = hotspot.rect
-              return <button
-                key={`${hotspot.target}-${index}`}
-                className={`classic-hotspot ${hotspot.action}`}
-                style={{ left: `${left / image.width! * 100}%`, top: `${top / image.height! * 100}%`, width: `${(right - left) / image.width! * 100}%`, height: `${(bottom - top) / image.height! * 100}%` }}
-                onClick={() => activate(hotspot)}
-                aria-label={`${hotspot.action === 'play' ? 'Play' : 'Open'} ${hotspot.target}`}
-                title={`${hotspot.action === 'play' ? 'Play' : 'Open'} ${hotspot.target}`}
-              />
-            })}
-            {active?.action === 'play' && <div className="classic-media-overlay"><video src={assetUrl(active.url)} autoPlay controls onEnded={() => setActive(null)} /><button onClick={() => setActive(null)} aria-label="Close animation">×</button></div>}
-            {active?.action === 'open' && <CardOverlay asset={imagesByUrl.get(active.url)} fallback={active} close={() => setActive(null)} activate={activate} animation={cardAnimation} playAnimation={() => cardAnimation && setActive({ rect: [0, 0, 0, 0], action: 'play', target: cardAnimation.id, url: cardAnimation.url })} classic />}
+        ) : image && screenBox ? (
+          <div className="classic-window" style={{ aspectRatio: `${WINDOW.width} / ${WINDOW.height}` }}>
+            <nav className="classic-nav" aria-label="Original navigation panel">
+              {navArt('NAV') && <img src={assetUrl(navArt('NAV')!.url)} alt="" />}
+              {NAV_BUTTONS.map((button) => (
+                <button
+                  key={button.label}
+                  className="classic-nav-button"
+                  style={percentBox(button.rect[0], button.rect[1], button.rect[2] - button.rect[0], button.rect[3] - button.rect[1], 94, WINDOW.height)}
+                  onClick={() => pressNavButton(button)}
+                  aria-label={button.label}
+                  title={button.label}
+                />
+              ))}
+            </nav>
+            {navArt('FRAMETOP') && <img className="classic-frame" src={assetUrl(navArt('FRAMETOP')!.url)} alt="" style={percentBox(PAGE_AREA.left, 0, 544, 4, WINDOW.width, WINDOW.height)} />}
+            {navArt('FRAMESID') && <img className="classic-frame" src={assetUrl(navArt('FRAMESID')!.url)} alt="" style={percentBox(PAGE_AREA.left + PAGE_AREA.width, PAGE_AREA.top, 4, 452, WINDOW.width, WINDOW.height)} />}
+            {navArt('FRAMEBOT') && <img className="classic-frame" src={assetUrl(navArt('FRAMEBOT')!.url)} alt="" style={percentBox(PAGE_AREA.left, PAGE_AREA.top + PAGE_AREA.height, 545, 5, WINDOW.width, WINDOW.height)} />}
+            <div className="classic-screen" style={screenBox}>
+              <img src={assetUrl(image.url)} width={image.width} height={image.height} alt={`${topic?.title}, screen ${screen + 1}`} />
+              {!active && image.hotspots?.map((hotspot, index) => (
+                <button
+                  key={`${hotspot.target}-${index}`}
+                  className={`classic-hotspot ${hotspot.action}`}
+                  style={hotspotStyle(hotspot, image.width!, image.height!)}
+                  onClick={() => activate(hotspot)}
+                  aria-label={hotspotLabel(hotspot)}
+                  title={hotspotLabel(hotspot)}
+                />
+              ))}
+              {active?.action === 'play' && <div className="classic-media-overlay"><video src={assetUrl(active.url)} autoPlay controls onEnded={() => setActive(null)} /><button onClick={() => setActive(null)} aria-label="Close animation">×</button></div>}
+              {active?.action === 'open' && <CardOverlay asset={imagesByUrl.get(active.url)} fallback={active} close={() => setActive(null)} activate={activate} animation={cardAnimation} page={{ width: image.width!, height: image.height! }} playAnimation={() => cardAnimation && setActive({ rect: [0, 0, 0, 0], action: 'play', target: cardAnimation.id, url: cardAnimation.url })} classic />}
+            </div>
           </div>
         ) : (
           <div className="classic-intro">

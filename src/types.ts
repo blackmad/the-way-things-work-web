@@ -17,10 +17,16 @@ export interface MediaAsset {
 
 export interface Hotspot {
   rect: [number, number, number, number]
-  action: 'play' | 'open' | 'navigate'
+  action: 'play' | 'open' | 'navigate' | 'sound'
   target: string
   url: string
   topicId?: string
+  /** Screen index within the destination topic for navigate actions. */
+  screen?: number
+  /** Authored top-left position of an opened card on its 540×450 page. */
+  at?: [number, number]
+  /** A sound the original control played alongside its main action. */
+  sound?: string
 }
 
 export interface Topic {

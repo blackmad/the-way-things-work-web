@@ -8,8 +8,6 @@ import { readFile, writeFile } from 'node:fs/promises'
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { attachAuthoredHotspots } from './hotspot-attach.mjs'
-import { INVENTOR_TAB_HANDLERS, PRINCIPLE_CROSS_REFERENCES } from './import-iso.mjs'
-import { TOPIC_TITLES } from './import-utils.mjs'
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const manifestPath = join(root, 'public', 'content', 'manifest.json')
@@ -17,41 +15,29 @@ const pengePath = process.env.TWTW_PENGE || join(root, '.cache', 'twtw', 'raw', 
 
 const manifest = JSON.parse(await readFile(manifestPath, 'utf8'))
 const topics = manifest.sections.flatMap((section) => section.topics)
+const titles = new Map(topics.map((topic) => [topic.id, topic.title]))
 
-const imageAssets = []
-const animationAssets = []
+const assets = { images: [], animations: [], audio: [] }
 for (const topic of topics) {
-  for (const image of topic.images) {
-    image.topicPath = topic.id
-    delete image.hotspots
-    imageAssets.push(image)
-  }
-  for (const animation of topic.animations) {
-    animation.topicPath = topic.id
-    delete animation.hotspots
-    animationAssets.push(animation)
+  for (const kind of Object.keys(assets)) {
+    for (const asset of topic[kind]) {
+      asset.topicPath = topic.id
+      delete asset.hotspots
+      assets[kind].push(asset)
+    }
   }
 }
 
-const articleTopics = topics
-  .filter((topic) => topic.id.startsWith('ARTICLE'))
-  .map((topic) => ({ id: topic.id, title: topic.title }))
-
-const { hotspotCount } = await attachAuthoredHotspots({
+const { hotspotCount } = attachAuthoredHotspots({
   pengeBuffer: await readFile(pengePath),
-  imageAssets,
-  animationAssets,
-  cacheDir: join(root, '.cache', 'twtw', 'raw'),
-  publicDir: join(root, 'public'),
-  ocrDir: join(root, '.cache', 'twtw', 'hotspot-ocr'),
-  topicTitles: TOPIC_TITLES,
-  principleCrossReferences: PRINCIPLE_CROSS_REFERENCES,
-  inventorTabHandlers: INVENTOR_TAB_HANDLERS,
-  articleTopics,
+  imageAssets: assets.images,
+  animationAssets: assets.animations,
+  audioAssets: assets.audio,
+  titleFor: (topicId) => titles.get(topicId) || topicId.split('/').at(-1),
   log: console.log,
 })
 
-for (const asset of [...imageAssets, ...animationAssets]) delete asset.topicPath
+for (const asset of Object.values(assets).flat()) delete asset.topicPath
 manifest.totals.hotspots = hotspotCount
 await writeFile(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`)
 console.log(`Wrote ${hotspotCount} hotspots to public/content/manifest.json`)

@@ -21,6 +21,8 @@ async function main() {
   const knownTopicIds = new Set(allTopics.map((topic) => topic.id))
   const allImages = allTopics.flatMap((topic) => topic.images)
   const allAnimations = allTopics.flatMap((topic) => topic.animations)
+  const allAudio = allTopics.flatMap((topic) => topic.audio)
+  const topicsById = new Map(allTopics.map((topic) => [topic.id, topic]))
 
   for (const section of manifest.sections) {
     for (const topic of section.topics) {
@@ -46,18 +48,22 @@ async function main() {
             for (const hotspot of asset.hotspots || []) {
               counts.hotspots++
               const [left, top, right, bottom] = hotspot.rect
-              // One original control extends six pixels below its cropped panel bitmap.
-              if (left < 0 || top < 0 || right <= left || bottom <= top || right > asset.width + 16 || bottom > asset.height + 16) {
+              if (left < 0 || top < 0 || right <= left || bottom <= top || right > asset.width || bottom > asset.height) {
                 failures.push(`Invalid hotspot rectangle on ${topic.id}/${asset.id}: ${hotspot.rect.join(',')}`)
               }
-              if (!['play', 'open', 'navigate'].includes(hotspot.action)) failures.push(`Unknown hotspot action on ${topic.id}/${asset.id}: ${hotspot.action}`)
+              if (!['play', 'open', 'navigate', 'sound'].includes(hotspot.action)) failures.push(`Unknown hotspot action on ${topic.id}/${asset.id}: ${hotspot.action}`)
               const validTarget = hotspot.action === 'play'
                 ? allAnimations.some((animation) => animation.id === hotspot.target && animation.url === hotspot.url && animation.playable)
                 : hotspot.action === 'open'
                   ? allImages.some((image) => image.id === hotspot.target && image.url === hotspot.url)
-                  : knownTopicIds.has(hotspot.topicId)
+                  : hotspot.action === 'sound'
+                    ? allAudio.some((sound) => sound.id === hotspot.target && sound.url === hotspot.url)
+                    : knownTopicIds.has(hotspot.topicId) && (hotspot.screen || 0) < topicsById.get(hotspot.topicId).images.length
               if (!validTarget) {
                 failures.push(`Missing hotspot target on ${topic.id}/${asset.id}: ${hotspot.target}`)
+              }
+              if (hotspot.sound && !allAudio.some((sound) => sound.url === hotspot.sound)) {
+                failures.push(`Missing hotspot sound on ${topic.id}/${asset.id}: ${hotspot.sound}`)
               }
             }
           }

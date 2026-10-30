@@ -127,11 +127,12 @@ export function compositePatch(frame, frameWidth, frameHeight, record, palette) 
   if (left < 0 || top < 0 || right > frameWidth || bottom > frameHeight) {
     throw new Error(`ANI patch ${left},${top}–${right},${bottom} exceeds ${frameWidth}×${frameHeight} base`)
   }
+  // Patches are opaque rectangles. Every index, including palette entry
+  // zero (black ink), replaces the pixel beneath it; treating zero as
+  // transparent dropped all the black outlines and washed the frames out.
   for (let y = 0; y < height; y++) {
     for (let x = 0; x < width; x++) {
       const index = record.pixels[y * stride + x]
-      // Palette index zero is the format's transparent/no-change value.
-      if (index === 0) continue
       const color = palette[index]
       if (!color) throw new Error(`ANI references missing palette index ${index}`)
       const target = ((top + y) * frameWidth + left + x) * 3

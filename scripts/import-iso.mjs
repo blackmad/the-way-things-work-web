@@ -7,68 +7,12 @@ import { fileURLToPath } from 'node:url'
 import { imageCompare, naturalCompare, SECTION_TITLES, sha256, titleFromOcr, topicPath, TOPIC_TITLES } from './import-utils.mjs'
 import { attachAuthoredHotspots } from './hotspot-attach.mjs'
 import { renderAni } from './render-ani.mjs'
-import { animationBaseId } from './png-hotspots.mjs'
 
 const exec = promisify(execFile)
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const iso = resolve(process.argv[2] || process.env.TWTW_ISO || '')
 let cache = join(root, '.cache', 'twtw', 'raw')
 const output = join(root, 'public', 'content')
-
-// The Inventors book's alphabet tabs use shared compiled handlers. Keeping the
-// handler mapping here lets us retain each page's authored rectangle rather than
-// laying an approximate HTML alphabet over the scanned artwork.
-export const INVENTOR_TAB_HANDLERS = new Map([
-  [148566, 'A'],
-  [153534, 'B'],
-  [161482, 'C'],
-  [168618, 'D'],
-  [172870, 'E'],
-  [177314, 'F'],
-  [184290, 'G'],
-  [189578, 'H'],
-  [194994, 'IJK'],
-  [201746, 'L'],
-  [207034, 'M'],
-  [211394, 'NO'],
-  [216770, 'PQ'],
-  [223554, 'R'],
-  [229718, 'S'],
-  [233574, 'TUV'],
-  [240198, 'W'],
-  [241202, 'XYZ'],
-  [243574, 'MISC'],
-])
-
-export const PRINCIPLE_CROSS_REFERENCES = new Map([
-  ['current', 'QELE'],
-  ['electricity', 'QELE'],
-  ['heat', 'QHEA'],
-  ['heats', 'QHEA'],
-  ['buoyant', 'QFLO'],
-  ['buoyancy', 'QFLO'],
-  ['dense', 'QFLO'],
-  ['density', 'QFLO'],
-  ['lessdense', 'QFLO'],
-  ['floating', 'QFLO'],
-  ['friction', 'QFRI'],
-  ['pressure', 'QPRE'],
-  ['light', 'QLIT'],
-  ['sound', 'QSND'],
-  ['magnetism', 'QMAG'],
-  ['magnetic', 'QMAG'],
-  ['gears', 'QGEA'],
-  ['levers', 'QLVR'],
-  ['springs', 'QSPR'],
-  ['waves', 'QWAV'],
-  ['flying', 'QFLY'],
-  ['computers', 'QCOM'],
-  ['photography', 'QPHO'],
-  ['telecommunications', 'QTEL'],
-  ['screws', 'QSCR'],
-  ['wheels', 'QWHE'],
-  ['cams', 'QCAM'],
-])
 
 async function command(program, args, options = {}) {
   try {
@@ -231,41 +175,34 @@ async function main() {
   })
   process.stdout.write('\n')
 
+  // Display titles come from the curated tables, with OCR of the main screen
+  // as an optional fallback for topics that have no entry yet.
+  const titles = new Map()
+  for (const [path, topicImages] of Map.groupBy(assets.filter((asset) => asset.type === 'images'), (asset) => asset.topicPath)) {
+    const code = path.split('/').at(-1)
+    let title = TOPIC_TITLES[code] || SECTION_TITLES[code] || code
+    const preferred = topicImages.find((item) => /0M$/i.test(item.id)) || topicImages[0]
+    if (preferred && !SECTION_TITLES[code] && !TOPIC_TITLES[code]) {
+      try {
+        const imageFile = join(root, 'public', decodeURIComponent(preferred.url.slice(1)))
+        const { stdout } = await command('tesseract', [imageFile, 'stdout', '--psm', '11'], { timeout: 20_000 })
+        title = titleFromOcr(stdout, title)
+      } catch { /* OCR is optional metadata enrichment. */ }
+    }
+    titles.set(path, title)
+  }
+
   const pengeData = filesByPath.get(join(cache, 'DKCODE', 'TWTW.PNG').toLowerCase())
   let hotspotCount = 0
-  const inferredTopicTitles = new Map()
   if (pengeData) {
-    const animationAssets = assets.filter((asset) => asset.type === 'animations')
-    const imageAssets = assets.filter((asset) => asset.type === 'images')
-    const articleTopics = []
-    for (const [id, topicImages] of Map.groupBy(imageAssets.filter((asset) => asset.topicPath.startsWith('ARTICLE')), (asset) => asset.topicPath)) {
-      const code = id.split('/').at(-1)
-      let title = TOPIC_TITLES[code]
-      if (!title) {
-        const preferred = topicImages.find((item) => /0M$/i.test(item.id)) || topicImages[0]
-        try {
-          const { stdout } = await command('tesseract', [join(root, 'public', decodeURIComponent(preferred.url.slice(1))), 'stdout', '--psm', '11'], { timeout: 20_000 })
-          title = titleFromOcr(stdout, code)
-        } catch { title = code }
-      }
-      inferredTopicTitles.set(id, title)
-      articleTopics.push({ id, title })
-    }
-
-    const { hotspotCount: attachedCount } = await attachAuthoredHotspots({
+    ({ hotspotCount } = attachAuthoredHotspots({
       pengeBuffer: await readFile(pengeData),
-      imageAssets,
-      animationAssets,
-      cacheDir: cache,
-      publicDir: join(root, 'public'),
-      ocrDir: join(root, '.cache', 'twtw', 'hotspot-ocr'),
-      topicTitles: TOPIC_TITLES,
-      principleCrossReferences: PRINCIPLE_CROSS_REFERENCES,
-      inventorTabHandlers: INVENTOR_TAB_HANDLERS,
-      articleTopics,
+      imageAssets: assets.filter((asset) => asset.type === 'images'),
+      animationAssets: assets.filter((asset) => asset.type === 'animations'),
+      audioAssets: assets.filter((asset) => asset.type === 'audio'),
+      titleFor: (topicId) => titles.get(topicId) || topicId.split('/').at(-1),
       log: console.log,
-    })
-    hotspotCount = attachedCount
+    }))
   }
 
   const topicGroups = new Map()
@@ -282,15 +219,7 @@ async function main() {
     media.animations.sort((a, b) => naturalCompare(a.id, b.id))
     media.audio.sort((a, b) => naturalCompare(a.id, b.id))
     const code = path.split('/').at(-1)
-    let title = TOPIC_TITLES[code] || SECTION_TITLES[code] || inferredTopicTitles.get(path) || code
-    const preferred = media.images.find((item) => /0M$/i.test(item.id)) || media.images[0]
-    if (preferred && !SECTION_TITLES[code] && !TOPIC_TITLES[code]) {
-      try {
-        const imageFile = join(root, 'public', decodeURIComponent(preferred.url.slice(1)))
-        const { stdout } = await command('tesseract', [imageFile, 'stdout', '--psm', '11'], { timeout: 20_000 })
-        title = titleFromOcr(stdout, title)
-      } catch { /* OCR is optional metadata enrichment. */ }
-    }
+    const title = titles.get(path) || TOPIC_TITLES[code] || SECTION_TITLES[code] || code
     topics.push({
       id: path,
       code,
