@@ -1,4 +1,4 @@
-import { StrictMode, useEffect, useMemo, useState } from 'react'
+import { StrictMode, useEffect, useMemo, useRef, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import type { ContentManifest, Hotspot, MediaAsset, Section, Topic } from './types'
 import './styles.css'
@@ -304,10 +304,65 @@ function Welcome({ manifest, openTopic }: { manifest: ContentManifest; openTopic
   )
 }
 
+function OpeningSequence({ topic, onFinish }: { topic?: Topic; onFinish: () => void }) {
+  const animations = useMemo(() => topic?.animations.filter((animation) => animation.playable) || [], [topic])
+  const [index, setIndex] = useState(0)
+  const [needsGesture, setNeedsGesture] = useState(false)
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const current = animations[index]
+  const poster = topic?.images[index === 0 ? 0 : 1] || topic?.images?.[0]
+
+  useEffect(() => {
+    setIndex(0)
+    setNeedsGesture(false)
+  }, [topic?.id])
+
+  useEffect(() => {
+    if (!current) return
+    const video = videoRef.current
+    if (!video) return
+    video.play().catch(() => setNeedsGesture(true))
+  }, [current])
+
+  function advance() {
+    if (index + 1 < animations.length) {
+      setIndex(index + 1)
+      setNeedsGesture(false)
+    } else {
+      onFinish()
+    }
+  }
+
+  if (!current) {
+    return <div className="classic-opening">
+      {poster && <img src={assetUrl(poster.url)} alt="The Way Things Work title screen" />}
+      <button className="opening-start" onClick={onFinish}>Enter the workshop →</button>
+    </div>
+  }
+
+  return <div className="classic-opening">
+    <video
+      key={current.url}
+      ref={videoRef}
+      src={assetUrl(current.url)}
+      poster={poster ? assetUrl(poster.url) : undefined}
+      autoPlay
+      playsInline
+      onPlay={() => setNeedsGesture(false)}
+      onEnded={advance}
+    />
+    {needsGesture && <button className="opening-start" onClick={() => {
+      setNeedsGesture(false)
+      videoRef.current?.play().catch(() => setNeedsGesture(true))
+    }}>▶ Play the opening</button>}
+    <button className="opening-skip" onClick={onFinish}>Skip to workshop →</button>
+  </div>
+}
+
 function ClassicApp({ manifest, topic, initialScreen }: { manifest: ContentManifest; topic?: Topic; initialScreen: number }) {
   const topics = manifest.sections.flatMap((section) => section.topics)
   const imagesByUrl = useMemo(() => new Map(topics.flatMap((candidate) => candidate.images).map((image) => [image.url, image])), [topics])
-  const [contentsOpen, setContentsOpen] = useState(!topic)
+  const [contentsOpen, setContentsOpen] = useState(false)
   const [screen, setScreen] = useState(initialScreen)
   const [active, setActive] = useState<Hotspot | null>(null)
   useEffect(() => {
@@ -316,6 +371,13 @@ function ClassicApp({ manifest, topic, initialScreen }: { manifest: ContentManif
     if (topic) setContentsOpen(false)
   }, [topic?.id, initialScreen])
   const image = topic?.images[screen]
+  const titleTopic = topics.find((candidate) => candidate.id === 'TITLE')
+  const workshopTopic = topics.find((candidate) => candidate.id === 'WORKSHOP') || topics[0]
+  const showingOpening = !topic || topic.id === 'TITLE'
+
+  function enterWorkshop() {
+    if (workshopTopic) location.hash = `/topic/${encodeURIComponent(workshopTopic.id)}`
+  }
 
   function choose(index: number) {
     if (!topic) return
@@ -338,7 +400,9 @@ function ClassicApp({ manifest, topic, initialScreen }: { manifest: ContentManif
       </header>
 
       <section className="classic-workspace" aria-label="Original-style encyclopedia viewer">
-        {image ? (
+        {showingOpening ? (
+          <OpeningSequence topic={titleTopic} onFinish={enterWorkshop} />
+        ) : image ? (
           <div className="classic-screen" style={{ aspectRatio: `${image.width} / ${image.height}`, maxWidth: image.width }}>
             <img src={assetUrl(image.url)} width={image.width} height={image.height} alt={`${topic?.title}, screen ${screen + 1}`} />
             {!active && image.hotspots?.map((hotspot, index) => {
@@ -365,7 +429,11 @@ function ClassicApp({ manifest, topic, initialScreen }: { manifest: ContentManif
         )}
       </section>
 
-      {topic && <footer className="classic-statusbar">
+      {showingOpening && <footer className="classic-statusbar">
+        <span>The Way Things Work · opening sequence</span>
+        <button onClick={enterWorkshop}>Skip to workshop →</button>
+      </footer>}
+      {topic && !showingOpening && <footer className="classic-statusbar">
         <button onClick={() => choose(Math.max(0, screen - 1))} disabled={screen === 0}>◀</button>
         <span>{topic.title} · {image?.id} · {image?.hotspots?.length || 0} active areas</span>
         <button onClick={() => choose(Math.min(topic.images.length - 1, screen + 1))} disabled={screen === topic.images.length - 1}>▶</button>

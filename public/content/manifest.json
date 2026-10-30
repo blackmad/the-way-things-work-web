@@ -10,7 +10,7 @@
     "images": 1698,
     "animations": 497,
     "audio": 100,
-    "hotspots": 1573
+    "hotspots": 1842
   },
   "sections": [
     {
@@ -5487,6 +5487,18 @@
                 },
                 {
                   "rect": [
+                    114,
+                    373,
+                    187,
+                    392
+                  ],
+                  "action": "navigate",
+                  "target": "Laser",
+                  "topicId": "ARTICLE2/LASR",
+                  "url": "#/topic/ARTICLE2%2FLASR"
+                },
+                {
+                  "rect": [
                     390,
                     311,
                     494,
@@ -6716,6 +6728,18 @@
                   "target": "Solar Heater",
                   "topicId": "ARTICLE3/SOLH",
                   "url": "#/topic/ARTICLE3%2FSOLH"
+                },
+                {
+                  "rect": [
+                    48,
+                    365,
+                    235,
+                    404
+                  ],
+                  "action": "navigate",
+                  "target": "Bathroom Scales",
+                  "topicId": "ARTICLE3/SCAB",
+                  "url": "#/topic/ARTICLE3%2FSCAB"
                 }
               ]
             },
@@ -8348,6 +8372,17 @@
                 },
                 {
                   "rect": [
+                    7,
+                    244,
+                    76,
+                    286
+                  ],
+                  "action": "open",
+                  "target": "BALO0Z",
+                  "url": "/content/images/ARTICLE1/BALO/BALO0Z.webp"
+                },
+                {
+                  "rect": [
                     478,
                     211,
                     536,
@@ -8854,6 +8889,28 @@
                 },
                 {
                   "rect": [
+                    470,
+                    194,
+                    529,
+                    217
+                  ],
+                  "action": "open",
+                  "target": "AIRP2Z",
+                  "url": "/content/images/ARTICLE1/AIRP/AIRP2Z.webp"
+                },
+                {
+                  "rect": [
+                    462,
+                    279,
+                    531,
+                    302
+                  ],
+                  "action": "open",
+                  "target": "AIRP1Z",
+                  "url": "/content/images/ARTICLE1/AIRP/AIRP1Z.webp"
+                },
+                {
+                  "rect": [
                     288,
                     172,
                     359,
@@ -8862,6 +8919,17 @@
                   "action": "open",
                   "target": "AIRP2N",
                   "url": "/content/images/ARTICLE1/AIRP/AIRP2N.webp"
+                },
+                {
+                  "rect": [
+                    116,
+                    174,
+                    175,
+                    197
+                  ],
+                  "action": "open",
+                  "target": "AIRP0Z",
+                  "url": "/content/images/ARTICLE1/AIRP/AIRP0Z.webp"
                 }
               ]
             },
@@ -9307,7 +9375,65 @@
               "url": "/content/images/ARTICLE1/AIRS/AIRS0M.webp",
               "bytes": 28136,
               "width": 540,
-              "height": 450
+              "height": 450,
+              "hotspots": [
+                {
+                  "rect": [
+                    360,
+                    129,
+                    419,
+                    148
+                  ],
+                  "action": "navigate",
+                  "target": "Floating",
+                  "topicId": "PRINCIPL/QFLO",
+                  "url": "#/topic/PRINCIPL%2FQFLO"
+                },
+                {
+                  "rect": [
+                    379,
+                    415,
+                    439,
+                    437
+                  ],
+                  "action": "open",
+                  "target": "AIRS4N",
+                  "url": "/content/images/ARTICLE1/AIRS/AIRS4N.webp"
+                },
+                {
+                  "rect": [
+                    171,
+                    380,
+                    252,
+                    403
+                  ],
+                  "action": "open",
+                  "target": "AIRS3N",
+                  "url": "/content/images/ARTICLE1/AIRS/AIRS3N.webp"
+                },
+                {
+                  "rect": [
+                    125,
+                    347,
+                    199,
+                    368
+                  ],
+                  "action": "open",
+                  "target": "AIRS2N",
+                  "url": "/content/images/ARTICLE1/AIRS/AIRS2N.webp"
+                },
+                {
+                  "rect": [
+                    466,
+                    378,
+                    539,
+                    449
+                  ],
+                  "action": "open",
+                  "target": "AIRS0J",
+                  "url": "/content/images/ARTICLE1/AIRS/AIRS0J.webp"
+                }
+              ]
             },
             {
               "id": "AIRS0N",
@@ -9852,6 +9978,17 @@
                   "action": "open",
                   "target": "BARO1N",
                   "url": "/content/images/ARTICLE1/BARO/BARO1N.webp"
+                },
+                {
+                  "rect": [
+                    469,
+                    58,
+                    520,
+                    82
+                  ],
+                  "action": "open",
+                  "target": "BARO0N",
+                  "url": "/content/images/ARTICLE1/BARO/BARO0N.webp"
                 }
               ]
             },
@@ -10007,6 +10144,17 @@
                 },
                 {
                   "rect": [
+                    333,
+                    143,
+                    427,
+                    178
+                  ],
+                  "action": "open",
+                  "target": "AUTO0Z",
+                  "url": "/content/images/ARTICLE1/AUTO/AUTO0Z.webp"
+                },
+                {
+                  "rect": [
                     382,
                     186,
                     528,
@@ -10075,6 +10223,17 @@
                   "target": "Electricity",
                   "topicId": "PRINCIPL/QELE",
                   "url": "#/topic/PRINCIPL%2FQELE"
+                },
+                {
+                  "rect": [
+                    81,
+                    331,
+                    121,
+                    350
+                  ],
+                  "action": "open",
+                  "target": "AUTO1Z",
+                  "url": "/content/images/ARTICLE1/AUTO/AUTO1Z.webp"
                 }
               ]
             },
@@ -10217,6 +10376,28 @@
                   "action": "open",
                   "target": "BATT4N",
                   "url": "/content/images/ARTICLE1/BATT/BATT4N.webp"
+                },
+                {
+                  "rect": [
+                    1,
+                    313,
+                    102,
+                    356
+                  ],
+                  "action": "open",
+                  "target": "BATT0Z",
+                  "url": "/content/images/ARTICLE1/BATT/BATT0Z.webp"
+                },
+                {
+                  "rect": [
+                    95,
+                    415,
+                    183,
+                    451
+                  ],
+                  "action": "open",
+                  "target": "BATT1Z",
+                  "url": "/content/images/ARTICLE1/BATT/BATT1Z.webp"
                 }
               ]
             },
@@ -10401,6 +10582,17 @@
                   "action": "open",
                   "target": "BINO0N",
                   "url": "/content/images/ARTICLE1/BINO/BINO0N.webp"
+                },
+                {
+                  "rect": [
+                    452,
+                    330,
+                    509,
+                    360
+                  ],
+                  "action": "open",
+                  "target": "BINO0Z",
+                  "url": "/content/images/ARTICLE1/BINO/BINO0Z.webp"
                 }
               ]
             },
@@ -10439,6 +10631,18 @@
                   "target": "Microscope",
                   "topicId": "ARTICLE2/MICR",
                   "url": "#/topic/ARTICLE2%2FMICR"
+                },
+                {
+                  "rect": [
+                    84,
+                    95,
+                    159,
+                    110
+                  ],
+                  "action": "navigate",
+                  "target": "Telescope",
+                  "topicId": "ARTICLE3/TELE",
+                  "url": "#/topic/ARTICLE3%2FTELE"
                 }
               ]
             }
@@ -10520,6 +10724,28 @@
                   "action": "open",
                   "target": "BRAK0N",
                   "url": "/content/images/ARTICLE1/BRAK/BRAK0N.webp"
+                },
+                {
+                  "rect": [
+                    96,
+                    415,
+                    180,
+                    441
+                  ],
+                  "action": "open",
+                  "target": "BRAK1Z",
+                  "url": "/content/images/ARTICLE1/BRAK/BRAK1Z.webp"
+                },
+                {
+                  "rect": [
+                    8,
+                    415,
+                    87,
+                    441
+                  ],
+                  "action": "open",
+                  "target": "BRAK0Z",
+                  "url": "/content/images/ARTICLE1/BRAK/BRAK0Z.webp"
                 }
               ]
             },
@@ -10738,6 +10964,28 @@
                 },
                 {
                   "rect": [
+                    391,
+                    58,
+                    465,
+                    115
+                  ],
+                  "action": "open",
+                  "target": "BRAS4Z",
+                  "url": "/content/images/ARTICLE1/BRAS/BRAS4Z.webp"
+                },
+                {
+                  "rect": [
+                    377,
+                    111,
+                    478,
+                    137
+                  ],
+                  "action": "open",
+                  "target": "BRAS4Z",
+                  "url": "/content/images/ARTICLE1/BRAS/BRAS4Z.webp"
+                },
+                {
+                  "rect": [
                     467,
                     382,
                     539,
@@ -10746,6 +10994,17 @@
                   "action": "open",
                   "target": "BRAS0J",
                   "url": "/content/images/ARTICLE1/BRAS/BRAS0J.webp"
+                },
+                {
+                  "rect": [
+                    452,
+                    49,
+                    526,
+                    119
+                  ],
+                  "action": "open",
+                  "target": "BRAS1Z",
+                  "url": "/content/images/ARTICLE1/BRAS/BRAS1Z.webp"
                 },
                 {
                   "rect": [
@@ -11299,6 +11558,17 @@
                 },
                 {
                   "rect": [
+                    417,
+                    313,
+                    484,
+                    336
+                  ],
+                  "action": "open",
+                  "target": "BRET0Z",
+                  "url": "/content/images/ARTICLE1/BRET/BRET0Z.webp"
+                },
+                {
+                  "rect": [
                     228,
                     375,
                     353,
@@ -11614,6 +11884,17 @@
                   "action": "open",
                   "target": "CALC0J",
                   "url": "/content/images/ARTICLE1/CALC/CALC0J.webp"
+                },
+                {
+                  "rect": [
+                    188,
+                    245,
+                    238,
+                    269
+                  ],
+                  "action": "open",
+                  "target": "CALC0Z",
+                  "url": "/content/images/ARTICLE1/CALC/CALC0Z.webp"
                 }
               ]
             },
@@ -12301,6 +12582,28 @@
                   "action": "open",
                   "target": "CARB1N",
                   "url": "/content/images/ARTICLE1/CARB/CARB1N.webp"
+                },
+                {
+                  "rect": [
+                    80,
+                    151,
+                    136,
+                    173
+                  ],
+                  "action": "open",
+                  "target": "CARB6N",
+                  "url": "/content/images/ARTICLE1/CARB/CARB6N.webp"
+                },
+                {
+                  "rect": [
+                    36,
+                    94,
+                    149,
+                    117
+                  ],
+                  "action": "open",
+                  "target": "CARB0N",
+                  "url": "/content/images/ARTICLE1/CARB/CARB0N.webp"
                 }
               ]
             },
@@ -12476,6 +12779,17 @@
                   "action": "open",
                   "target": "CLOM1N",
                   "url": "/content/images/ARTICLE1/CLOM/CLOM1N.webp"
+                },
+                {
+                  "rect": [
+                    260,
+                    177,
+                    377,
+                    202
+                  ],
+                  "action": "open",
+                  "target": "CLOM0Z",
+                  "url": "/content/images/ARTICLE1/CLOM/CLOM0Z.webp"
                 }
               ]
             },
@@ -12570,7 +12884,42 @@
               "url": "/content/images/ARTICLE1/CLUC/CLUC0M.webp",
               "bytes": 17402,
               "width": 540,
-              "height": 450
+              "height": 450,
+              "hotspots": [
+                {
+                  "rect": [
+                    471,
+                    391,
+                    539,
+                    449
+                  ],
+                  "action": "open",
+                  "target": "CLUC0J",
+                  "url": "/content/images/ARTICLE1/CLUC/CLUC0J.webp"
+                },
+                {
+                  "rect": [
+                    460,
+                    58,
+                    533,
+                    81
+                  ],
+                  "action": "open",
+                  "target": "CLUC1N",
+                  "url": "/content/images/ARTICLE1/CLUC/CLUC1N.webp"
+                },
+                {
+                  "rect": [
+                    354,
+                    58,
+                    414,
+                    93
+                  ],
+                  "action": "open",
+                  "target": "CLUC0N",
+                  "url": "/content/images/ARTICLE1/CLUC/CLUC0N.webp"
+                }
+              ]
             },
             {
               "id": "CLUC0N",
@@ -13053,6 +13402,28 @@
                   "action": "open",
                   "target": "AUGR0P",
                   "url": "/content/images/RELA/AUGR0P.webp"
+                },
+                {
+                  "rect": [
+                    169,
+                    92,
+                    214,
+                    112
+                  ],
+                  "action": "open",
+                  "target": "AUGR0Z",
+                  "url": "/content/images/ARTICLE1/AUGR/AUGR0Z.webp"
+                },
+                {
+                  "rect": [
+                    466,
+                    371,
+                    540,
+                    449
+                  ],
+                  "action": "open",
+                  "target": "AUGR0J",
+                  "url": "/content/images/ARTICLE1/AUGR/AUGR0J.webp"
                 }
               ]
             },
@@ -13417,7 +13788,42 @@
               "url": "/content/images/ARTICLE1/GEAR/GEAR0M.webp",
               "bytes": 27566,
               "width": 540,
-              "height": 450
+              "height": 450,
+              "hotspots": [
+                {
+                  "rect": [
+                    456,
+                    372,
+                    539,
+                    449
+                  ],
+                  "action": "open",
+                  "target": "GEAR0J",
+                  "url": "/content/images/ARTICLE1/GEAR/GEAR0J.webp"
+                },
+                {
+                  "rect": [
+                    224,
+                    367,
+                    303,
+                    391
+                  ],
+                  "action": "open",
+                  "target": "GEAR4Z",
+                  "url": "/content/images/ARTICLE1/GEAR/GEAR4Z.webp"
+                },
+                {
+                  "rect": [
+                    48,
+                    194,
+                    124,
+                    220
+                  ],
+                  "action": "open",
+                  "target": "GEAR1Z",
+                  "url": "/content/images/ARTICLE1/GEAR/GEAR1Z.webp"
+                }
+              ]
             },
             {
               "id": "GEAR0N",
@@ -13521,7 +13927,42 @@
               "url": "/content/images/ARTICLE1/DIFF/DIFF0M.webp",
               "bytes": 22894,
               "width": 540,
-              "height": 450
+              "height": 450,
+              "hotspots": [
+                {
+                  "rect": [
+                    472,
+                    394,
+                    539,
+                    449
+                  ],
+                  "action": "open",
+                  "target": "DIFF0J",
+                  "url": "/content/images/ARTICLE1/DIFF/DIFF0J.webp"
+                },
+                {
+                  "rect": [
+                    413,
+                    350,
+                    538,
+                    372
+                  ],
+                  "action": "open",
+                  "target": "DIFF0Z",
+                  "url": "/content/images/ARTICLE1/DIFF/DIFF0Z.webp"
+                },
+                {
+                  "rect": [
+                    296,
+                    421,
+                    432,
+                    442
+                  ],
+                  "action": "open",
+                  "target": "DIFF1Z",
+                  "url": "/content/images/ARTICLE1/DIFF/DIFF1Z.webp"
+                }
+              ]
             },
             {
               "id": "DIFF0N",
@@ -13797,6 +14238,17 @@
                   "action": "open",
                   "target": "CMEM2N",
                   "url": "/content/images/ARTICLE1/CMEM/CMEM2N.webp"
+                },
+                {
+                  "rect": [
+                    350,
+                    194,
+                    455,
+                    231
+                  ],
+                  "action": "open",
+                  "target": "CMEM1Z",
+                  "url": "/content/images/ARTICLE1/CMEM/CMEM1Z.webp"
                 }
               ]
             },
@@ -13935,7 +14387,31 @@
               "url": "/content/images/ARTICLE1/DOTP/DOTP0M.webp",
               "bytes": 25484,
               "width": 540,
-              "height": 450
+              "height": 450,
+              "hotspots": [
+                {
+                  "rect": [
+                    479,
+                    384,
+                    536,
+                    447
+                  ],
+                  "action": "open",
+                  "target": "DOTP0J",
+                  "url": "/content/images/ARTICLE1/DOTP/DOTP0J.webp"
+                },
+                {
+                  "rect": [
+                    193,
+                    381,
+                    324,
+                    416
+                  ],
+                  "action": "open",
+                  "target": "DOTP1N",
+                  "url": "/content/images/ARTICLE1/DOTP/DOTP1N.webp"
+                }
+              ]
             },
             {
               "id": "DOTP0N",
@@ -14001,6 +14477,18 @@
                   "target": "Personal Computer",
                   "topicId": "ARTICLE2/MCOM",
                   "url": "#/topic/ARTICLE2%2FMCOM"
+                },
+                {
+                  "rect": [
+                    71,
+                    96,
+                    173,
+                    111
+                  ],
+                  "action": "navigate",
+                  "target": "Laser Printer",
+                  "topicId": "ARTICLE2/LASP",
+                  "url": "#/topic/ARTICLE2%2FLASP"
                 },
                 {
                   "rect": [
@@ -14227,6 +14715,17 @@
                 },
                 {
                   "rect": [
+                    1,
+                    245,
+                    102,
+                    272
+                  ],
+                  "action": "open",
+                  "target": "BELL0Z",
+                  "url": "/content/images/ARTICLE1/BELL/BELL0Z.webp"
+                },
+                {
+                  "rect": [
                     143,
                     111,
                     188,
@@ -14432,6 +14931,28 @@
                 },
                 {
                   "rect": [
+                    11,
+                    197,
+                    55,
+                    216
+                  ],
+                  "action": "open",
+                  "target": "ECIR4Z",
+                  "url": "/content/images/ARTICLE1/ECIR/ECIR4Z.webp"
+                },
+                {
+                  "rect": [
+                    34,
+                    248,
+                    94,
+                    267
+                  ],
+                  "action": "open",
+                  "target": "ECIR5Z",
+                  "url": "/content/images/ARTICLE1/ECIR/ECIR5Z.webp"
+                },
+                {
+                  "rect": [
                     381,
                     58,
                     445,
@@ -14440,6 +14961,28 @@
                   "action": "open",
                   "target": "ECIR1N",
                   "url": "/content/images/ARTICLE1/ECIR/ECIR1N.webp"
+                },
+                {
+                  "rect": [
+                    196,
+                    415,
+                    257,
+                    441
+                  ],
+                  "action": "open",
+                  "target": "ECIR5Z",
+                  "url": "/content/images/ARTICLE1/ECIR/ECIR5Z.webp"
+                },
+                {
+                  "rect": [
+                    108,
+                    415,
+                    169,
+                    442
+                  ],
+                  "action": "open",
+                  "target": "ECIR4Z",
+                  "url": "/content/images/ARTICLE1/ECIR/ECIR4Z.webp"
                 },
                 {
                   "rect": [
@@ -14620,6 +15163,17 @@
                   "target": "Electricity",
                   "topicId": "PRINCIPL/QELE",
                   "url": "#/topic/PRINCIPL%2FQELE"
+                },
+                {
+                  "rect": [
+                    227,
+                    294,
+                    271,
+                    313
+                  ],
+                  "action": "open",
+                  "target": "ECIR4Z",
+                  "url": "/content/images/ARTICLE1/ECIR/ECIR4Z.webp"
                 }
               ]
             },
@@ -14899,6 +15453,17 @@
                   "target": "Electricity",
                   "topicId": "PRINCIPL/QELE",
                   "url": "#/topic/PRINCIPL%2FQELE"
+                },
+                {
+                  "rect": [
+                    442,
+                    104,
+                    539,
+                    132
+                  ],
+                  "action": "open",
+                  "target": "GENE0Z",
+                  "url": "/content/images/ARTICLE1/GENE/GENE0Z.webp"
                 },
                 {
                   "rect": [
@@ -15382,6 +15947,28 @@
                 },
                 {
                   "rect": [
+                    65,
+                    381,
+                    155,
+                    403
+                  ],
+                  "action": "open",
+                  "target": "ENDO0Z",
+                  "url": "/content/images/ARTICLE1/ENDO/ENDO0Z.webp"
+                },
+                {
+                  "rect": [
+                    256,
+                    415,
+                    346,
+                    437
+                  ],
+                  "action": "open",
+                  "target": "ENDO1Z",
+                  "url": "/content/images/ARTICLE1/ENDO/ENDO1Z.webp"
+                },
+                {
+                  "rect": [
                     271,
                     330,
                     337,
@@ -15856,7 +16443,64 @@
               "url": "/content/images/ARTICLE1/ENGN/ENGN0M.webp",
               "bytes": 25342,
               "width": 540,
-              "height": 450
+              "height": 450,
+              "hotspots": [
+                {
+                  "rect": [
+                    469,
+                    379,
+                    539,
+                    442
+                  ],
+                  "action": "open",
+                  "target": "ENGN0J",
+                  "url": "/content/images/ARTICLE1/ENGN/ENGN0J.webp"
+                },
+                {
+                  "rect": [
+                    399,
+                    339,
+                    468,
+                    361
+                  ],
+                  "action": "open",
+                  "target": "ENGN3N",
+                  "url": "/content/images/ARTICLE1/ENGN/ENGN3N.webp"
+                },
+                {
+                  "rect": [
+                    303,
+                    92,
+                    399,
+                    115
+                  ],
+                  "action": "open",
+                  "target": "ENGN0N",
+                  "url": "/content/images/ARTICLE1/ENGN/ENGN0N.webp"
+                },
+                {
+                  "rect": [
+                    289,
+                    415,
+                    384,
+                    437
+                  ],
+                  "action": "open",
+                  "target": "ENGN4N",
+                  "url": "/content/images/ARTICLE1/ENGN/ENGN4N.webp"
+                },
+                {
+                  "rect": [
+                    167,
+                    245,
+                    216,
+                    267
+                  ],
+                  "action": "open",
+                  "target": "ENGN5N",
+                  "url": "/content/images/ARTICLE1/ENGN/ENGN5N.webp"
+                }
+              ]
             },
             {
               "id": "ENGN0N",
@@ -16249,7 +16893,75 @@
               "url": "/content/images/ARTICLE1/CLOK/CLOK0M.webp",
               "bytes": 21154,
               "width": 540,
-              "height": 450
+              "height": 450,
+              "hotspots": [
+                {
+                  "rect": [
+                    465,
+                    366,
+                    539,
+                    450
+                  ],
+                  "action": "open",
+                  "target": "CLOK0J",
+                  "url": "/content/images/ARTICLE1/CLOK/CLOK0J.webp"
+                },
+                {
+                  "rect": [
+                    124,
+                    218,
+                    165,
+                    237
+                  ],
+                  "action": "open",
+                  "target": "CLOK1N",
+                  "url": "/content/images/ARTICLE1/CLOK/CLOK1N.webp"
+                },
+                {
+                  "rect": [
+                    357,
+                    284,
+                    409,
+                    305
+                  ],
+                  "action": "open",
+                  "target": "CLOK3N",
+                  "url": "/content/images/ARTICLE1/CLOK/CLOK3N.webp"
+                },
+                {
+                  "rect": [
+                    168,
+                    416,
+                    289,
+                    438
+                  ],
+                  "action": "open",
+                  "target": "CLOK1N",
+                  "url": "/content/images/ARTICLE1/CLOK/CLOK1N.webp"
+                },
+                {
+                  "rect": [
+                    77,
+                    416,
+                    155,
+                    441
+                  ],
+                  "action": "open",
+                  "target": "CLOK0N",
+                  "url": "/content/images/ARTICLE1/CLOK/CLOK0N.webp"
+                },
+                {
+                  "rect": [
+                    70,
+                    97,
+                    155,
+                    122
+                  ],
+                  "action": "open",
+                  "target": "CLOK0Z",
+                  "url": "/content/images/ARTICLE1/CLOK/CLOK0Z.webp"
+                }
+              ]
             },
             {
               "id": "CLOK0N",
@@ -16782,7 +17494,75 @@
               "url": "/content/images/ARTICLE1/CAMR/CAMR0M.webp",
               "bytes": 25048,
               "width": 540,
-              "height": 450
+              "height": 450,
+              "hotspots": [
+                {
+                  "rect": [
+                    453,
+                    368,
+                    537,
+                    448
+                  ],
+                  "action": "open",
+                  "target": "CAMR0J",
+                  "url": "/content/images/ARTICLE1/CAMR/CAMR0J.webp"
+                },
+                {
+                  "rect": [
+                    318,
+                    92,
+                    403,
+                    130
+                  ],
+                  "action": "open",
+                  "target": "CAMR2N",
+                  "url": "/content/images/ARTICLE1/CAMR/CAMR2N.webp"
+                },
+                {
+                  "rect": [
+                    338,
+                    415,
+                    398,
+                    440
+                  ],
+                  "action": "open",
+                  "target": "CAMR1Z",
+                  "url": "/content/images/ARTICLE1/CAMR/CAMR1Z.webp"
+                },
+                {
+                  "rect": [
+                    162,
+                    211,
+                    250,
+                    236
+                  ],
+                  "action": "open",
+                  "target": "CAMR3N",
+                  "url": "/content/images/ARTICLE1/CAMR/CAMR3N.webp"
+                },
+                {
+                  "rect": [
+                    79,
+                    211,
+                    128,
+                    236
+                  ],
+                  "action": "open",
+                  "target": "CAMR3Z",
+                  "url": "/content/images/ARTICLE1/CAMR/CAMR3Z.webp"
+                },
+                {
+                  "rect": [
+                    11,
+                    211,
+                    60,
+                    236
+                  ],
+                  "action": "open",
+                  "target": "CAMR0N",
+                  "url": "/content/images/ARTICLE1/CAMR/CAMR0N.webp"
+                }
+              ]
             },
             {
               "id": "CAMR0N",
@@ -17007,6 +17787,17 @@
                 },
                 {
                   "rect": [
+                    450,
+                    104,
+                    522,
+                    130
+                  ],
+                  "action": "open",
+                  "target": "GUNN0Z",
+                  "url": "/content/images/ARTICLE1/GUNN/GUNN0Z.webp"
+                },
+                {
+                  "rect": [
                     11,
                     126,
                     91,
@@ -17209,6 +18000,28 @@
                   "action": "open",
                   "target": "CIST0J",
                   "url": "/content/images/ARTICLE1/CIST/CIST0J.webp"
+                },
+                {
+                  "rect": [
+                    212,
+                    71,
+                    298,
+                    94
+                  ],
+                  "action": "open",
+                  "target": "CIST1Z",
+                  "url": "/content/images/ARTICLE1/CIST/CIST1Z.webp"
+                },
+                {
+                  "rect": [
+                    463,
+                    45,
+                    526,
+                    67
+                  ],
+                  "action": "open",
+                  "target": "CIST0Z",
+                  "url": "/content/images/ARTICLE1/CIST/CIST0Z.webp"
                 }
               ]
             },
@@ -17370,6 +18183,28 @@
                     376,
                     319,
                     432
+                  ],
+                  "action": "open",
+                  "target": "CRAN0Z",
+                  "url": "/content/images/ARTICLE1/CRAN/CRAN0Z.webp"
+                },
+                {
+                  "rect": [
+                    465,
+                    369,
+                    539,
+                    449
+                  ],
+                  "action": "open",
+                  "target": "CRAN0J",
+                  "url": "/content/images/ARTICLE1/CRAN/CRAN0J.webp"
+                },
+                {
+                  "rect": [
+                    151,
+                    143,
+                    211,
+                    165
                   ],
                   "action": "open",
                   "target": "CRAN0Z",
@@ -17659,6 +18494,17 @@
                 },
                 {
                   "rect": [
+                    394,
+                    398,
+                    466,
+                    435
+                  ],
+                  "action": "open",
+                  "target": "MANM0Z",
+                  "url": "/content/images/ARTICLE2/MANM/MANM0Z.webp"
+                },
+                {
+                  "rect": [
                     10,
                     245,
                     108,
@@ -17825,6 +18671,17 @@
                   "action": "open",
                   "target": "PRES0J",
                   "url": "/content/images/ARTICLE2/PRES/PRES0J.webp"
+                },
+                {
+                  "rect": [
+                    331,
+                    287,
+                    412,
+                    309
+                  ],
+                  "action": "open",
+                  "target": "PRES0Z",
+                  "url": "/content/images/ARTICLE2/PRES/PRES0Z.webp"
                 },
                 {
                   "rect": [
@@ -18438,6 +19295,17 @@
                 },
                 {
                   "rect": [
+                    159,
+                    262,
+                    253,
+                    304
+                  ],
+                  "action": "open",
+                  "target": "KETT0Z",
+                  "url": "/content/images/ARTICLE2/KETT/KETT0Z.webp"
+                },
+                {
+                  "rect": [
                     433,
                     41,
                     493,
@@ -18446,6 +19314,17 @@
                   "action": "open",
                   "target": "KETT0N",
                   "url": "/content/images/ARTICLE2/KETT/KETT0N.webp"
+                },
+                {
+                  "rect": [
+                    203,
+                    269,
+                    257,
+                    288
+                  ],
+                  "action": "open",
+                  "target": "KETT0Z",
+                  "url": "/content/images/ARTICLE2/KETT/KETT0Z.webp"
                 }
               ]
             },
@@ -18528,7 +19407,98 @@
               "url": "/content/images/ARTICLE2/MOTO/MOTO0M.webp",
               "bytes": 21630,
               "width": 540,
-              "height": 450
+              "height": 450,
+              "hotspots": [
+                {
+                  "rect": [
+                    465,
+                    389,
+                    539,
+                    450
+                  ],
+                  "action": "open",
+                  "target": "MOTO0J",
+                  "url": "/content/images/ARTICLE2/MOTO/MOTO0J.webp"
+                },
+                {
+                  "rect": [
+                    345,
+                    43,
+                    390,
+                    62
+                  ],
+                  "action": "navigate",
+                  "target": "Electricity",
+                  "topicId": "PRINCIPL/QELE",
+                  "url": "#/topic/PRINCIPL%2FQELE"
+                },
+                {
+                  "rect": [
+                    440,
+                    143,
+                    488,
+                    167
+                  ],
+                  "action": "open",
+                  "target": "MOTO1N",
+                  "url": "/content/images/ARTICLE2/MOTO/MOTO1N.webp"
+                },
+                {
+                  "rect": [
+                    430,
+                    109,
+                    481,
+                    133
+                  ],
+                  "action": "open",
+                  "target": "MOTO0N",
+                  "url": "/content/images/ARTICLE2/MOTO/MOTO0N.webp"
+                },
+                {
+                  "rect": [
+                    175,
+                    381,
+                    228,
+                    405
+                  ],
+                  "action": "open",
+                  "target": "MOTO2N",
+                  "url": "/content/images/ARTICLE2/MOTO/MOTO2N.webp"
+                },
+                {
+                  "rect": [
+                    160,
+                    415,
+                    259,
+                    439
+                  ],
+                  "action": "open",
+                  "target": "MOTO3N",
+                  "url": "/content/images/ARTICLE2/MOTO/MOTO3N.webp"
+                },
+                {
+                  "rect": [
+                    0,
+                    415,
+                    101,
+                    440
+                  ],
+                  "action": "open",
+                  "target": "MOTO1Z",
+                  "url": "/content/images/ARTICLE2/MOTO/MOTO1Z.webp"
+                },
+                {
+                  "rect": [
+                    1,
+                    329,
+                    102,
+                    353
+                  ],
+                  "action": "open",
+                  "target": "MOTO0Z",
+                  "url": "/content/images/ARTICLE2/MOTO/MOTO0Z.webp"
+                }
+              ]
             },
             {
               "id": "MOTO0N",
@@ -18938,6 +19908,39 @@
                   "action": "open",
                   "target": "LAMP0X",
                   "url": "/content/images/ARTICLE2/LAMP/LAMP0X.webp"
+                },
+                {
+                  "rect": [
+                    458,
+                    367,
+                    539,
+                    449
+                  ],
+                  "action": "open",
+                  "target": "LAMP0J",
+                  "url": "/content/images/ARTICLE2/LAMP/LAMP0J.webp"
+                },
+                {
+                  "rect": [
+                    8,
+                    415,
+                    126,
+                    443
+                  ],
+                  "action": "open",
+                  "target": "LAMP1Z",
+                  "url": "/content/images/ARTICLE2/LAMP/LAMP1Z.webp"
+                },
+                {
+                  "rect": [
+                    213,
+                    189,
+                    254,
+                    212
+                  ],
+                  "action": "open",
+                  "target": "LAMP0Z",
+                  "url": "/content/images/ARTICLE2/LAMP/LAMP0Z.webp"
                 }
               ]
             },
@@ -18984,6 +19987,18 @@
                   "target": "Light Bulb",
                   "topicId": "ARTICLE2/LITE",
                   "url": "#/topic/ARTICLE2%2FLITE"
+                },
+                {
+                  "rect": [
+                    101,
+                    96,
+                    139,
+                    111
+                  ],
+                  "action": "navigate",
+                  "target": "Laser",
+                  "topicId": "ARTICLE2/LASR",
+                  "url": "#/topic/ARTICLE2%2FLASR"
                 },
                 {
                   "rect": [
@@ -19084,6 +20099,17 @@
                   "action": "open",
                   "target": "PIAN0J",
                   "url": "/content/images/ARTICLE2/PIAN/PIAN0J.webp"
+                },
+                {
+                  "rect": [
+                    116,
+                    296,
+                    144,
+                    318
+                  ],
+                  "action": "open",
+                  "target": "PIAN0Z",
+                  "url": "/content/images/ARTICLE2/PIAN/PIAN0Z.webp"
                 },
                 {
                   "rect": [
@@ -19295,7 +20321,31 @@
               "url": "/content/images/ARTICLE2/GYRO/GYRO0M.webp",
               "bytes": 19402,
               "width": 540,
-              "height": 450
+              "height": 450,
+              "hotspots": [
+                {
+                  "rect": [
+                    158,
+                    346,
+                    229,
+                    370
+                  ],
+                  "action": "open",
+                  "target": "GYRO1N",
+                  "url": "/content/images/ARTICLE2/GYRO/GYRO1N.webp"
+                },
+                {
+                  "rect": [
+                    13,
+                    314,
+                    85,
+                    337
+                  ],
+                  "action": "open",
+                  "target": "GYRO0Z",
+                  "url": "/content/images/ARTICLE2/GYRO/GYRO0Z.webp"
+                }
+              ]
             },
             {
               "id": "GYRO0N",
@@ -19478,6 +20528,17 @@
                   "target": "Electricity",
                   "topicId": "PRINCIPL/QELE",
                   "url": "#/topic/PRINCIPL%2FQELE"
+                },
+                {
+                  "rect": [
+                    311,
+                    347,
+                    408,
+                    388
+                  ],
+                  "action": "open",
+                  "target": "HAIR0Z",
+                  "url": "/content/images/ARTICLE2/HAIR/HAIR0Z.webp"
                 },
                 {
                   "rect": [
@@ -20102,6 +21163,17 @@
                 },
                 {
                   "rect": [
+                    429,
+                    355,
+                    497,
+                    377
+                  ],
+                  "action": "open",
+                  "target": "LIFH1N",
+                  "url": "/content/images/ARTICLE2/LIFH/LIFH1N.webp"
+                },
+                {
+                  "rect": [
                     469,
                     382,
                     538,
@@ -20110,6 +21182,17 @@
                   "action": "open",
                   "target": "LIFH0J",
                   "url": "/content/images/ARTICLE2/LIFH/LIFH0J.webp"
+                },
+                {
+                  "rect": [
+                    466,
+                    121,
+                    538,
+                    159
+                  ],
+                  "action": "open",
+                  "target": "LIFH0Z",
+                  "url": "/content/images/ARTICLE2/LIFH/LIFH0Z.webp"
                 }
               ]
             },
@@ -20258,6 +21341,28 @@
                   "action": "open",
                   "target": "HYDR0Z",
                   "url": "/content/images/ARTICLE2/HYDR/HYDR0Z.webp"
+                },
+                {
+                  "rect": [
+                    447,
+                    354,
+                    502,
+                    369
+                  ],
+                  "action": "open",
+                  "target": "HYDR1Z",
+                  "url": "/content/images/ARTICLE2/HYDR/HYDR1Z.webp"
+                },
+                {
+                  "rect": [
+                    468,
+                    375,
+                    539,
+                    449
+                  ],
+                  "action": "open",
+                  "target": "HYDR0J",
+                  "url": "/content/images/ARTICLE2/HYDR/HYDR0J.webp"
                 }
               ]
             },
@@ -20380,7 +21485,31 @@
               "url": "/content/images/ARTICLE2/IONZ/IONZ0M.webp",
               "bytes": 29240,
               "width": 540,
-              "height": 450
+              "height": 450,
+              "hotspots": [
+                {
+                  "rect": [
+                    398,
+                    194,
+                    472,
+                    223
+                  ],
+                  "action": "open",
+                  "target": "IONZ1N",
+                  "url": "/content/images/ARTICLE2/IONZ/IONZ1N.webp"
+                },
+                {
+                  "rect": [
+                    205,
+                    228,
+                    276,
+                    263
+                  ],
+                  "action": "open",
+                  "target": "IONZ0N",
+                  "url": "/content/images/ARTICLE2/IONZ/IONZ0N.webp"
+                }
+              ]
             },
             {
               "id": "IONZ0N",
@@ -20882,6 +22011,17 @@
                 },
                 {
                   "rect": [
+                    87,
+                    258,
+                    160,
+                    293
+                  ],
+                  "action": "open",
+                  "target": "KITE0Z",
+                  "url": "/content/images/ARTICLE2/KITE/KITE0Z.webp"
+                },
+                {
+                  "rect": [
                     127,
                     220,
                     210,
@@ -21022,6 +22162,39 @@
                   "action": "open",
                   "target": "LASR0J",
                   "url": "/content/images/ARTICLE2/LASR/LASR0J.webp"
+                },
+                {
+                  "rect": [
+                    407,
+                    109,
+                    508,
+                    132
+                  ],
+                  "action": "open",
+                  "target": "LASR0Z",
+                  "url": "/content/images/ARTICLE2/LASR/LASR0Z.webp"
+                },
+                {
+                  "rect": [
+                    202,
+                    144,
+                    297,
+                    178
+                  ],
+                  "action": "open",
+                  "target": "LASR1Z",
+                  "url": "/content/images/ARTICLE2/LASR/LASR1Z.webp"
+                },
+                {
+                  "rect": [
+                    11,
+                    178,
+                    76,
+                    200
+                  ],
+                  "action": "open",
+                  "target": "LASR2Z",
+                  "url": "/content/images/ARTICLE2/LASR/LASR2Z.webp"
                 }
               ]
             },
@@ -21144,6 +22317,18 @@
                   "target": "Supermarket Scanner",
                   "topicId": "ARTICLE3/SUPA",
                   "url": "#/topic/ARTICLE3%2FSUPA"
+                },
+                {
+                  "rect": [
+                    71,
+                    126,
+                    168,
+                    141
+                  ],
+                  "action": "navigate",
+                  "target": "Laser Printer",
+                  "topicId": "ARTICLE2/LASP",
+                  "url": "#/topic/ARTICLE2%2FLASP"
                 },
                 {
                   "rect": [
@@ -21297,6 +22482,17 @@
                 },
                 {
                   "rect": [
+                    96,
+                    216,
+                    165,
+                    251
+                  ],
+                  "action": "open",
+                  "target": "LASP0Z",
+                  "url": "/content/images/ARTICLE2/LASP/LASP0Z.webp"
+                },
+                {
+                  "rect": [
                     28,
                     261,
                     136,
@@ -21439,6 +22635,18 @@
                   "target": "Dot-Matrix Printer",
                   "topicId": "ARTICLE1/DOTP",
                   "url": "#/topic/ARTICLE1%2FDOTP"
+                },
+                {
+                  "rect": [
+                    101,
+                    156,
+                    142,
+                    171
+                  ],
+                  "action": "navigate",
+                  "target": "Laser",
+                  "topicId": "ARTICLE2/LASR",
+                  "url": "#/topic/ARTICLE2%2FLASR"
                 }
               ]
             }
@@ -21823,6 +23031,28 @@
                   "action": "open",
                   "target": "LITE0Z",
                   "url": "/content/images/ARTICLE2/LITE/LITE0Z.webp"
+                },
+                {
+                  "rect": [
+                    460,
+                    364,
+                    539,
+                    449
+                  ],
+                  "action": "open",
+                  "target": "LITE0J",
+                  "url": "/content/images/ARTICLE2/LITE/LITE0J.webp"
+                },
+                {
+                  "rect": [
+                    217,
+                    194,
+                    289,
+                    237
+                  ],
+                  "action": "open",
+                  "target": "LITE0Z",
+                  "url": "/content/images/ARTICLE2/LITE/LITE0Z.webp"
                 }
               ]
             },
@@ -21842,6 +23072,18 @@
               "width": 237,
               "height": 162,
               "hotspots": [
+                {
+                  "rect": [
+                    101,
+                    66,
+                    139,
+                    81
+                  ],
+                  "action": "navigate",
+                  "target": "Laser",
+                  "topicId": "ARTICLE2/LASR",
+                  "url": "#/topic/ARTICLE2%2FLASR"
+                },
                 {
                   "rect": [
                     55,
@@ -22030,6 +23272,17 @@
                   "action": "open",
                   "target": "LIQU0J",
                   "url": "/content/images/ARTICLE2/LIQU/LIQU0J.webp"
+                },
+                {
+                  "rect": [
+                    5,
+                    313,
+                    106,
+                    339
+                  ],
+                  "action": "open",
+                  "target": "LIQU1Z",
+                  "url": "/content/images/ARTICLE2/LIQU/LIQU1Z.webp"
                 },
                 {
                   "rect": [
@@ -22287,6 +23540,17 @@
                   "action": "open",
                   "target": "META0J",
                   "url": "/content/images/ARTICLE2/META/META0J.webp"
+                },
+                {
+                  "rect": [
+                    432,
+                    211,
+                    533,
+                    234
+                  ],
+                  "action": "open",
+                  "target": "META1Z",
+                  "url": "/content/images/ARTICLE2/META/META1Z.webp"
                 },
                 {
                   "rect": [
@@ -22593,7 +23857,31 @@
               "url": "/content/images/ARTICLE2/MICP/MICP0M.webp",
               "bytes": 26536,
               "width": 540,
-              "height": 450
+              "height": 450,
+              "hotspots": [
+                {
+                  "rect": [
+                    273,
+                    200,
+                    347,
+                    220
+                  ],
+                  "action": "open",
+                  "target": "MICP3N",
+                  "url": "/content/images/ARTICLE2/MICP/MICP3N.webp"
+                },
+                {
+                  "rect": [
+                    462,
+                    366,
+                    539,
+                    450
+                  ],
+                  "action": "open",
+                  "target": "MICP0J",
+                  "url": "/content/images/ARTICLE2/MICP/MICP0J.webp"
+                }
+              ]
             },
             {
               "id": "MICP0N",
@@ -22796,6 +24084,18 @@
                   "target": "Endoscope",
                   "topicId": "ARTICLE1/ENDO",
                   "url": "#/topic/ARTICLE1%2FENDO"
+                },
+                {
+                  "rect": [
+                    84,
+                    96,
+                    156,
+                    111
+                  ],
+                  "action": "navigate",
+                  "target": "Telescope",
+                  "topicId": "ARTICLE3/TELE",
+                  "url": "#/topic/ARTICLE3%2FTELE"
                 },
                 {
                   "rect": [
@@ -23100,6 +24400,17 @@
                 },
                 {
                   "rect": [
+                    321,
+                    398,
+                    425,
+                    422
+                  ],
+                  "action": "open",
+                  "target": "MOUS0Z",
+                  "url": "/content/images/ARTICLE2/MOUS/MOUS0Z.webp"
+                },
+                {
+                  "rect": [
                     119,
                     417,
                     244,
@@ -23206,6 +24517,17 @@
                 },
                 {
                   "rect": [
+                    80,
+                    211,
+                    162,
+                    239
+                  ],
+                  "action": "open",
+                  "target": "MOVI0Z",
+                  "url": "/content/images/ARTICLE2/MOVI/MOVI0Z.webp"
+                },
+                {
+                  "rect": [
                     125,
                     330,
                     167,
@@ -23214,6 +24536,17 @@
                   "action": "open",
                   "target": "MOVI1N",
                   "url": "/content/images/ARTICLE2/MOVI/MOVI1N.webp"
+                },
+                {
+                  "rect": [
+                    441,
+                    211,
+                    524,
+                    241
+                  ],
+                  "action": "open",
+                  "target": "MOVI1Z",
+                  "url": "/content/images/ARTICLE2/MOVI/MOVI1Z.webp"
                 }
               ]
             },
@@ -23365,7 +24698,108 @@
               "url": "/content/images/ARTICLE2/PROJ/PROJ0M.webp",
               "bytes": 20110,
               "width": 540,
-              "height": 450
+              "height": 450,
+              "hotspots": [
+                {
+                  "rect": [
+                    313,
+                    133,
+                    395,
+                    196
+                  ],
+                  "action": "open",
+                  "target": "QCAM0R",
+                  "url": "/content/images/PRINCIPL/QCAM/QCAM0R.webp"
+                },
+                {
+                  "rect": [
+                    124,
+                    290,
+                    206,
+                    353
+                  ],
+                  "action": "open",
+                  "target": "QCAM0R",
+                  "url": "/content/images/PRINCIPL/QCAM/QCAM0R.webp"
+                },
+                {
+                  "rect": [
+                    456,
+                    367,
+                    538,
+                    448
+                  ],
+                  "action": "open",
+                  "target": "PROJ0J",
+                  "url": "/content/images/ARTICLE2/PROJ/PROJ0J.webp"
+                },
+                {
+                  "rect": [
+                    154,
+                    211,
+                    224,
+                    239
+                  ],
+                  "action": "open",
+                  "target": "PROJ0Z",
+                  "url": "/content/images/ARTICLE2/PROJ/PROJ0Z.webp"
+                },
+                {
+                  "rect": [
+                    74,
+                    415,
+                    160,
+                    437
+                  ],
+                  "action": "open",
+                  "target": "PROJ0N",
+                  "url": "/content/images/ARTICLE2/PROJ/PROJ0N.webp"
+                },
+                {
+                  "rect": [
+                    53,
+                    347,
+                    97,
+                    373
+                  ],
+                  "action": "open",
+                  "target": "PROJ2N",
+                  "url": "/content/images/ARTICLE2/PROJ/PROJ2N.webp"
+                },
+                {
+                  "rect": [
+                    20,
+                    279,
+                    64,
+                    303
+                  ],
+                  "action": "open",
+                  "target": "PROJ3N",
+                  "url": "/content/images/ARTICLE2/PROJ/PROJ3N.webp"
+                },
+                {
+                  "rect": [
+                    382,
+                    313,
+                    429,
+                    338
+                  ],
+                  "action": "open",
+                  "target": "PROJ1N",
+                  "url": "/content/images/ARTICLE2/PROJ/PROJ1N.webp"
+                },
+                {
+                  "rect": [
+                    24,
+                    341,
+                    106,
+                    403
+                  ],
+                  "action": "open",
+                  "target": "PROJ2N",
+                  "url": "/content/images/ARTICLE2/PROJ/PROJ2N.webp"
+                }
+              ]
             },
             {
               "id": "PROJ0N",
@@ -23849,6 +25283,17 @@
                 },
                 {
                   "rect": [
+                    161,
+                    194,
+                    222,
+                    219
+                  ],
+                  "action": "open",
+                  "target": "MCOM0Z",
+                  "url": "/content/images/ARTICLE2/MCOM/MCOM0Z.webp"
+                },
+                {
+                  "rect": [
                     397,
                     92,
                     490,
@@ -24066,6 +25511,18 @@
                   "target": "Dot-Matrix Printer",
                   "topicId": "ARTICLE1/DOTP",
                   "url": "#/topic/ARTICLE1%2FDOTP"
+                },
+                {
+                  "rect": [
+                    71,
+                    246,
+                    172,
+                    261
+                  ],
+                  "action": "navigate",
+                  "target": "Laser Printer",
+                  "topicId": "ARTICLE2/LASP",
+                  "url": "#/topic/ARTICLE2%2FLASP"
                 },
                 {
                   "rect": [
@@ -24331,17 +25788,6 @@
                 },
                 {
                   "rect": [
-                    398,
-                    194,
-                    472,
-                    229
-                  ],
-                  "action": "open",
-                  "target": "PHOC2N",
-                  "url": "/content/images/ARTICLE2/PHOC/PHOC2N.webp"
-                },
-                {
-                  "rect": [
                     13,
                     228,
                     78,
@@ -24361,17 +25807,6 @@
                   "action": "open",
                   "target": "PHOC1N",
                   "url": "/content/images/ARTICLE2/PHOC/PHOC1N.webp"
-                },
-                {
-                  "rect": [
-                    138,
-                    279,
-                    211,
-                    315
-                  ],
-                  "action": "open",
-                  "target": "PHOC2N",
-                  "url": "/content/images/ARTICLE2/PHOC/PHOC2N.webp"
                 }
               ]
             },
@@ -24434,6 +25869,18 @@
                   "target": "Dot-Matrix Printer",
                   "topicId": "ARTICLE1/DOTP",
                   "url": "#/topic/ARTICLE1%2FDOTP"
+                },
+                {
+                  "rect": [
+                    71,
+                    95,
+                    169,
+                    110
+                  ],
+                  "action": "navigate",
+                  "target": "Laser Printer",
+                  "topicId": "ARTICLE2/LASP",
+                  "url": "#/topic/ARTICLE2%2FLASP"
                 }
               ]
             }
@@ -24676,6 +26123,17 @@
                 },
                 {
                   "rect": [
+                    465,
+                    179,
+                    512,
+                    201
+                  ],
+                  "action": "open",
+                  "target": "PDRI1Z",
+                  "url": "/content/images/ARTICLE2/PDRI/PDRI1Z.webp"
+                },
+                {
+                  "rect": [
                     23,
                     77,
                     75,
@@ -24841,7 +26299,53 @@
               "url": "/content/images/ARTICLE2/POWE/POWE0M.webp",
               "bytes": 33324,
               "width": 540,
-              "height": 450
+              "height": 450,
+              "hotspots": [
+                {
+                  "rect": [
+                    465,
+                    379,
+                    538,
+                    449
+                  ],
+                  "action": "open",
+                  "target": "POWE0J",
+                  "url": "/content/images/ARTICLE2/POWE/POWE0J.webp"
+                },
+                {
+                  "rect": [
+                    275,
+                    160,
+                    355,
+                    184
+                  ],
+                  "action": "open",
+                  "target": "POWE1N",
+                  "url": "/content/images/ARTICLE2/POWE/POWE1N.webp"
+                },
+                {
+                  "rect": [
+                    123,
+                    160,
+                    230,
+                    184
+                  ],
+                  "action": "open",
+                  "target": "POWE0Z",
+                  "url": "/content/images/ARTICLE2/POWE/POWE0Z.webp"
+                },
+                {
+                  "rect": [
+                    164,
+                    415,
+                    277,
+                    439
+                  ],
+                  "action": "open",
+                  "target": "POWE3N",
+                  "url": "/content/images/ARTICLE2/POWE/POWE3N.webp"
+                }
+              ]
             },
             {
               "id": "POWE0N",
@@ -25100,7 +26604,33 @@
               "url": "/content/images/ARTICLE2/KBAL/KBAL0J.webp",
               "bytes": 4904,
               "width": 237,
-              "height": 132
+              "height": 132,
+              "hotspots": [
+                {
+                  "rect": [
+                    57,
+                    65,
+                    182,
+                    80
+                  ],
+                  "action": "navigate",
+                  "target": "Bathroom Scales",
+                  "topicId": "ARTICLE3/SCAB",
+                  "url": "#/topic/ARTICLE3%2FSCAB"
+                },
+                {
+                  "rect": [
+                    61,
+                    95,
+                    179,
+                    110
+                  ],
+                  "action": "navigate",
+                  "target": "Platform Scales",
+                  "topicId": "ARTICLE3/SCAP",
+                  "url": "#/topic/ARTICLE3%2FSCAP"
+                }
+              ]
             }
           ],
           "animations": [
@@ -25391,6 +26921,17 @@
                   "action": "open",
                   "target": "PHON0J",
                   "url": "/content/images/ARTICLE2/PHON/PHON0J.webp"
+                },
+                {
+                  "rect": [
+                    86,
+                    400,
+                    171,
+                    443
+                  ],
+                  "action": "open",
+                  "target": "PHON1Z",
+                  "url": "/content/images/ARTICLE2/PHON/PHON1Z.webp"
                 },
                 {
                   "rect": [
@@ -26159,7 +27700,33 @@
               "url": "/content/images/ARTICLE3/SCAB/SCAB0J.webp",
               "bytes": 4810,
               "width": 237,
-              "height": 132
+              "height": 132,
+              "hotspots": [
+                {
+                  "rect": [
+                    61,
+                    65,
+                    179,
+                    80
+                  ],
+                  "action": "navigate",
+                  "target": "Platform Scales",
+                  "topicId": "ARTICLE3/SCAP",
+                  "url": "#/topic/ARTICLE3%2FSCAP"
+                },
+                {
+                  "rect": [
+                    97,
+                    95,
+                    142,
+                    110
+                  ],
+                  "action": "navigate",
+                  "target": "Scales",
+                  "topicId": "ARTICLE2/KBAL",
+                  "url": "#/topic/ARTICLE2%2FKBAL"
+                }
+              ]
             }
           ],
           "animations": [
@@ -26434,6 +28001,17 @@
                   "action": "open",
                   "target": "SEAT1N",
                   "url": "/content/images/ARTICLE3/SEAT/SEAT1N.webp"
+                },
+                {
+                  "rect": [
+                    374,
+                    376,
+                    432,
+                    400
+                  ],
+                  "action": "open",
+                  "target": "SEAT0Z",
+                  "url": "/content/images/ARTICLE3/SEAT/SEAT0Z.webp"
                 }
               ]
             },
@@ -26751,6 +28329,17 @@
                   "action": "open",
                   "target": "SUSP0Z",
                   "url": "/content/images/ARTICLE3/SUSP/SUSP0Z.webp"
+                },
+                {
+                  "rect": [
+                    466,
+                    385,
+                    538,
+                    450
+                  ],
+                  "action": "open",
+                  "target": "SUSP0J",
+                  "url": "/content/images/ARTICLE3/SUSP/SUSP0J.webp"
                 }
               ]
             },
@@ -26900,6 +28489,17 @@
                   "action": "open",
                   "target": "SHAV0N",
                   "url": "/content/images/ARTICLE3/SHAV/SHAV0N.webp"
+                },
+                {
+                  "rect": [
+                    230,
+                    279,
+                    281,
+                    301
+                  ],
+                  "action": "open",
+                  "target": "SHAV1Z",
+                  "url": "/content/images/ARTICLE3/SHAV/SHAV1Z.webp"
                 }
               ]
             },
@@ -27088,7 +28688,53 @@
               "url": "/content/images/ARTICLE3/TURH/TURH0M.webp",
               "bytes": 20924,
               "width": 540,
-              "height": 450
+              "height": 450,
+              "hotspots": [
+                {
+                  "rect": [
+                    468,
+                    388,
+                    536,
+                    446
+                  ],
+                  "action": "open",
+                  "target": "TURH0J",
+                  "url": "/content/images/ARTICLE3/TURH/TURH0J.webp"
+                },
+                {
+                  "rect": [
+                    144,
+                    314,
+                    235,
+                    341
+                  ],
+                  "action": "open",
+                  "target": "TURH1N",
+                  "url": "/content/images/ARTICLE3/TURH/TURH1N.webp"
+                },
+                {
+                  "rect": [
+                    371,
+                    42,
+                    460,
+                    80
+                  ],
+                  "action": "open",
+                  "target": "TURH2N",
+                  "url": "/content/images/ARTICLE3/TURH/TURH2N.webp"
+                },
+                {
+                  "rect": [
+                    474,
+                    315,
+                    536,
+                    353
+                  ],
+                  "action": "open",
+                  "target": "TURH0N",
+                  "url": "/content/images/ARTICLE3/TURH/TURH0N.webp"
+                }
+              ]
             },
             {
               "id": "TURH0N",
@@ -27230,6 +28876,83 @@
                   "action": "open",
                   "target": "SPRN0P",
                   "url": "/content/images/RELA/SPRN0P.webp"
+                },
+                {
+                  "rect": [
+                    29,
+                    299,
+                    531,
+                    440
+                  ],
+                  "action": "open",
+                  "target": "STAP0P",
+                  "url": "/content/images/RELA/STAP0P.webp"
+                },
+                {
+                  "rect": [
+                    390,
+                    76,
+                    539,
+                    315
+                  ],
+                  "action": "open",
+                  "target": "STAP0P",
+                  "url": "/content/images/RELA/STAP0P.webp"
+                },
+                {
+                  "rect": [
+                    467,
+                    383,
+                    539,
+                    449
+                  ],
+                  "action": "open",
+                  "target": "SPRN0J",
+                  "url": "/content/images/ARTICLE3/SPRN/SPRN0J.webp"
+                },
+                {
+                  "rect": [
+                    10,
+                    186,
+                    78,
+                    212
+                  ],
+                  "action": "open",
+                  "target": "SPRN0Z",
+                  "url": "/content/images/ARTICLE3/SPRN/SPRN0Z.webp"
+                },
+                {
+                  "rect": [
+                    72,
+                    415,
+                    191,
+                    438
+                  ],
+                  "action": "open",
+                  "target": "SPRN1Z",
+                  "url": "/content/images/ARTICLE3/SPRN/SPRN1Z.webp"
+                },
+                {
+                  "rect": [
+                    255,
+                    415,
+                    392,
+                    440
+                  ],
+                  "action": "open",
+                  "target": "SPRN2Z",
+                  "url": "/content/images/ARTICLE3/SPRN/SPRN2Z.webp"
+                },
+                {
+                  "rect": [
+                    422,
+                    278,
+                    509,
+                    313
+                  ],
+                  "action": "open",
+                  "target": "SPRN3Z",
+                  "url": "/content/images/ARTICLE3/SPRN/SPRN3Z.webp"
                 }
               ]
             },
@@ -27343,6 +29066,17 @@
                   "action": "open",
                   "target": "RECP0J",
                   "url": "/content/images/ARTICLE3/RECP/RECP0J.webp"
+                },
+                {
+                  "rect": [
+                    280,
+                    279,
+                    329,
+                    304
+                  ],
+                  "action": "open",
+                  "target": "RECP0Z",
+                  "url": "/content/images/ARTICLE3/RECP/RECP0Z.webp"
                 },
                 {
                   "rect": [
@@ -27656,7 +29390,33 @@
               "url": "/content/images/ARTICLE3/SCAP/SCAP0J.webp",
               "bytes": 4784,
               "width": 237,
-              "height": 132
+              "height": 132,
+              "hotspots": [
+                {
+                  "rect": [
+                    57,
+                    65,
+                    182,
+                    80
+                  ],
+                  "action": "navigate",
+                  "target": "Bathroom Scales",
+                  "topicId": "ARTICLE3/SCAB",
+                  "url": "#/topic/ARTICLE3%2FSCAB"
+                },
+                {
+                  "rect": [
+                    97,
+                    95,
+                    142,
+                    110
+                  ],
+                  "action": "navigate",
+                  "target": "Scales",
+                  "topicId": "ARTICLE2/KBAL",
+                  "url": "#/topic/ARTICLE2%2FKBAL"
+                }
+              ]
             }
           ],
           "animations": [
@@ -27725,6 +29485,28 @@
                   "action": "open",
                   "target": "RADA0N",
                   "url": "/content/images/ARTICLE3/RADA/RADA0N.webp"
+                },
+                {
+                  "rect": [
+                    93,
+                    330,
+                    180,
+                    354
+                  ],
+                  "action": "open",
+                  "target": "RADA2Z",
+                  "url": "/content/images/ARTICLE3/RADA/RADA2Z.webp"
+                },
+                {
+                  "rect": [
+                    10,
+                    330,
+                    80,
+                    356
+                  ],
+                  "action": "open",
+                  "target": "RADA3Z",
+                  "url": "/content/images/ARTICLE3/RADA/RADA3Z.webp"
                 }
               ]
             },
@@ -27942,6 +29724,17 @@
                   "action": "open",
                   "target": "RADI1N",
                   "url": "/content/images/ARTICLE3/RADI/RADI1N.webp"
+                },
+                {
+                  "rect": [
+                    388,
+                    316,
+                    531,
+                    339
+                  ],
+                  "action": "open",
+                  "target": "RADI0Z",
+                  "url": "/content/images/ARTICLE3/RADI/RADI0Z.webp"
                 },
                 {
                   "rect": [
@@ -28169,6 +29962,18 @@
               "hotspots": [
                 {
                   "rect": [
+                    84,
+                    66,
+                    155,
+                    81
+                  ],
+                  "action": "navigate",
+                  "target": "Telescope",
+                  "topicId": "ARTICLE3/TELE",
+                  "url": "#/topic/ARTICLE3%2FTELE"
+                },
+                {
+                  "rect": [
                     51,
                     96,
                     192,
@@ -28254,6 +30059,17 @@
                 },
                 {
                   "rect": [
+                    12,
+                    415,
+                    84,
+                    440
+                  ],
+                  "action": "open",
+                  "target": "RADO0Z",
+                  "url": "/content/images/ARTICLE3/RADO/RADO0Z.webp"
+                },
+                {
+                  "rect": [
                     81,
                     41,
                     172,
@@ -28262,6 +30078,17 @@
                   "action": "open",
                   "target": "RADO0N",
                   "url": "/content/images/ARTICLE3/RADO/RADO0N.webp"
+                },
+                {
+                  "rect": [
+                    177,
+                    58,
+                    241,
+                    81
+                  ],
+                  "action": "open",
+                  "target": "RADO1Z",
+                  "url": "/content/images/ARTICLE3/RADO/RADO1Z.webp"
                 },
                 {
                   "rect": [
@@ -28644,6 +30471,17 @@
                   "action": "open",
                   "target": "REFR2N",
                   "url": "/content/images/ARTICLE3/REFR/REFR2N.webp"
+                },
+                {
+                  "rect": [
+                    452,
+                    126,
+                    535,
+                    151
+                  ],
+                  "action": "open",
+                  "target": "REFR0Z",
+                  "url": "/content/images/ARTICLE3/REFR/REFR0Z.webp"
                 },
                 {
                   "rect": [
@@ -29558,6 +31396,28 @@
                   "action": "open",
                   "target": "ROTP0Z",
                   "url": "/content/images/ARTICLE3/ROTP/ROTP0Z.webp"
+                },
+                {
+                  "rect": [
+                    452,
+                    385,
+                    517,
+                    442
+                  ],
+                  "action": "open",
+                  "target": "ROTP0J",
+                  "url": "/content/images/ARTICLE3/ROTP/ROTP0J.webp"
+                },
+                {
+                  "rect": [
+                    425,
+                    160,
+                    521,
+                    195
+                  ],
+                  "action": "open",
+                  "target": "ROTP0Z",
+                  "url": "/content/images/ARTICLE3/ROTP/ROTP0Z.webp"
                 }
               ]
             },
@@ -30088,6 +31948,28 @@
                 },
                 {
                   "rect": [
+                    99,
+                    102,
+                    178,
+                    144
+                  ],
+                  "action": "open",
+                  "target": "SATE1Z",
+                  "url": "/content/images/ARTICLE3/SATE/SATE1Z.webp"
+                },
+                {
+                  "rect": [
+                    331,
+                    349,
+                    417,
+                    372
+                  ],
+                  "action": "open",
+                  "target": "SATE2Z",
+                  "url": "/content/images/ARTICLE3/SATE/SATE2Z.webp"
+                },
+                {
+                  "rect": [
                     467,
                     270,
                     515,
@@ -30274,6 +32156,17 @@
                 },
                 {
                   "rect": [
+                    84,
+                    233,
+                    186,
+                    268
+                  ],
+                  "action": "open",
+                  "target": "SCUB0Z",
+                  "url": "/content/images/ARTICLE3/SCUB/SCUB0Z.webp"
+                },
+                {
+                  "rect": [
                     407,
                     170,
                     443,
@@ -30428,6 +32321,17 @@
                   "action": "open",
                   "target": "SHIP0P",
                   "url": "/content/images/RELA/SHIP0P.webp"
+                },
+                {
+                  "rect": [
+                    471,
+                    367,
+                    539,
+                    449
+                  ],
+                  "action": "open",
+                  "target": "SHIP0J",
+                  "url": "/content/images/ARTICLE3/SHIP/SHIP0J.webp"
                 }
               ]
             },
@@ -30660,7 +32564,20 @@
               "url": "/content/images/ARTICLE3/SMAR/SMAR0M.webp",
               "bytes": 22730,
               "width": 540,
-              "height": 450
+              "height": 450,
+              "hotspots": [
+                {
+                  "rect": [
+                    474,
+                    380,
+                    539,
+                    449
+                  ],
+                  "action": "open",
+                  "target": "SMAR0J",
+                  "url": "/content/images/ARTICLE3/SMAR/SMAR0J.webp"
+                }
+              ]
             },
             {
               "id": "SMAR0N",
@@ -30796,6 +32713,17 @@
                   "action": "open",
                   "target": "SMOK2N",
                   "url": "/content/images/ARTICLE3/SMOK/SMOK2N.webp"
+                },
+                {
+                  "rect": [
+                    275,
+                    279,
+                    363,
+                    303
+                  ],
+                  "action": "open",
+                  "target": "SMOK0Z",
+                  "url": "/content/images/ARTICLE3/SMOK/SMOK0Z.webp"
                 },
                 {
                   "rect": [
@@ -30935,7 +32863,42 @@
               "url": "/content/images/ARTICLE3/SOLC/SOLC0M.webp",
               "bytes": 25254,
               "width": 540,
-              "height": 450
+              "height": 450,
+              "hotspots": [
+                {
+                  "rect": [
+                    272,
+                    415,
+                    344,
+                    441
+                  ],
+                  "action": "open",
+                  "target": "SOLC1N",
+                  "url": "/content/images/ARTICLE3/SOLC/SOLC1N.webp"
+                },
+                {
+                  "rect": [
+                    452,
+                    300,
+                    498,
+                    347
+                  ],
+                  "action": "open",
+                  "target": "SOLC4N",
+                  "url": "/content/images/ARTICLE3/SOLC/SOLC4N.webp"
+                },
+                {
+                  "rect": [
+                    452,
+                    262,
+                    528,
+                    300
+                  ],
+                  "action": "open",
+                  "target": "SOLC2N",
+                  "url": "/content/images/ARTICLE3/SOLC/SOLC2N.webp"
+                }
+              ]
             },
             {
               "id": "SOLC0N",
@@ -31447,7 +33410,31 @@
               "url": "/content/images/ARTICLE3/SPED/SPED0M.webp",
               "bytes": 19514,
               "width": 540,
-              "height": 450
+              "height": 450,
+              "hotspots": [
+                {
+                  "rect": [
+                    318,
+                    323,
+                    377,
+                    346
+                  ],
+                  "action": "open",
+                  "target": "SPED0Z",
+                  "url": "/content/images/ARTICLE3/SPED/SPED0Z.webp"
+                },
+                {
+                  "rect": [
+                    453,
+                    289,
+                    531,
+                    310
+                  ],
+                  "action": "open",
+                  "target": "SPED1N",
+                  "url": "/content/images/ARTICLE3/SPED/SPED1N.webp"
+                }
+              ]
             },
             {
               "id": "SPED0N",
@@ -31729,6 +33716,17 @@
                 },
                 {
                   "rect": [
+                    45,
+                    228,
+                    99,
+                    254
+                  ],
+                  "action": "open",
+                  "target": "STRI1Z",
+                  "url": "/content/images/ARTICLE3/STRI/STRI1Z.webp"
+                },
+                {
+                  "rect": [
                     113,
                     211,
                     223,
@@ -31959,6 +33957,17 @@
                 },
                 {
                   "rect": [
+                    4,
+                    330,
+                    88,
+                    366
+                  ],
+                  "action": "open",
+                  "target": "SUBM0Z",
+                  "url": "/content/images/ARTICLE3/SUBM/SUBM0Z.webp"
+                },
+                {
+                  "rect": [
                     211,
                     245,
                     296,
@@ -32180,7 +34189,42 @@
               "url": "/content/images/ARTICLE3/SUPA/SUPA0M.webp",
               "bytes": 16672,
               "width": 540,
-              "height": 450
+              "height": 450,
+              "hotspots": [
+                {
+                  "rect": [
+                    452,
+                    291,
+                    518,
+                    339
+                  ],
+                  "action": "open",
+                  "target": "SUPA2N",
+                  "url": "/content/images/ARTICLE3/SUPA/SUPA2N.webp"
+                },
+                {
+                  "rect": [
+                    32,
+                    262,
+                    77,
+                    284
+                  ],
+                  "action": "open",
+                  "target": "SUPA0N",
+                  "url": "/content/images/ARTICLE3/SUPA/SUPA0N.webp"
+                },
+                {
+                  "rect": [
+                    306,
+                    415,
+                    385,
+                    437
+                  ],
+                  "action": "open",
+                  "target": "SUPA1N",
+                  "url": "/content/images/ARTICLE3/SUPA/SUPA1N.webp"
+                }
+              ]
             },
             {
               "id": "SUPA0N",
@@ -32254,7 +34298,163 @@
               "url": "/content/images/ARTICLE3/TAPE/TAPE0M.webp",
               "bytes": 19866,
               "width": 540,
-              "height": 450
+              "height": 450,
+              "hotspots": [
+                {
+                  "rect": [
+                    255,
+                    303,
+                    289,
+                    379
+                  ],
+                  "action": "open",
+                  "target": "TAPP0N",
+                  "url": "/content/images/ARTICLE3/TAPP/TAPP0N.webp"
+                },
+                {
+                  "rect": [
+                    275,
+                    291,
+                    310,
+                    379
+                  ],
+                  "action": "open",
+                  "target": "TAPP0N",
+                  "url": "/content/images/ARTICLE3/TAPP/TAPP0N.webp"
+                },
+                {
+                  "rect": [
+                    284,
+                    273,
+                    538,
+                    388
+                  ],
+                  "action": "open",
+                  "target": "TAPP0N",
+                  "url": "/content/images/ARTICLE3/TAPP/TAPP0N.webp"
+                },
+                {
+                  "rect": [
+                    335,
+                    261,
+                    538,
+                    322
+                  ],
+                  "action": "open",
+                  "target": "TAPP0N",
+                  "url": "/content/images/ARTICLE3/TAPP/TAPP0N.webp"
+                },
+                {
+                  "rect": [
+                    360,
+                    206,
+                    503,
+                    266
+                  ],
+                  "action": "open",
+                  "target": "TAPP0N",
+                  "url": "/content/images/ARTICLE3/TAPP/TAPP0N.webp"
+                },
+                {
+                  "rect": [
+                    382,
+                    163,
+                    471,
+                    223
+                  ],
+                  "action": "open",
+                  "target": "TAPP0N",
+                  "url": "/content/images/ARTICLE3/TAPP/TAPP0N.webp"
+                },
+                {
+                  "rect": [
+                    408,
+                    113,
+                    448,
+                    173
+                  ],
+                  "action": "open",
+                  "target": "TAPP0N",
+                  "url": "/content/images/ARTICLE3/TAPP/TAPP0N.webp"
+                },
+                {
+                  "rect": [
+                    379,
+                    95,
+                    492,
+                    135
+                  ],
+                  "action": "open",
+                  "target": "TAPP0N",
+                  "url": "/content/images/ARTICLE3/TAPP/TAPP0N.webp"
+                },
+                {
+                  "rect": [
+                    455,
+                    377,
+                    539,
+                    449
+                  ],
+                  "action": "open",
+                  "target": "TAPE0J",
+                  "url": "/content/images/ARTICLE3/TAPE/TAPE0J.webp"
+                },
+                {
+                  "rect": [
+                    115,
+                    381,
+                    199,
+                    408
+                  ],
+                  "action": "open",
+                  "target": "TAPE2N",
+                  "url": "/content/images/ARTICLE3/TAPE/TAPE2N.webp"
+                },
+                {
+                  "rect": [
+                    238,
+                    154,
+                    271,
+                    181
+                  ],
+                  "action": "open",
+                  "target": "TAPE3N",
+                  "url": "/content/images/ARTICLE3/TAPE/TAPE3N.webp"
+                },
+                {
+                  "rect": [
+                    452,
+                    211,
+                    535,
+                    245
+                  ],
+                  "action": "open",
+                  "target": "TAPE1N",
+                  "url": "/content/images/ARTICLE3/TAPE/TAPE1N.webp"
+                },
+                {
+                  "rect": [
+                    469,
+                    58,
+                    531,
+                    87
+                  ],
+                  "action": "open",
+                  "target": "TAPE0N",
+                  "url": "/content/images/ARTICLE3/TAPE/TAPE0N.webp"
+                },
+                {
+                  "rect": [
+                    10,
+                    415,
+                    126,
+                    442
+                  ],
+                  "action": "open",
+                  "target": "TAPE0Z",
+                  "url": "/content/images/ARTICLE3/TAPE/TAPE0Z.webp"
+                }
+              ]
             },
             {
               "id": "TAPE0N",
@@ -32391,7 +34591,42 @@
               "url": "/content/images/ARTICLE3/TELE/TELE0M.webp",
               "bytes": 32280,
               "width": 540,
-              "height": 450
+              "height": 450,
+              "hotspots": [
+                {
+                  "rect": [
+                    466,
+                    374,
+                    539,
+                    449
+                  ],
+                  "action": "open",
+                  "target": "TELE0J",
+                  "url": "/content/images/ARTICLE3/TELE/TELE0J.webp"
+                },
+                {
+                  "rect": [
+                    147,
+                    218,
+                    234,
+                    240
+                  ],
+                  "action": "open",
+                  "target": "TELE0Z",
+                  "url": "/content/images/ARTICLE3/TELE/TELE0Z.webp"
+                },
+                {
+                  "rect": [
+                    319,
+                    58,
+                    406,
+                    93
+                  ],
+                  "action": "open",
+                  "target": "TELE2Z",
+                  "url": "/content/images/ARTICLE3/TELE/TELE2Z.webp"
+                }
+              ]
             },
             {
               "id": "TELE0N",
@@ -32478,6 +34713,18 @@
                   "target": "Microscope",
                   "topicId": "ARTICLE2/MICR",
                   "url": "#/topic/ARTICLE2%2FMICR"
+                },
+                {
+                  "rect": [
+                    62,
+                    96,
+                    178,
+                    111
+                  ],
+                  "action": "navigate",
+                  "target": "Radio Telescope",
+                  "topicId": "ARTICLE3/RADT",
+                  "url": "#/topic/ARTICLE3%2FRADT"
                 },
                 {
                   "rect": [
@@ -32598,6 +34845,28 @@
                   "action": "open",
                   "target": "TVCO0N",
                   "url": "/content/images/ARTICLE3/TVCO/TVCO0N.webp"
+                },
+                {
+                  "rect": [
+                    11,
+                    191,
+                    123,
+                    216
+                  ],
+                  "action": "open",
+                  "target": "TVCO1Z",
+                  "url": "/content/images/ARTICLE3/TVCO/TVCO1Z.webp"
+                },
+                {
+                  "rect": [
+                    437,
+                    199,
+                    535,
+                    224
+                  ],
+                  "action": "open",
+                  "target": "TVCO0Z",
+                  "url": "/content/images/ARTICLE3/TVCO/TVCO0Z.webp"
                 }
               ]
             },
@@ -32952,6 +35221,18 @@
                   "target": "Heat",
                   "topicId": "PRINCIPL/QHEA",
                   "url": "#/topic/PRINCIPL%2FQHEA"
+                },
+                {
+                  "rect": [
+                    110,
+                    83,
+                    185,
+                    102
+                  ],
+                  "action": "navigate",
+                  "target": "Heat",
+                  "topicId": "PRINCIPL/QHEA",
+                  "url": "#/topic/PRINCIPL%2FQHEA"
                 }
               ]
             },
@@ -32969,21 +35250,7 @@
               "url": "/content/images/ARTICLE3/THER/THER1N.webp",
               "bytes": 3174,
               "width": 167,
-              "height": 145,
-              "hotspots": [
-                {
-                  "rect": [
-                    110,
-                    83,
-                    167,
-                    102
-                  ],
-                  "action": "navigate",
-                  "target": "Heat",
-                  "topicId": "PRINCIPL/QHEA",
-                  "url": "#/topic/PRINCIPL%2FQHEA"
-                }
-              ]
+              "height": 145
             },
             {
               "id": "THER2N",
@@ -33219,6 +35486,17 @@
                   "action": "open",
                   "target": "THET0N",
                   "url": "/content/images/ARTICLE3/THET/THET0N.webp"
+                },
+                {
+                  "rect": [
+                    6,
+                    415,
+                    107,
+                    437
+                  ],
+                  "action": "open",
+                  "target": "THET0Z",
+                  "url": "/content/images/ARTICLE3/THET/THET0Z.webp"
                 }
               ]
             },
@@ -33352,6 +35630,17 @@
                   "action": "open",
                   "target": "TRAF0Z",
                   "url": "/content/images/ARTICLE3/TRAF/TRAF0Z.webp"
+                },
+                {
+                  "rect": [
+                    476,
+                    382,
+                    539,
+                    449
+                  ],
+                  "action": "open",
+                  "target": "TRAF0J",
+                  "url": "/content/images/ARTICLE3/TRAF/TRAF0J.webp"
                 }
               ]
             },
@@ -33369,7 +35658,21 @@
               "url": "/content/images/ARTICLE3/TRAF/TRAF1Z.webp",
               "bytes": 9928,
               "width": 355,
-              "height": 371
+              "height": 371,
+              "hotspots": [
+                {
+                  "rect": [
+                    210,
+                    332,
+                    236,
+                    351
+                  ],
+                  "action": "navigate",
+                  "target": "Heat",
+                  "topicId": "PRINCIPL/QHEA",
+                  "url": "#/topic/PRINCIPL%2FQHEA"
+                }
+              ]
             },
             {
               "id": "TRAF0J",
@@ -33701,7 +36004,65 @@
               "url": "/content/images/ARTICLE3/VACF/VACF0M.webp",
               "bytes": 27730,
               "width": 540,
-              "height": 450
+              "height": 450,
+              "hotspots": [
+                {
+                  "rect": [
+                    100,
+                    389,
+                    166,
+                    424
+                  ],
+                  "action": "open",
+                  "target": "VACF1N",
+                  "url": "/content/images/ARTICLE3/VACF/VACF1N.webp"
+                },
+                {
+                  "rect": [
+                    98,
+                    270,
+                    166,
+                    297
+                  ],
+                  "action": "open",
+                  "target": "VACF0N",
+                  "url": "/content/images/ARTICLE3/VACF/VACF0N.webp"
+                },
+                {
+                  "rect": [
+                    100,
+                    343,
+                    184,
+                    385
+                  ],
+                  "action": "open",
+                  "target": "VACF1Z",
+                  "url": "/content/images/ARTICLE3/VACF/VACF1Z.webp"
+                },
+                {
+                  "rect": [
+                    61,
+                    221,
+                    124,
+                    246
+                  ],
+                  "action": "open",
+                  "target": "VACF2N",
+                  "url": "/content/images/ARTICLE3/VACF/VACF2N.webp"
+                },
+                {
+                  "rect": [
+                    175,
+                    111,
+                    201,
+                    130
+                  ],
+                  "action": "navigate",
+                  "target": "Heat",
+                  "topicId": "PRINCIPL/QHEA",
+                  "url": "#/topic/PRINCIPL%2FQHEA"
+                }
+              ]
             },
             {
               "id": "VACF0N",
@@ -33765,7 +36126,20 @@
               "url": "/content/images/ARTICLE3/VCRE/VCRE0M.webp",
               "bytes": 20738,
               "width": 540,
-              "height": 450
+              "height": 450,
+              "hotspots": [
+                {
+                  "rect": [
+                    433,
+                    322,
+                    496,
+                    349
+                  ],
+                  "action": "open",
+                  "target": "VCRE1N",
+                  "url": "/content/images/ARTICLE3/VCRE/VCRE1N.webp"
+                }
+              ]
             },
             {
               "id": "VCRE0N",
@@ -34355,6 +36729,28 @@
                   "action": "open",
                   "target": "WOOD0Z",
                   "url": "/content/images/ARTICLE3/WOOD/WOOD0Z.webp"
+                },
+                {
+                  "rect": [
+                    104,
+                    147,
+                    200,
+                    170
+                  ],
+                  "action": "open",
+                  "target": "WOOD2Z",
+                  "url": "/content/images/ARTICLE3/WOOD/WOOD2Z.webp"
+                },
+                {
+                  "rect": [
+                    458,
+                    364,
+                    539,
+                    449
+                  ],
+                  "action": "open",
+                  "target": "WOOD0J",
+                  "url": "/content/images/ARTICLE3/WOOD/WOOD0J.webp"
                 }
               ]
             },
@@ -34766,6 +37162,17 @@
                 },
                 {
                   "rect": [
+                    129,
+                    364,
+                    232,
+                    389
+                  ],
+                  "action": "open",
+                  "target": "XRAY1Z",
+                  "url": "/content/images/ARTICLE3/XRAY/XRAY1Z.webp"
+                },
+                {
+                  "rect": [
                     255,
                     378,
                     315,
@@ -34774,6 +37181,17 @@
                   "action": "open",
                   "target": "XRAY3N",
                   "url": "/content/images/ARTICLE3/XRAY/XRAY3N.webp"
+                },
+                {
+                  "rect": [
+                    7,
+                    415,
+                    108,
+                    451
+                  ],
+                  "action": "open",
+                  "target": "XRAY2Z",
+                  "url": "/content/images/ARTICLE3/XRAY/XRAY2Z.webp"
                 }
               ]
             },
@@ -35715,6 +38133,17 @@
                 },
                 {
                   "rect": [
+                    47,
+                    280,
+                    168,
+                    420
+                  ],
+                  "action": "open",
+                  "target": "QEMG0R",
+                  "url": "/content/images/PRINCIPL/QEMG/QEMG0R.webp"
+                },
+                {
+                  "rect": [
                     407,
                     245,
                     467,
@@ -36020,6 +38449,18 @@
                   "action": "open",
                   "target": "QEMG0Z",
                   "url": "/content/images/PRINCIPL/QEMG/QEMG0Z.webp"
+                },
+                {
+                  "rect": [
+                    120,
+                    290,
+                    165,
+                    309
+                  ],
+                  "action": "navigate",
+                  "target": "Electricity",
+                  "topicId": "PRINCIPL/QELE",
+                  "url": "#/topic/PRINCIPL%2FQELE"
                 }
               ]
             },
@@ -36060,6 +38501,18 @@
                   "action": "open",
                   "target": "QEMG1Z",
                   "url": "/content/images/PRINCIPL/QEMG/QEMG1Z.webp"
+                },
+                {
+                  "rect": [
+                    146,
+                    269,
+                    191,
+                    288
+                  ],
+                  "action": "navigate",
+                  "target": "Electricity",
+                  "topicId": "PRINCIPL/QELE",
+                  "url": "#/topic/PRINCIPL%2FQELE"
                 }
               ]
             },
@@ -36100,6 +38553,18 @@
                   "action": "open",
                   "target": "QEMG2Z",
                   "url": "/content/images/PRINCIPL/QEMG/QEMG2Z.webp"
+                },
+                {
+                  "rect": [
+                    187,
+                    273,
+                    232,
+                    292
+                  ],
+                  "action": "navigate",
+                  "target": "Electricity",
+                  "topicId": "PRINCIPL/QELE",
+                  "url": "#/topic/PRINCIPL%2FQELE"
                 }
               ]
             },
@@ -36148,6 +38613,17 @@
                   "action": "open",
                   "target": "QFLO0N",
                   "url": "/content/images/PRINCIPL/QFLO/QFLO0N.webp"
+                },
+                {
+                  "rect": [
+                    297,
+                    264,
+                    395,
+                    283
+                  ],
+                  "action": "open",
+                  "target": "QEMG1Z",
+                  "url": "/content/images/PRINCIPL/QEMG/QEMG1Z.webp"
                 }
               ]
             },
@@ -36445,7 +38921,75 @@
               "url": "/content/images/PRINCIPL/QFLY/QFLY0M.webp",
               "bytes": 24082,
               "width": 540,
-              "height": 450
+              "height": 450,
+              "hotspots": [
+                {
+                  "rect": [
+                    346,
+                    180,
+                    458,
+                    368
+                  ],
+                  "action": "open",
+                  "target": "QFRI0N",
+                  "url": "/content/images/PRINCIPL/QFRI/QFRI0N.webp"
+                },
+                {
+                  "rect": [
+                    281,
+                    137,
+                    331,
+                    160
+                  ],
+                  "action": "open",
+                  "target": "QFRI0N",
+                  "url": "/content/images/PRINCIPL/QFRI/QFRI0N.webp"
+                },
+                {
+                  "rect": [
+                    265,
+                    149,
+                    343,
+                    172
+                  ],
+                  "action": "open",
+                  "target": "QFRI0N",
+                  "url": "/content/images/PRINCIPL/QFRI/QFRI0N.webp"
+                },
+                {
+                  "rect": [
+                    255,
+                    161,
+                    352,
+                    216
+                  ],
+                  "action": "open",
+                  "target": "QFRI0N",
+                  "url": "/content/images/PRINCIPL/QFRI/QFRI0N.webp"
+                },
+                {
+                  "rect": [
+                    242,
+                    208,
+                    386,
+                    382
+                  ],
+                  "action": "open",
+                  "target": "QFRI0N",
+                  "url": "/content/images/PRINCIPL/QFRI/QFRI0N.webp"
+                },
+                {
+                  "rect": [
+                    191,
+                    235,
+                    302,
+                    310
+                  ],
+                  "action": "open",
+                  "target": "QFRI0N",
+                  "url": "/content/images/PRINCIPL/QFRI/QFRI0N.webp"
+                }
+              ]
             },
             {
               "id": "QFLY1M",
@@ -36662,7 +39206,42 @@
               "url": "/content/images/PRINCIPL/QFRI/QFRI0M.webp",
               "bytes": 28104,
               "width": 540,
-              "height": 450
+              "height": 450,
+              "hotspots": [
+                {
+                  "rect": [
+                    130,
+                    70,
+                    228,
+                    134
+                  ],
+                  "action": "open",
+                  "target": "QFRI1M",
+                  "url": "/content/images/PRINCIPL/QFRI/QFRI1M.webp"
+                },
+                {
+                  "rect": [
+                    369,
+                    176,
+                    458,
+                    230
+                  ],
+                  "action": "open",
+                  "target": "QGEA0N",
+                  "url": "/content/images/PRINCIPL/QGEA/QGEA0N.webp"
+                },
+                {
+                  "rect": [
+                    256,
+                    331,
+                    345,
+                    407
+                  ],
+                  "action": "open",
+                  "target": "QGEA0N",
+                  "url": "/content/images/PRINCIPL/QGEA/QGEA0N.webp"
+                }
+              ]
             },
             {
               "id": "QFRI1M",
@@ -36738,17 +39317,6 @@
                   "action": "open",
                   "target": "QFRI2Z",
                   "url": "/content/images/PRINCIPL/QFRI/QFRI2Z.webp"
-                },
-                {
-                  "rect": [
-                    68,
-                    116,
-                    99,
-                    135
-                  ],
-                  "action": "open",
-                  "target": "QFRI0N",
-                  "url": "/content/images/PRINCIPL/QFRI/QFRI0N.webp"
                 }
               ]
             },
@@ -36852,7 +39420,42 @@
               "url": "/content/images/PRINCIPL/QGEA/QGEA0M.webp",
               "bytes": 34820,
               "width": 540,
-              "height": 450
+              "height": 450,
+              "hotspots": [
+                {
+                  "rect": [
+                    320,
+                    198,
+                    385,
+                    249
+                  ],
+                  "action": "open",
+                  "target": "QHEA0N",
+                  "url": "/content/images/PRINCIPL/QHEA/QHEA0N.webp"
+                },
+                {
+                  "rect": [
+                    75,
+                    245,
+                    366,
+                    354
+                  ],
+                  "action": "open",
+                  "target": "QHEA0N",
+                  "url": "/content/images/PRINCIPL/QHEA/QHEA0N.webp"
+                },
+                {
+                  "rect": [
+                    47,
+                    283,
+                    316,
+                    415
+                  ],
+                  "action": "open",
+                  "target": "QHEA0N",
+                  "url": "/content/images/PRINCIPL/QHEA/QHEA0N.webp"
+                }
+              ]
             },
             {
               "id": "QGEA1M",
@@ -37159,7 +39762,43 @@
               "url": "/content/images/PRINCIPL/QHEA/QHEA0M.webp",
               "bytes": 28480,
               "width": 540,
-              "height": 450
+              "height": 450,
+              "hotspots": [
+                {
+                  "rect": [
+                    93,
+                    196,
+                    182,
+                    233
+                  ],
+                  "action": "play",
+                  "target": "QHEA1Z0A",
+                  "url": "/content/animations/PRINCIPL/QHEA/QHEA1Z0A.webm"
+                },
+                {
+                  "rect": [
+                    387,
+                    328,
+                    430,
+                    399
+                  ],
+                  "action": "open",
+                  "target": "QINC0N",
+                  "url": "/content/images/PRINCIPL/QINC/QINC0N.webp"
+                },
+                {
+                  "rect": [
+                    358,
+                    135,
+                    425,
+                    172
+                  ],
+                  "action": "navigate",
+                  "target": "Heat",
+                  "topicId": "PRINCIPL/QHEA",
+                  "url": "#/topic/PRINCIPL%2FQHEA"
+                }
+              ]
             },
             {
               "id": "QHEA1M",
@@ -37258,17 +39897,6 @@
               "width": 275,
               "height": 227,
               "hotspots": [
-                {
-                  "rect": [
-                    93,
-                    196,
-                    182,
-                    233
-                  ],
-                  "action": "play",
-                  "target": "QHEA1Z0A",
-                  "url": "/content/animations/PRINCIPL/QHEA/QHEA1Z0A.webm"
-                },
                 {
                   "rect": [
                     96,
@@ -37496,7 +40124,20 @@
               "url": "/content/images/PRINCIPL/QINC/QINC0M.webp",
               "bytes": 27528,
               "width": 540,
-              "height": 450
+              "height": 450,
+              "hotspots": [
+                {
+                  "rect": [
+                    19,
+                    300,
+                    153,
+                    435
+                  ],
+                  "action": "open",
+                  "target": "QLIT0N",
+                  "url": "/content/images/PRINCIPL/QLIT/QLIT0N.webp"
+                }
+              ]
             },
             {
               "id": "QINC1M",
@@ -37743,7 +40384,20 @@
               "url": "/content/images/PRINCIPL/QLVR/QLVR0M.webp",
               "bytes": 26962,
               "width": 540,
-              "height": 450
+              "height": 450,
+              "hotspots": [
+                {
+                  "rect": [
+                    17,
+                    70,
+                    95,
+                    155
+                  ],
+                  "action": "open",
+                  "target": "QMAG0R",
+                  "url": "/content/images/PRINCIPL/QMAG/QMAG0R.webp"
+                }
+              ]
             },
             {
               "id": "SALA0M",
@@ -37795,6 +40449,61 @@
                   "action": "open",
                   "target": "QLVR0Z",
                   "url": "/content/images/PRINCIPL/QLVR/QLVR0Z.webp"
+                },
+                {
+                  "rect": [
+                    101,
+                    171,
+                    173,
+                    198
+                  ],
+                  "action": "open",
+                  "target": "QLVR1Z",
+                  "url": "/content/images/PRINCIPL/QLVR/QLVR1Z.webp"
+                },
+                {
+                  "rect": [
+                    225,
+                    69,
+                    263,
+                    102
+                  ],
+                  "action": "open",
+                  "target": "QLVR2Z",
+                  "url": "/content/images/PRINCIPL/QLVR/QLVR2Z.webp"
+                },
+                {
+                  "rect": [
+                    100,
+                    69,
+                    157,
+                    96
+                  ],
+                  "action": "open",
+                  "target": "QLVR0Z",
+                  "url": "/content/images/PRINCIPL/QLVR/QLVR0Z.webp"
+                },
+                {
+                  "rect": [
+                    101,
+                    229,
+                    135,
+                    248
+                  ],
+                  "action": "open",
+                  "target": "QLVR0Z",
+                  "url": "/content/images/PRINCIPL/QLVR/QLVR0Z.webp"
+                },
+                {
+                  "rect": [
+                    189,
+                    229,
+                    216,
+                    248
+                  ],
+                  "action": "open",
+                  "target": "QLVR2Z",
+                  "url": "/content/images/PRINCIPL/QLVR/QLVR2Z.webp"
                 }
               ]
             },
@@ -37824,6 +40533,61 @@
                   "action": "open",
                   "target": "QLVR1Z",
                   "url": "/content/images/PRINCIPL/QLVR/QLVR1Z.webp"
+                },
+                {
+                  "rect": [
+                    200,
+                    155,
+                    257,
+                    182
+                  ],
+                  "action": "open",
+                  "target": "QLVR0Z",
+                  "url": "/content/images/PRINCIPL/QLVR/QLVR0Z.webp"
+                },
+                {
+                  "rect": [
+                    85,
+                    172,
+                    157,
+                    199
+                  ],
+                  "action": "open",
+                  "target": "QLVR1Z",
+                  "url": "/content/images/PRINCIPL/QLVR/QLVR1Z.webp"
+                },
+                {
+                  "rect": [
+                    188,
+                    69,
+                    237,
+                    94
+                  ],
+                  "action": "open",
+                  "target": "QLVR2Z",
+                  "url": "/content/images/PRINCIPL/QLVR/QLVR2Z.webp"
+                },
+                {
+                  "rect": [
+                    136,
+                    226,
+                    170,
+                    245
+                  ],
+                  "action": "open",
+                  "target": "QLVR0Z",
+                  "url": "/content/images/PRINCIPL/QLVR/QLVR0Z.webp"
+                },
+                {
+                  "rect": [
+                    23,
+                    243,
+                    49,
+                    262
+                  ],
+                  "action": "open",
+                  "target": "QLVR2Z",
+                  "url": "/content/images/PRINCIPL/QLVR/QLVR2Z.webp"
                 }
               ]
             },
@@ -37853,6 +40617,61 @@
                   "action": "open",
                   "target": "QLVR2Z",
                   "url": "/content/images/PRINCIPL/QLVR/QLVR2Z.webp"
+                },
+                {
+                  "rect": [
+                    48,
+                    221,
+                    82,
+                    240
+                  ],
+                  "action": "open",
+                  "target": "QLVR0Z",
+                  "url": "/content/images/PRINCIPL/QLVR/QLVR0Z.webp"
+                },
+                {
+                  "rect": [
+                    265,
+                    221,
+                    291,
+                    240
+                  ],
+                  "action": "open",
+                  "target": "QLVR2Z",
+                  "url": "/content/images/PRINCIPL/QLVR/QLVR2Z.webp"
+                },
+                {
+                  "rect": [
+                    33,
+                    84,
+                    105,
+                    111
+                  ],
+                  "action": "open",
+                  "target": "QLVR1Z",
+                  "url": "/content/images/PRINCIPL/QLVR/QLVR1Z.webp"
+                },
+                {
+                  "rect": [
+                    191,
+                    67,
+                    240,
+                    92
+                  ],
+                  "action": "open",
+                  "target": "QLVR2Z",
+                  "url": "/content/images/PRINCIPL/QLVR/QLVR2Z.webp"
+                },
+                {
+                  "rect": [
+                    175,
+                    170,
+                    232,
+                    197
+                  ],
+                  "action": "open",
+                  "target": "QLVR0Z",
+                  "url": "/content/images/PRINCIPL/QLVR/QLVR0Z.webp"
                 }
               ]
             },
@@ -37882,6 +40701,61 @@
                   "action": "open",
                   "target": "QLVR3Z",
                   "url": "/content/images/PRINCIPL/QLVR/QLVR3Z.webp"
+                },
+                {
+                  "rect": [
+                    190,
+                    226,
+                    216,
+                    245
+                  ],
+                  "action": "open",
+                  "target": "QLVR2Z",
+                  "url": "/content/images/PRINCIPL/QLVR/QLVR2Z.webp"
+                },
+                {
+                  "rect": [
+                    29,
+                    260,
+                    63,
+                    279
+                  ],
+                  "action": "open",
+                  "target": "QLVR0Z",
+                  "url": "/content/images/PRINCIPL/QLVR/QLVR0Z.webp"
+                },
+                {
+                  "rect": [
+                    98,
+                    54,
+                    155,
+                    81
+                  ],
+                  "action": "open",
+                  "target": "QLVR2Z",
+                  "url": "/content/images/PRINCIPL/QLVR/QLVR2Z.webp"
+                },
+                {
+                  "rect": [
+                    203,
+                    173,
+                    259,
+                    202
+                  ],
+                  "action": "open",
+                  "target": "QLVR0Z",
+                  "url": "/content/images/PRINCIPL/QLVR/QLVR0Z.webp"
+                },
+                {
+                  "rect": [
+                    60,
+                    155,
+                    132,
+                    182
+                  ],
+                  "action": "open",
+                  "target": "QLVR1Z",
+                  "url": "/content/images/PRINCIPL/QLVR/QLVR1Z.webp"
                 }
               ]
             },
@@ -37922,6 +40796,28 @@
                   "action": "open",
                   "target": "QLVR4Z",
                   "url": "/content/images/PRINCIPL/QLVR/QLVR4Z.webp"
+                },
+                {
+                  "rect": [
+                    129,
+                    192,
+                    163,
+                    211
+                  ],
+                  "action": "open",
+                  "target": "QLVR0Z",
+                  "url": "/content/images/PRINCIPL/QLVR/QLVR0Z.webp"
+                },
+                {
+                  "rect": [
+                    70,
+                    155,
+                    142,
+                    182
+                  ],
+                  "action": "open",
+                  "target": "QLVR1Z",
+                  "url": "/content/images/PRINCIPL/QLVR/QLVR1Z.webp"
                 }
               ]
             },
@@ -37955,7 +40851,20 @@
               "url": "/content/images/PRINCIPL/QLVR/QLVR7X.webp",
               "bytes": 1972,
               "width": 181,
-              "height": 86
+              "height": 86,
+              "hotspots": [
+                {
+                  "rect": [
+                    90,
+                    57,
+                    119,
+                    75
+                  ],
+                  "action": "open",
+                  "target": "QLVR0Z",
+                  "url": "/content/images/PRINCIPL/QLVR/QLVR0Z.webp"
+                }
+              ]
             },
             {
               "id": "QLVR8X",
@@ -37963,7 +40872,20 @@
               "url": "/content/images/PRINCIPL/QLVR/QLVR8X.webp",
               "bytes": 2796,
               "width": 181,
-              "height": 119
+              "height": 119,
+              "hotspots": [
+                {
+                  "rect": [
+                    105,
+                    26,
+                    130,
+                    44
+                  ],
+                  "action": "open",
+                  "target": "QLVR0Z",
+                  "url": "/content/images/PRINCIPL/QLVR/QLVR0Z.webp"
+                }
+              ]
             },
             {
               "id": "QLVR9X",
@@ -38059,7 +40981,20 @@
               "url": "/content/images/PRINCIPL/QLVR/QLVRJX.webp",
               "bytes": 2406,
               "width": 181,
-              "height": 102
+              "height": 102,
+              "hotspots": [
+                {
+                  "rect": [
+                    41,
+                    57,
+                    66,
+                    75
+                  ],
+                  "action": "open",
+                  "target": "QLVR2Z",
+                  "url": "/content/images/PRINCIPL/QLVR/QLVR2Z.webp"
+                }
+              ]
             }
           ],
           "animations": [
@@ -38883,7 +41818,31 @@
               "url": "/content/images/PRINCIPL/QPHO/QPHO0M.webp",
               "bytes": 28104,
               "width": 540,
-              "height": 450
+              "height": 450,
+              "hotspots": [
+                {
+                  "rect": [
+                    220,
+                    253,
+                    333,
+                    314
+                  ],
+                  "action": "open",
+                  "target": "QPRE0N",
+                  "url": "/content/images/PRINCIPL/QPRE/QPRE0N.webp"
+                },
+                {
+                  "rect": [
+                    183,
+                    278,
+                    274,
+                    413
+                  ],
+                  "action": "open",
+                  "target": "QPRE0N",
+                  "url": "/content/images/PRINCIPL/QPRE/QPRE0N.webp"
+                }
+              ]
             },
             {
               "id": "QPHO1M",
@@ -39162,7 +42121,20 @@
               "url": "/content/images/PRINCIPL/QPRE/QPRE0M.webp",
               "bytes": 30232,
               "width": 540,
-              "height": 450
+              "height": 450,
+              "hotspots": [
+                {
+                  "rect": [
+                    25,
+                    363,
+                    100,
+                    409
+                  ],
+                  "action": "open",
+                  "target": "QPUL0N",
+                  "url": "/content/images/PRINCIPL/QPUL/QPUL0N.webp"
+                }
+              ]
             },
             {
               "id": "QPRE1M",
@@ -39881,7 +42853,20 @@
               "url": "/content/images/PRINCIPL/QPUL/QPUL0M.webp",
               "bytes": 36642,
               "width": 540,
-              "height": 450
+              "height": 450,
+              "hotspots": [
+                {
+                  "rect": [
+                    276,
+                    288,
+                    409,
+                    411
+                  ],
+                  "action": "open",
+                  "target": "QSCR0N",
+                  "url": "/content/images/PRINCIPL/QSCR/QSCR0N.webp"
+                }
+              ]
             },
             {
               "id": "QPUL1M",
@@ -40057,7 +43042,42 @@
               "url": "/content/images/PRINCIPL/QSCR/QSCR0M.webp",
               "bytes": 32712,
               "width": 540,
-              "height": 450
+              "height": 450,
+              "hotspots": [
+                {
+                  "rect": [
+                    351,
+                    308,
+                    392,
+                    338
+                  ],
+                  "action": "open",
+                  "target": "QSND0N",
+                  "url": "/content/images/PRINCIPL/QSND/QSND0N.webp"
+                },
+                {
+                  "rect": [
+                    386,
+                    261,
+                    405,
+                    318
+                  ],
+                  "action": "open",
+                  "target": "QSND0N",
+                  "url": "/content/images/PRINCIPL/QSND/QSND0N.webp"
+                },
+                {
+                  "rect": [
+                    130,
+                    240,
+                    356,
+                    413
+                  ],
+                  "action": "open",
+                  "target": "QSND0N",
+                  "url": "/content/images/PRINCIPL/QSND/QSND0N.webp"
+                }
+              ]
             },
             {
               "id": "QSCR1M",
@@ -40828,7 +43848,20 @@
               "url": "/content/images/PRINCIPL/QSPR/QSPR0M.webp",
               "bytes": 30622,
               "width": 540,
-              "height": 450
+              "height": 450,
+              "hotspots": [
+                {
+                  "rect": [
+                    361,
+                    303,
+                    408,
+                    367
+                  ],
+                  "action": "open",
+                  "target": "QTEL0R",
+                  "url": "/content/images/PRINCIPL/QTEL/QTEL0R.webp"
+                }
+              ]
             },
             {
               "id": "QSPR1M",
@@ -40864,6 +43897,17 @@
                   "action": "open",
                   "target": "QSPR0Z",
                   "url": "/content/images/PRINCIPL/QSPR/QSPR0Z.webp"
+                },
+                {
+                  "rect": [
+                    169,
+                    110,
+                    200,
+                    129
+                  ],
+                  "action": "open",
+                  "target": "QSPR2Z",
+                  "url": "/content/images/PRINCIPL/QSPR/QSPR2Z.webp"
                 }
               ]
             },
@@ -40934,7 +43978,20 @@
               "url": "/content/images/PRINCIPL/QSPR/QSPR4Z.webp",
               "bytes": 8372,
               "width": 275,
-              "height": 379
+              "height": 379,
+              "hotspots": [
+                {
+                  "rect": [
+                    160,
+                    235,
+                    190,
+                    254
+                  ],
+                  "action": "open",
+                  "target": "QSPR2Z",
+                  "url": "/content/images/PRINCIPL/QSPR/QSPR2Z.webp"
+                }
+              ]
             },
             {
               "id": "QSPR0R",
@@ -41113,6 +44170,18 @@
                   "action": "open",
                   "target": "QTEL0Z",
                   "url": "/content/images/PRINCIPL/QTEL/QTEL0Z.webp"
+                },
+                {
+                  "rect": [
+                    66,
+                    183,
+                    111,
+                    202
+                  ],
+                  "action": "navigate",
+                  "target": "Electricity",
+                  "topicId": "PRINCIPL/QELE",
+                  "url": "#/topic/PRINCIPL%2FQELE"
                 }
               ]
             },

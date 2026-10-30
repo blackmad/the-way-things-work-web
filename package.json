@@ -9,6 +9,7 @@
     "pages:build": "npm run build && node scripts/prepare-pages.mjs",
     "preview": "vite preview",
     "import": "node scripts/import-iso.mjs",
+    "hotspots": "node scripts/refresh-hotspots.mjs",
     "validate": "node scripts/validate-content.mjs",
     "test": "node --test"
   },

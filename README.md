@@ -38,7 +38,7 @@ TWTW_JOBS=4 npm run import -- "/absolute/path/to/Way Things Work.iso"
 - Proprietary ANI sequences are decoded into browser-playable VP9/Opus WebM when their matching base screen is available; originals are always preserved.
 - Every discovered section and topic is routed and searchable.
 - The fixed 540×450-era compositions scale down without cropping on small screens.
-- `/classic` presents the original screens as a centered CD-ROM-style stage with in-place cards, animations, contents, and page controls.
+- `/classic` presents the original screens as a centered CD-ROM-style stage with in-place cards, animations, contents, and page controls. Loading `/classic/` plays the authored title sequence and lands on the Workshop home screen.
 
 The importer recovers authored animation, page/card, red-label, See Also, related-subject, and Inventors-book navigation rectangles from the compiled Penge database. Decoded indirect handler identities are the source of truth; OCR remains a conservative fallback for handlers that have not yet been decoded and never invents a hit area. Remaining compatibility work covers the wider long-tail of indirect concept handlers and one alternate ANI variant used by two lever-principle files. See [docs/PORTING.md](docs/PORTING.md).
 
@@ -49,6 +49,9 @@ npm test
 npm run build
 npm run validate
 npm run preview
+npm run hotspots
 ```
+
+`npm run hotspots` re-runs authored-hotspot extraction against the existing `public/content` manifest without reconverting media. It reads `DKCODE/TWTW.PNG` from `.cache/twtw/raw` by default; set `TWTW_PENGE=/path/to/TWTW.PNG` to point at another copy.
 
 The converted media in this repository is published with the rights holder's authorization. The original ISO and Windows runtime are not distributed here.

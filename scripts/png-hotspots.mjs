@@ -180,6 +180,8 @@ export function matchCardLabel(label, cards) {
     const title = normalizeHotspotLabel(card.title)
     return title === normalized || (Math.min(title.length, normalized.length) >= 5 && (title.includes(normalized) || normalized.includes(title)))
   })
+  const exact = matches.filter((card) => normalizeHotspotLabel(card.title) === normalized)
+  if (exact.length === 1) return exact[0]
   return matches.length === 1 ? matches[0] : null
 }
 
