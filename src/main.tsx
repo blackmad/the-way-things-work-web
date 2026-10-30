@@ -1,4 +1,4 @@
-import { StrictMode, useEffect, useMemo, useRef, useState } from 'react'
+import { StrictMode, useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
 import { createRoot } from 'react-dom/client'
 import type { ContentManifest, Hotspot, IndexEntry, MediaAsset, Section, Topic } from './types'
 import './styles.css'
@@ -267,13 +267,26 @@ function CardOverlay({ asset, fallback, close, activate, animation, playAnimatio
   // film is shown in place, paused on its first frame until it is asked for.
   const videoRef = useRef<HTMLVideoElement>(null)
   const [filmPlaying, setFilmPlaying] = useState(false)
+  const [filmProgress, setFilmProgress] = useState(0)
+  const [filmTouched, setFilmTouched] = useState(false)
   const inlineFilm = animation && animation.width === width && animation.height === height ? animation : undefined
-  function playInline() {
+  // The original drew a 74×22 rewind/play/progress strip into a slot left
+  // in the card artwork; the strip and its buttons come from TWTW.EXE.
+  const control = inlineFilm?.control
+  function playInline(fromStart = true) {
     const video = videoRef.current
     if (!video) return false
-    video.currentTime = 0
+    if (fromStart || video.ended) video.currentTime = 0
+    setFilmTouched(true)
     video.play().catch(() => { /* Autoplay policies can refuse; the control stays usable. */ })
     return true
+  }
+  function rewindInline() {
+    const video = videoRef.current
+    if (!video) return
+    video.pause()
+    video.currentTime = 0
+    setFilmProgress(0)
   }
   return <div
     className={`card-backdrop${classic ? ' classic-card-backdrop' : ''}${at ? ' positioned' : ''}`}
@@ -295,9 +308,46 @@ function CardOverlay({ asset, fallback, close, activate, animation, playAnimatio
         onPlay={() => setFilmPlaying(true)}
         onPause={() => setFilmPlaying(false)}
         onEnded={() => setFilmPlaying(false)}
+        onTimeUpdate={(event) => {
+          const video = event.currentTarget
+          setFilmProgress(video.duration ? video.currentTime / video.duration : 0)
+        }}
         aria-label={`Original animation ${inlineFilm.id}`}
       />}
-      {inlineFilm && !filmPlaying && <button
+      {inlineFilm && control && <div
+        className={`film-control${filmTouched ? '' : ' idle'}`}
+        style={{
+          ...percentBox(control[0], control[1], 74, 22, width, height),
+          backgroundImage: `url(${assetUrl('/content/ui/anim-control.png')})`,
+          '--play': `url(${assetUrl('/content/ui/anim-play.png')})`,
+          '--play-down': `url(${assetUrl('/content/ui/anim-play-down.png')})`,
+          '--pause': `url(${assetUrl('/content/ui/anim-pause.png')})`,
+          '--rewind': `url(${assetUrl('/content/ui/anim-rewind.png')})`,
+          '--rewind-down': `url(${assetUrl('/content/ui/anim-rewind-down.png')})`,
+        } as CSSProperties}
+        onClick={(event) => event.stopPropagation()}
+        role="group"
+        aria-label="Animation control"
+      >
+        <button
+          className="film-rewind"
+          style={percentBox(3, 3, 15, 16, 74, 22)}
+          onClick={rewindInline}
+          aria-label="Rewind animation"
+          title="Rewind"
+        />
+        <button
+          className={`film-play${filmPlaying ? ' playing' : ''}`}
+          style={percentBox(20, 3, 16, 16, 74, 22)}
+          onClick={() => (filmPlaying ? videoRef.current?.pause() : playInline(false))}
+          aria-label={filmPlaying ? 'Pause animation' : 'Play animation'}
+          title={filmPlaying ? 'Pause' : 'Play animation'}
+        />
+        <div className="film-progress" style={percentBox(40, 8, 29, 8, 74, 22)} aria-hidden="true">
+          <div style={{ width: `${filmProgress * 100}%` }} />
+        </div>
+      </div>}
+      {inlineFilm && !control && !filmPlaying && <button
         className="film-badge"
         style={inlineFilm.region
           ? { left: `${(inlineFilm.region[0] + inlineFilm.region[2]) / 2 / width * 100}%`, top: `${(inlineFilm.region[1] + inlineFilm.region[3]) / 2 / height * 100}%` }
@@ -324,7 +374,7 @@ function CardOverlay({ asset, fallback, close, activate, animation, playAnimatio
         />
       ))}
     </div>
-    {animation && playAnimation && <button className="card-play" onClick={(event) => {
+    {animation && playAnimation && !control && <button className="card-play" onClick={(event) => {
       event.stopPropagation()
       if (!playInline()) playAnimation()
     }}>▶ Play animation</button>}

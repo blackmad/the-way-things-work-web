@@ -220,3 +220,14 @@ footer { margin-top: auto; padding: 20px clamp(20px, 4vw, 64px); border-top: 1px
 @keyframes film-badge-pulse { 0%, 100% { box-shadow: 0 6px 20px rgba(0,0,0,.35), 0 0 0 0 rgba(184,47,38,.6); } 50% { box-shadow: 0 6px 20px rgba(0,0,0,.35), 0 0 0 12px rgba(184,47,38,0); } }
 @media (prefers-reduced-motion: reduce) { .film-badge { animation: none; } }
 .card-surface { container-type: inline-size; }
+.film-control { position: absolute; z-index: 3; background-size: 100% 100%; image-rendering: pixelated; }
+.film-control button { position: absolute; margin: 0; padding: 0; border: 0; background: transparent center / 100% 100% no-repeat; cursor: pointer; image-rendering: pixelated; }
+.film-control .film-rewind { background-image: var(--rewind); }
+.film-control .film-rewind:active { background-image: var(--rewind-down); }
+.film-control .film-play { background-image: var(--play); }
+.film-control .film-play:active { background-image: var(--play-down); }
+.film-control .film-play.playing { background-image: var(--pause); }
+.film-control button:focus-visible { outline: 2px solid #b82f26; outline-offset: 1px; }
+.film-control.idle .film-play { animation: film-badge-pulse 1.6s ease-in-out infinite; }
+.film-progress { position: absolute; overflow: hidden; }
+.film-progress div { height: 100%; background: #bf0000; }

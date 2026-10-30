@@ -82,6 +82,10 @@ The History of Machines era dial, the A–Z dial, the Principles of Science map,
 
 Pages such as the Principles "Mammoth Movies" projector have no hotspots at all: the executable plays the page's title card and film on arrival, and the web viewers do the same.
 
+### The animation control
+
+Cards that carry their own film (for example `SOLC0Z` with `SOLC0Z0A`) are not autoplayed and have no play hotspot. Instead the artwork leaves a slot, drawn as a white or blank rectangle centred in the gap between two rule lines, and the executable painted its `AnimationControl` there: BITMAP resource 101 in `TWTW.EXE`, a 74×22 strip with a rewind button at (3, 3), a play button at (20, 3), and a progress bar whose well spans (40, 8)–(69, 16). Resources 115–120 hold the button states (rewind, play, pause, and their pressed variants). `npm run ui` extracts them to `public/content/ui/`, `scripts/animation-regions.mjs` locates the slot on each card by its rule-line gap and records it as `control` on the animation, and `CardOverlay` draws the strip there, wired to the film.
+
 ## Manifest
 
 The importer writes `public/content/manifest.json`. Each image carries its hotspots:

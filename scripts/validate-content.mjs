@@ -33,6 +33,11 @@ async function main() {
         for (const asset of topic[kind]) {
           counts[kind]++
           if (kind === 'animations') asset.playable ? counts.playable++ : counts.preserved++
+          if (asset.control) {
+            const base = topic.images.find((image) => image.id === asset.baseId)
+            const [left, top] = asset.control
+            if (!base || left < 0 || top < 0 || left + 74 > base.width || top + 22 > base.height) failures.push(`Control slot outside card: ${asset.id}`)
+          }
           for (const url of [asset.url, asset.archiveUrl].filter(Boolean)) {
             if (urls.has(url) && url === asset.url) failures.push(`Duplicate primary URL: ${url}`)
             urls.add(url)

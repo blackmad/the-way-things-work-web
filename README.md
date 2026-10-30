@@ -51,9 +51,10 @@ npm run build
 npm run validate    # checks every manifest link against the converted media
 npm run preview
 npm run hotspots    # re-extract links and the index without reconverting media
-npm run animations  # re-render animations without reconverting images or sounds
+npm run animations  # re-render animations, record painted regions and control slots
+npm run ui          # extract the animation control artwork from TWTW.EXE
 ```
 
-`npm run hotspots` and `npm run animations` read from `.cache/twtw/raw` by default; set `TWTW_PENGE=/path/to/TWTW.PNG` or `TWTW_CACHE=/path/to/extracted/disc` to point elsewhere.
+`npm run hotspots`, `npm run animations`, and `npm run ui` read from `.cache/twtw/raw` by default; set `TWTW_PENGE=/path/to/TWTW.PNG` or `TWTW_CACHE=/path/to/extracted/disc` to point elsewhere.
 
 The converted media in this repository is published with the rights holder's authorization. The original ISO and Windows runtime are not distributed here.
