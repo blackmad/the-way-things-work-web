@@ -201,3 +201,5 @@ footer { margin-top: auto; padding: 20px clamp(20px, 4vw, 64px); border-top: 1px
 .classic-hotspot.navigate, .original-hotspot.navigate { border-style: double; }
 .card-backdrop.positioned { display: block; padding: 0; }
 .card-backdrop.positioned .card-surface { position: absolute; max-height: none; }
+.replay-movie { position: absolute; z-index: 3; left: 50%; bottom: 6%; transform: translateX(-50%); padding: 8px 14px; border: 1px solid #173734; color: #f6ecd2; background: rgba(23,55,52,.9); font: 600 9px 'DM Mono', monospace; text-transform: uppercase; letter-spacing: .06em; cursor: pointer; white-space: nowrap; }
+.replay-movie:hover, .replay-movie:focus-visible { background: #b82f26; }

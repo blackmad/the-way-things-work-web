@@ -46,6 +46,18 @@ function hotspotStyle(hotspot: Hotspot, width: number, height: number) {
   return { left: `${left / width * 100}%`, top: `${top / height * 100}%`, width: `${(right - left) / width * 100}%`, height: `${(bottom - top) / height * 100}%` }
 }
 
+// A screen with no authored controls that owns animations is a "Mammoth
+// Movies" page: the original plays its title card and film on arrival.
+function movieSequence(topic: Topic | undefined, image: MediaAsset | undefined) {
+  if (!topic || !image || image.hotspots?.length) return []
+  return topic.animations.filter((animation) => animation.playable && animation.baseId === image.id)
+}
+const playHotspot = (animation: MediaAsset): Hotspot => ({ rect: [0, 0, 0, 0], action: 'play', target: animation.id, url: animation.url })
+function nextInSequence(sequence: MediaAsset[], current: Hotspot | null) {
+  const index = current ? sequence.findIndex((animation) => animation.url === current.url) : -1
+  return index >= 0 && index + 1 < sequence.length ? playHotspot(sequence[index + 1]) : null
+}
+
 // The original window: a 94×460 navigation panel on the left and the 540×450
 // page at (94, 4) inside a thin frame. The panel's buttons are hard-wired in
 // the Windows executable rather than authored in the content database.
@@ -244,6 +256,10 @@ function TopicViewer({ topic, initialScreen, imagesByUrl }: { topic: Topic; init
     setActiveAnimation(null)
   }, [topic.id, initialScreen])
   const image = topic.images[screen]
+  const movie = movieSequence(topic, image)
+  useEffect(() => {
+    if (movie.length) setActiveAnimation(playHotspot(movie[0]))
+  }, [topic.id, screen])
   const cardAnimation = activeAnimation ? topic.animations.find((animation) =>
     animation.baseId === activeAnimation.target || animation.id.startsWith(`${activeAnimation.target}0`),
   ) : undefined
@@ -282,7 +298,7 @@ function TopicViewer({ topic, initialScreen, imagesByUrl }: { topic: Topic; init
               {activeAnimation ? (
                 <>
                   {activeAnimation.action === 'play'
-                    ? <video key={activeAnimation.url} src={assetUrl(activeAnimation.url)} autoPlay controls onEnded={() => setActiveAnimation(null)} aria-label={`Original animation ${activeAnimation.target}`} />
+                    ? <video key={activeAnimation.url} src={assetUrl(activeAnimation.url)} autoPlay controls onEnded={() => setActiveAnimation(nextInSequence(movie, activeAnimation))} aria-label={`Original animation ${activeAnimation.target}`} />
                     : <CardOverlay asset={imagesByUrl.get(activeAnimation.url)} fallback={activeAnimation} close={() => setActiveAnimation(null)} activate={activate} animation={cardAnimation} page={{ width: image.width!, height: image.height! }} playAnimation={() => cardAnimation && setActiveAnimation({ rect: [0, 0, 0, 0], action: 'play', target: cardAnimation.id, url: cardAnimation.url })} />}
                   {activeAnimation.action === 'play' && <button className="close-animation" onClick={() => setActiveAnimation(null)} aria-label="Close animation">×</button>}
                 </>
@@ -295,6 +311,7 @@ function TopicViewer({ topic, initialScreen, imagesByUrl }: { topic: Topic; init
                     height={image.height}
                     alt={`${topic.title}, original screen ${screen + 1} of ${topic.images.length}`}
                   />
+                  {movie.length > 0 && <button className="replay-movie" onClick={() => setActiveAnimation(playHotspot(movie[0]))}>▶ Play the film again</button>}
                   {image.hotspots?.map((hotspot, index) => (
                     <button
                       key={`${hotspot.target}-${index}`}
@@ -427,6 +444,10 @@ function ClassicApp({ manifest, topic, initialScreen }: { manifest: ContentManif
     if (topic) setContentsOpen(false)
   }, [topic?.id, initialScreen])
   const image = topic?.images[screen]
+  const movie = movieSequence(topic, image)
+  useEffect(() => {
+    if (movie.length) setActive(playHotspot(movie[0]))
+  }, [topic?.id, screen])
   const cardAnimation = active?.action === 'open' ? topic?.animations.find((animation) =>
     animation.baseId === active.target || animation.id.startsWith(`${active.target}0`),
   ) : undefined
@@ -518,7 +539,8 @@ function ClassicApp({ manifest, topic, initialScreen }: { manifest: ContentManif
                   title={hotspotLabel(hotspot)}
                 />
               ))}
-              {active?.action === 'play' && <div className="classic-media-overlay"><video src={assetUrl(active.url)} autoPlay controls onEnded={() => setActive(null)} /><button onClick={() => setActive(null)} aria-label="Close animation">×</button></div>}
+              {!active && movie.length > 0 && <button className="replay-movie" onClick={() => setActive(playHotspot(movie[0]))}>▶ Play the film again</button>}
+              {active?.action === 'play' && <div className="classic-media-overlay"><video key={active.url} src={assetUrl(active.url)} autoPlay controls onEnded={() => setActive(nextInSequence(movie, active))} /><button onClick={() => setActive(null)} aria-label="Close animation">×</button></div>}
               {active?.action === 'open' && <CardOverlay asset={imagesByUrl.get(active.url)} fallback={active} close={() => setActive(null)} activate={activate} animation={cardAnimation} page={{ width: image.width!, height: image.height! }} playAnimation={() => cardAnimation && setActive({ rect: [0, 0, 0, 0], action: 'play', target: cardAnimation.id, url: cardAnimation.url })} classic />}
             </div>
           </div>
