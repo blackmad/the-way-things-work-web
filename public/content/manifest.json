@@ -10,7 +10,7 @@
     "images": 1698,
     "animations": 497,
     "audio": 100,
-    "hotspots": 2276
+    "hotspots": 2341
   },
   "sections": [
     {
@@ -8670,7 +8670,21 @@
               "url": "/content/images/ARTICLE1/AIRC/AIRC1N.webp",
               "bytes": 3304,
               "width": 211,
-              "height": 116
+              "height": 116,
+              "hotspots": [
+                {
+                  "rect": [
+                    146,
+                    43,
+                    192,
+                    61
+                  ],
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "topicId": "PRINCIPL/QPRE",
+                  "url": "#/topic/PRINCIPL%2FQPRE"
+                }
+              ]
             },
             {
               "id": "AIRC2N",
@@ -10035,6 +10049,18 @@
                 },
                 {
                   "rect": [
+                    49,
+                    77,
+                    99,
+                    96
+                  ],
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
+                },
+                {
+                  "rect": [
                     477,
                     211,
                     536,
@@ -10090,7 +10116,21 @@
               "url": "/content/images/ARTICLE1/BARO/BARO2N.webp",
               "bytes": 2542,
               "width": 181,
-              "height": 102
+              "height": 102,
+              "hotspots": [
+                {
+                  "rect": [
+                    74,
+                    42,
+                    120,
+                    60
+                  ],
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
+                }
+              ]
             },
             {
               "id": "BARO3N",
@@ -10098,7 +10138,33 @@
               "url": "/content/images/ARTICLE1/BARO/BARO3N.webp",
               "bytes": 2528,
               "width": 181,
-              "height": 102
+              "height": 102,
+              "hotspots": [
+                {
+                  "rect": [
+                    48,
+                    40,
+                    94,
+                    58
+                  ],
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
+                },
+                {
+                  "rect": [
+                    71,
+                    24,
+                    117,
+                    42
+                  ],
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
+                }
+              ]
             },
             {
               "id": "BARO0J",
@@ -10910,6 +10976,18 @@
                   "action": "open",
                   "target": "BRAK0Z",
                   "url": "/content/images/ARTICLE1/BRAK/BRAK0Z.webp"
+                },
+                {
+                  "rect": [
+                    188,
+                    77,
+                    238,
+                    96
+                  ],
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
                 }
               ]
             },
@@ -11840,7 +11918,21 @@
               "url": "/content/images/ARTICLE1/BRET/BRET3N.webp",
               "bytes": 1962,
               "width": 181,
-              "height": 86
+              "height": 86,
+              "hotspots": [
+                {
+                  "rect": [
+                    61,
+                    26,
+                    107,
+                    44
+                  ],
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
+                }
+              ]
             },
             {
               "id": "BRET4N",
@@ -12858,6 +12950,18 @@
                 },
                 {
                   "rect": [
+                    130,
+                    365,
+                    180,
+                    384
+                  ],
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
+                },
+                {
+                  "rect": [
                     458,
                     272,
                     531,
@@ -13564,6 +13668,18 @@
                   "action": "open",
                   "target": "CDPL0N",
                   "url": "/content/images/ARTICLE1/CDPL/CDPL0N.webp"
+                },
+                {
+                  "rect": [
+                    146,
+                    163,
+                    183,
+                    182
+                  ],
+                  "action": "navigate",
+                  "target": "Sound",
+                  "topicId": "PRINCIPL/QSND",
+                  "url": "#/topic/PRINCIPL%2FQSND"
                 },
                 {
                   "rect": [
@@ -14510,6 +14626,18 @@
                   "action": "open",
                   "target": "DISH1N",
                   "url": "/content/images/ARTICLE1/DISH/DISH1N.webp"
+                },
+                {
+                  "rect": [
+                    330,
+                    183,
+                    380,
+                    202
+                  ],
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
                 },
                 {
                   "rect": [
@@ -16940,6 +17068,18 @@
                 },
                 {
                   "rect": [
+                    376,
+                    350,
+                    426,
+                    369
+                  ],
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
+                },
+                {
+                  "rect": [
                     223,
                     47,
                     280,
@@ -17047,7 +17187,21 @@
               "url": "/content/images/ARTICLE1/FIRE/FIRE3N.webp",
               "bytes": 2440,
               "width": 181,
-              "height": 102
+              "height": 102,
+              "hotspots": [
+                {
+                  "rect": [
+                    12,
+                    57,
+                    58,
+                    75
+                  ],
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
+                }
+              ]
             },
             {
               "id": "FIRE0J",
@@ -17914,6 +18068,18 @@
                 },
                 {
                   "rect": [
+                    30,
+                    214,
+                    81,
+                    233
+                  ],
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
+                },
+                {
+                  "rect": [
                     436,
                     237,
                     500,
@@ -17950,7 +18116,21 @@
               "url": "/content/images/ARTICLE1/DRIP/DRIP1N.webp",
               "bytes": 3150,
               "width": 211,
-              "height": 116
+              "height": 116,
+              "hotspots": [
+                {
+                  "rect": [
+                    135,
+                    58,
+                    181,
+                    76
+                  ],
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
+                }
+              ]
             },
             {
               "id": "DRIP2N",
@@ -17966,7 +18146,33 @@
               "url": "/content/images/ARTICLE1/DRIP/DRIP0Z.webp",
               "bytes": 10796,
               "width": 496,
-              "height": 416
+              "height": 416,
+              "hotspots": [
+                {
+                  "rect": [
+                    51,
+                    75,
+                    97,
+                    93
+                  ],
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
+                },
+                {
+                  "rect": [
+                    47,
+                    74,
+                    131,
+                    93
+                  ],
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
+                }
+              ]
             },
             {
               "id": "DRIP0J",
@@ -19398,6 +19604,18 @@
                   "action": "open",
                   "target": "MANM1N",
                   "url": "/content/images/ARTICLE2/MANM/MANM1N.webp"
+                },
+                {
+                  "rect": [
+                    12,
+                    41,
+                    58,
+                    59
+                  ],
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
                 }
               ]
             },
@@ -19530,6 +19748,18 @@
                   "action": "play",
                   "target": "PRES0M0A",
                   "url": "/content/animations/ARTICLE2/PRES/PRES0M0A.webm"
+                },
+                {
+                  "rect": [
+                    52,
+                    111,
+                    103,
+                    130
+                  ],
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
                 }
               ]
             },
@@ -19547,7 +19777,21 @@
               "url": "/content/images/ARTICLE2/PRES/PRES0Z.webp",
               "bytes": 7138,
               "width": 275,
-              "height": 314
+              "height": 314,
+              "hotspots": [
+                {
+                  "rect": [
+                    143,
+                    224,
+                    194,
+                    243
+                  ],
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
+                }
+              ]
             },
             {
               "id": "PRES0J",
@@ -20855,6 +21099,18 @@
                 },
                 {
                   "rect": [
+                    287,
+                    298,
+                    338,
+                    317
+                  ],
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
+                },
+                {
+                  "rect": [
                     213,
                     189,
                     254,
@@ -22032,7 +22288,21 @@
               "url": "/content/images/ARTICLE2/HOVR/HOVR0N.webp",
               "bytes": 2522,
               "width": 181,
-              "height": 102
+              "height": 102,
+              "hotspots": [
+                {
+                  "rect": [
+                    83,
+                    72,
+                    129,
+                    90
+                  ],
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
+                }
+              ]
             },
             {
               "id": "HOVR1N",
@@ -22196,6 +22466,18 @@
                 },
                 {
                   "rect": [
+                    61,
+                    298,
+                    111,
+                    317
+                  ],
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
+                },
+                {
+                  "rect": [
                     466,
                     121,
                     538,
@@ -22252,6 +22534,30 @@
                   "action": "open",
                   "target": "LIFH1N",
                   "url": "/content/images/ARTICLE2/LIFH/LIFH1N.webp"
+                },
+                {
+                  "rect": [
+                    114,
+                    91,
+                    159,
+                    109
+                  ],
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
+                },
+                {
+                  "rect": [
+                    18,
+                    324,
+                    69,
+                    343
+                  ],
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
                 }
               ]
             },
@@ -23310,7 +23616,21 @@
               "url": "/content/images/ARTICLE2/LASR/LASR0Z.webp",
               "bytes": 8218,
               "width": 355,
-              "height": 341
+              "height": 341,
+              "hotspots": [
+                {
+                  "rect": [
+                    134,
+                    200,
+                    170,
+                    219
+                  ],
+                  "action": "navigate",
+                  "target": "Waves",
+                  "topicId": "PRINCIPL/QWAV",
+                  "url": "#/topic/PRINCIPL%2FQWAV"
+                }
+              ]
             },
             {
               "id": "LASR1X",
@@ -25583,7 +25903,21 @@
               "url": "/content/images/ARTICLE2/MOVE/MOVE4N.webp",
               "bytes": 2762,
               "width": 181,
-              "height": 119
+              "height": 119,
+              "hotspots": [
+                {
+                  "rect": [
+                    12,
+                    41,
+                    46,
+                    59
+                  ],
+                  "action": "navigate",
+                  "target": "Waves",
+                  "url": "#/topic/PRINCIPL%2FQWAV",
+                  "topicId": "PRINCIPL/QWAV"
+                }
+              ]
             },
             {
               "id": "MOVE5N",
@@ -25779,14 +26113,27 @@
               "hotspots": [
                 {
                   "rect": [
+                    255,
+                    234,
+                    288,
+                    253
+                  ],
+                  "action": "navigate",
+                  "target": "Light",
+                  "topicId": "PRINCIPL/QLIT",
+                  "url": "#/topic/PRINCIPL%2FQLIT"
+                },
+                {
+                  "rect": [
                     88,
                     251,
                     122,
                     270
                   ],
-                  "action": "open",
-                  "target": "MOUS0Z",
-                  "url": "/content/images/ARTICLE2/MOUS/MOUS0Z.webp"
+                  "action": "navigate",
+                  "target": "Light",
+                  "url": "#/topic/PRINCIPL%2FQLIT",
+                  "topicId": "PRINCIPL/QLIT"
                 },
                 {
                   "rect": [
@@ -26373,6 +26720,17 @@
                   "action": "play",
                   "target": "PERC0Z0A",
                   "url": "/content/animations/ARTICLE2/PERC/PERC0Z0A.webm"
+                },
+                {
+                  "rect": [
+                    236,
+                    227,
+                    269,
+                    244
+                  ],
+                  "action": "play",
+                  "target": "PERC0Z0A",
+                  "url": "/content/animations/ARTICLE2/PERC/PERC0Z0A.webm"
                 }
               ]
             },
@@ -26796,7 +27154,33 @@
               "url": "/content/images/ARTICLE2/MCOM/MCOM2N.webp",
               "bytes": 3332,
               "width": 181,
-              "height": 180
+              "height": 180,
+              "hotspots": [
+                {
+                  "rect": [
+                    88,
+                    73,
+                    120,
+                    91
+                  ],
+                  "action": "navigate",
+                  "target": "Sound",
+                  "url": "#/topic/PRINCIPL%2FQSND",
+                  "topicId": "PRINCIPL/QSND"
+                },
+                {
+                  "rect": [
+                    123,
+                    73,
+                    161,
+                    91
+                  ],
+                  "action": "navigate",
+                  "target": "Sound",
+                  "url": "#/topic/PRINCIPL%2FQSND",
+                  "topicId": "PRINCIPL/QSND"
+                }
+              ]
             },
             {
               "id": "MCOM3N",
@@ -27772,6 +28156,18 @@
                 },
                 {
                   "rect": [
+                    245,
+                    60,
+                    328,
+                    79
+                  ],
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
+                },
+                {
+                  "rect": [
                     345,
                     258,
                     443,
@@ -27833,7 +28229,21 @@
               "url": "/content/images/ARTICLE2/POWE/POWE1N.webp",
               "bytes": 4502,
               "width": 181,
-              "height": 228
+              "height": 228,
+              "hotspots": [
+                {
+                  "rect": [
+                    16,
+                    64,
+                    104,
+                    83
+                  ],
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
+                }
+              ]
             },
             {
               "id": "POWE2N",
@@ -27946,6 +28356,18 @@
                   "action": "open",
                   "target": "ECIR4Z",
                   "url": "/content/images/ARTICLE1/ECIR/ECIR4Z.webp"
+                },
+                {
+                  "rect": [
+                    16,
+                    279,
+                    67,
+                    298
+                  ],
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
                 }
               ]
             },
@@ -30404,9 +30826,10 @@
                     116,
                     75
                   ],
-                  "action": "open",
-                  "target": "QSND0N",
-                  "url": "/content/images/PRINCIPL/QSND/QSND0N.webp"
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
                 }
               ]
             }
@@ -30843,9 +31266,10 @@
                     522,
                     215
                   ],
-                  "action": "open",
-                  "target": "QSND0N",
-                  "url": "/content/images/PRINCIPL/QSND/QSND0N.webp"
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
                 },
                 {
                   "rect": [
@@ -30967,9 +31391,10 @@
                     249,
                     310
                   ],
-                  "action": "open",
-                  "target": "QSND0N",
-                  "url": "/content/images/PRINCIPL/QSND/QSND0N.webp"
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
                 },
                 {
                   "rect": [
@@ -32243,6 +32668,18 @@
                 },
                 {
                   "rect": [
+                    79,
+                    60,
+                    145,
+                    79
+                  ],
+                  "action": "navigate",
+                  "target": "Waves",
+                  "url": "#/topic/PRINCIPL%2FQWAV",
+                  "topicId": "PRINCIPL/QWAV"
+                },
+                {
+                  "rect": [
                     171,
                     111,
                     216,
@@ -32277,7 +32714,21 @@
               "url": "/content/images/ARTICLE3/RECR/RECR2N.webp",
               "bytes": 2218,
               "width": 181,
-              "height": 102
+              "height": 102,
+              "hotspots": [
+                {
+                  "rect": [
+                    12,
+                    58,
+                    44,
+                    76
+                  ],
+                  "action": "navigate",
+                  "target": "Sound",
+                  "url": "#/topic/PRINCIPL%2FQSND",
+                  "topicId": "PRINCIPL/QSND"
+                }
+              ]
             },
             {
               "id": "RECR3N",
@@ -32293,7 +32744,21 @@
               "url": "/content/images/ARTICLE3/RECR/RECR4N.webp",
               "bytes": 3232,
               "width": 181,
-              "height": 180
+              "height": 180,
+              "hotspots": [
+                {
+                  "rect": [
+                    58,
+                    57,
+                    90,
+                    75
+                  ],
+                  "action": "navigate",
+                  "target": "Sound",
+                  "url": "#/topic/PRINCIPL%2FQSND",
+                  "topicId": "PRINCIPL/QSND"
+                }
+              ]
             },
             {
               "id": "RECR5N",
@@ -32303,6 +32768,18 @@
               "width": 181,
               "height": 102,
               "hotspots": [
+                {
+                  "rect": [
+                    63,
+                    73,
+                    95,
+                    91
+                  ],
+                  "action": "navigate",
+                  "target": "Sound",
+                  "url": "#/topic/PRINCIPL%2FQSND",
+                  "topicId": "PRINCIPL/QSND"
+                },
                 {
                   "rect": [
                     12,
@@ -32335,6 +32812,42 @@
                   "target": "Electricity",
                   "url": "#/topic/PRINCIPL%2FQELE",
                   "topicId": "PRINCIPL/QELE"
+                },
+                {
+                  "rect": [
+                    253,
+                    314,
+                    289,
+                    333
+                  ],
+                  "action": "navigate",
+                  "target": "Waves",
+                  "url": "#/topic/PRINCIPL%2FQWAV",
+                  "topicId": "PRINCIPL/QWAV"
+                },
+                {
+                  "rect": [
+                    166,
+                    365,
+                    202,
+                    384
+                  ],
+                  "action": "navigate",
+                  "target": "Sound",
+                  "url": "#/topic/PRINCIPL%2FQSND",
+                  "topicId": "PRINCIPL/QSND"
+                },
+                {
+                  "rect": [
+                    206,
+                    365,
+                    244,
+                    384
+                  ],
+                  "action": "navigate",
+                  "target": "Sound",
+                  "url": "#/topic/PRINCIPL%2FQSND",
+                  "topicId": "PRINCIPL/QSND"
                 }
               ]
             },
@@ -32638,9 +33151,10 @@
                     102,
                     201
                   ],
-                  "action": "open",
-                  "target": "QSND0N",
-                  "url": "/content/images/PRINCIPL/QSND/QSND0N.webp"
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
                 },
                 {
                   "rect": [
@@ -32860,9 +33374,10 @@
                     139,
                     92
                   ],
-                  "action": "open",
-                  "target": "MOUS0Z",
-                  "url": "/content/images/ARTICLE2/MOUS/MOUS0Z.webp"
+                  "action": "navigate",
+                  "target": "Light",
+                  "url": "#/topic/PRINCIPL%2FQLIT",
+                  "topicId": "PRINCIPL/QLIT"
                 }
               ]
             },
@@ -32881,9 +33396,10 @@
                     130,
                     43
                   ],
-                  "action": "open",
-                  "target": "MOUS0Z",
-                  "url": "/content/images/ARTICLE2/MOUS/MOUS0Z.webp"
+                  "action": "navigate",
+                  "target": "Light",
+                  "url": "#/topic/PRINCIPL%2FQLIT",
+                  "topicId": "PRINCIPL/QLIT"
                 },
                 {
                   "rect": [
@@ -32892,9 +33408,10 @@
                     61,
                     59
                   ],
-                  "action": "open",
-                  "target": "MOUS0Z",
-                  "url": "/content/images/ARTICLE2/MOUS/MOUS0Z.webp"
+                  "action": "navigate",
+                  "target": "Light",
+                  "url": "#/topic/PRINCIPL%2FQLIT",
+                  "topicId": "PRINCIPL/QLIT"
                 },
                 {
                   "rect": [
@@ -32903,9 +33420,10 @@
                     96,
                     59
                   ],
-                  "action": "open",
-                  "target": "MOUS0Z",
-                  "url": "/content/images/ARTICLE2/MOUS/MOUS0Z.webp"
+                  "action": "navigate",
+                  "target": "Light",
+                  "url": "#/topic/PRINCIPL%2FQLIT",
+                  "topicId": "PRINCIPL/QLIT"
                 },
                 {
                   "rect": [
@@ -33445,9 +33963,10 @@
                     227,
                     148
                   ],
-                  "action": "open",
-                  "target": "QSND0N",
-                  "url": "/content/images/PRINCIPL/QSND/QSND0N.webp"
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
                 },
                 {
                   "rect": [
@@ -33758,9 +34277,10 @@
                     222,
                     199
                   ],
-                  "action": "open",
-                  "target": "QSND0N",
-                  "url": "/content/images/PRINCIPL/QSND/QSND0N.webp"
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
                 }
               ]
             },
@@ -33787,9 +34307,10 @@
                     148,
                     337
                   ],
-                  "action": "open",
-                  "target": "QSND0N",
-                  "url": "/content/images/PRINCIPL/QSND/QSND0N.webp"
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
                 }
               ]
             },
@@ -33816,9 +34337,10 @@
                     78,
                     379
                   ],
-                  "action": "open",
-                  "target": "QSND0N",
-                  "url": "/content/images/PRINCIPL/QSND/QSND0N.webp"
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
                 }
               ]
             },
@@ -34633,9 +35155,10 @@
                     182,
                     87
                   ],
-                  "action": "open",
-                  "target": "QSND0N",
-                  "url": "/content/images/PRINCIPL/QSND/QSND0N.webp"
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
                 }
               ]
             },
@@ -34670,9 +35193,10 @@
                     60,
                     77
                   ],
-                  "action": "open",
-                  "target": "QSND0N",
-                  "url": "/content/images/PRINCIPL/QSND/QSND0N.webp"
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
                 },
                 {
                   "rect": [
@@ -34681,9 +35205,10 @@
                     137,
                     343
                   ],
-                  "action": "open",
-                  "target": "QSND0N",
-                  "url": "/content/images/PRINCIPL/QSND/QSND0N.webp"
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
                 }
               ]
             },
@@ -34702,9 +35227,10 @@
                     87,
                     60
                   ],
-                  "action": "open",
-                  "target": "QSND0N",
-                  "url": "/content/images/PRINCIPL/QSND/QSND0N.webp"
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
                 },
                 {
                   "rect": [
@@ -34713,9 +35239,10 @@
                     143,
                     99
                   ],
-                  "action": "open",
-                  "target": "QSND0N",
-                  "url": "/content/images/PRINCIPL/QSND/QSND0N.webp"
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
                 }
               ]
             },
@@ -36051,6 +36578,18 @@
                 },
                 {
                   "rect": [
+                    10,
+                    112,
+                    46,
+                    131
+                  ],
+                  "action": "navigate",
+                  "target": "Waves",
+                  "url": "#/topic/PRINCIPL%2FQWAV",
+                  "topicId": "PRINCIPL/QWAV"
+                },
+                {
+                  "rect": [
                     338,
                     245,
                     421,
@@ -36087,7 +36626,21 @@
               "url": "/content/images/ARTICLE3/SONA/SONA1N.webp",
               "bytes": 2356,
               "width": 181,
-              "height": 102
+              "height": 102,
+              "hotspots": [
+                {
+                  "rect": [
+                    50,
+                    73,
+                    84,
+                    91
+                  ],
+                  "action": "navigate",
+                  "target": "Waves",
+                  "url": "#/topic/PRINCIPL%2FQWAV",
+                  "topicId": "PRINCIPL/QWAV"
+                }
+              ]
             },
             {
               "id": "SONA2N",
@@ -36406,9 +36959,10 @@
                     212,
                     148
                   ],
-                  "action": "open",
-                  "target": "QSND0N",
-                  "url": "/content/images/PRINCIPL/QSND/QSND0N.webp"
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
                 }
               ]
             },
@@ -36435,9 +36989,10 @@
                     58,
                     76
                   ],
-                  "action": "open",
-                  "target": "QSND0N",
-                  "url": "/content/images/PRINCIPL/QSND/QSND0N.webp"
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
                 }
               ]
             },
@@ -36467,9 +37022,10 @@
                     155,
                     75
                   ],
-                  "action": "open",
-                  "target": "QSND0N",
-                  "url": "/content/images/PRINCIPL/QSND/QSND0N.webp"
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
                 }
               ]
             },
@@ -36953,9 +37509,10 @@
                     426,
                     347
                   ],
-                  "action": "open",
-                  "target": "QSND0N",
-                  "url": "/content/images/PRINCIPL/QSND/QSND0N.webp"
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
                 }
               ]
             },
@@ -37359,6 +37916,30 @@
                 },
                 {
                   "rect": [
+                    287,
+                    366,
+                    323,
+                    385
+                  ],
+                  "action": "navigate",
+                  "target": "Waves",
+                  "url": "#/topic/PRINCIPL%2FQWAV",
+                  "topicId": "PRINCIPL/QWAV"
+                },
+                {
+                  "rect": [
+                    315,
+                    400,
+                    351,
+                    419
+                  ],
+                  "action": "navigate",
+                  "target": "Sound",
+                  "url": "#/topic/PRINCIPL%2FQSND",
+                  "topicId": "PRINCIPL/QSND"
+                },
+                {
+                  "rect": [
                     458,
                     143,
                     531,
@@ -37419,9 +38000,10 @@
                     236,
                     97
                   ],
-                  "action": "open",
-                  "target": "QSND0N",
-                  "url": "/content/images/PRINCIPL/QSND/QSND0N.webp"
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
                 }
               ]
             },
@@ -37493,7 +38075,21 @@
               "url": "/content/images/ARTICLE3/TAPE/TAPE1Z.webp",
               "bytes": 10066,
               "width": 275,
-              "height": 392
+              "height": 392,
+              "hotspots": [
+                {
+                  "rect": [
+                    117,
+                    353,
+                    153,
+                    372
+                  ],
+                  "action": "navigate",
+                  "target": "Sound",
+                  "url": "#/topic/PRINCIPL%2FQSND",
+                  "topicId": "PRINCIPL/QSND"
+                }
+              ]
             },
             {
               "id": "TAPE0J",
@@ -38862,6 +39458,17 @@
                   "action": "open",
                   "target": "ULTR0N",
                   "url": "/content/images/ARTICLE3/ULTR/ULTR0N.webp"
+                },
+                {
+                  "rect": [
+                    147,
+                    59,
+                    183,
+                    78
+                  ],
+                  "action": "play",
+                  "target": "ULTR0M0A",
+                  "url": "/content/animations/ARTICLE3/ULTR/ULTR0M0A.webm"
                 },
                 {
                   "rect": [
@@ -42545,6 +43152,30 @@
                   "action": "open",
                   "target": "CLOK1N",
                   "url": "/content/images/ARTICLE1/CLOK/CLOK1N.webp"
+                },
+                {
+                  "rect": [
+                    66,
+                    326,
+                    87,
+                    345
+                  ],
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
+                },
+                {
+                  "rect": [
+                    91,
+                    326,
+                    146,
+                    345
+                  ],
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
                 }
               ]
             },
@@ -46357,6 +46988,18 @@
                   "action": "open",
                   "target": "KITE0N",
                   "url": "/content/images/ARTICLE2/KITE/KITE0N.webp"
+                },
+                {
+                  "rect": [
+                    242,
+                    163,
+                    293,
+                    182
+                  ],
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
                 }
               ]
             },
@@ -46748,6 +47391,18 @@
                   "action": "open",
                   "target": "CLOK1N",
                   "url": "/content/images/ARTICLE1/CLOK/CLOK1N.webp"
+                },
+                {
+                  "rect": [
+                    15,
+                    293,
+                    59,
+                    310
+                  ],
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
                 }
               ]
             },
@@ -46799,6 +47454,18 @@
                 },
                 {
                   "rect": [
+                    140,
+                    278,
+                    184,
+                    295
+                  ],
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
+                },
+                {
+                  "rect": [
                     203,
                     293,
                     239,
@@ -46828,6 +47495,18 @@
                   "action": "open",
                   "target": "QPRE1M",
                   "url": "/content/images/PRINCIPL/QPRE/QPRE1M.webp"
+                },
+                {
+                  "rect": [
+                    42,
+                    268,
+                    93,
+                    287
+                  ],
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
                 }
               ]
             },
@@ -46837,7 +47516,21 @@
               "url": "/content/images/PRINCIPL/QPRE/QPRE1X.webp",
               "bytes": 10430,
               "width": 403,
-              "height": 347
+              "height": 347,
+              "hotspots": [
+                {
+                  "rect": [
+                    12,
+                    58,
+                    58,
+                    76
+                  ],
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
+                }
+              ]
             },
             {
               "id": "QPRE1Z",
@@ -46857,6 +47550,18 @@
                   "action": "open",
                   "target": "QPRE0Z",
                   "url": "/content/images/PRINCIPL/QPRE/QPRE0Z.webp"
+                },
+                {
+                  "rect": [
+                    327,
+                    248,
+                    371,
+                    265
+                  ],
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
                 },
                 {
                   "rect": [
@@ -46932,6 +47637,30 @@
                 },
                 {
                   "rect": [
+                    46,
+                    194,
+                    96,
+                    213
+                  ],
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
+                },
+                {
+                  "rect": [
+                    22,
+                    300,
+                    72,
+                    319
+                  ],
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
+                },
+                {
+                  "rect": [
                     138,
                     129,
                     164,
@@ -46960,7 +47689,21 @@
               "url": "/content/images/PRINCIPL/QPRE/QPRE0R.webp",
               "bytes": 9508,
               "width": 496,
-              "height": 346
+              "height": 346,
+              "hotspots": [
+                {
+                  "rect": [
+                    104,
+                    57,
+                    149,
+                    75
+                  ],
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
+                }
+              ]
             }
           ],
           "animations": [
@@ -47927,6 +48670,18 @@
                   "action": "play",
                   "target": "QSCR2Z0A",
                   "url": "/content/animations/PRINCIPL/QSCR/QSCR2Z0A.webm"
+                },
+                {
+                  "rect": [
+                    194,
+                    75,
+                    229,
+                    120
+                  ],
+                  "action": "navigate",
+                  "target": "Waves",
+                  "url": "#/topic/PRINCIPL%2FQWAV",
+                  "topicId": "PRINCIPL/QWAV"
                 }
               ]
             },
@@ -48042,7 +48797,21 @@
               "url": "/content/images/PRINCIPL/QSND/QSND0M.webp",
               "bytes": 26588,
               "width": 540,
-              "height": 450
+              "height": 450,
+              "hotspots": [
+                {
+                  "rect": [
+                    441,
+                    137,
+                    515,
+                    177
+                  ],
+                  "action": "navigate",
+                  "target": "Sound",
+                  "topicId": "PRINCIPL/QSND",
+                  "url": "#/topic/PRINCIPL%2FQSND"
+                }
+              ]
             },
             {
               "id": "QSND1M",
@@ -48143,6 +48912,29 @@
                   "action": "play",
                   "target": "QSND0Z1A",
                   "url": "/content/animations/PRINCIPL/QSND/QSND0Z1A.webm"
+                },
+                {
+                  "rect": [
+                    76,
+                    40,
+                    121,
+                    58
+                  ],
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
+                },
+                {
+                  "rect": [
+                    58,
+                    298,
+                    93,
+                    317
+                  ],
+                  "action": "play",
+                  "target": "QSND0Z0A",
+                  "url": "/content/animations/PRINCIPL/QSND/QSND0Z0A.webm"
                 }
               ]
             },
@@ -48205,6 +48997,28 @@
                   "action": "play",
                   "target": "QSND1Z1A",
                   "url": "/content/animations/PRINCIPL/QSND/QSND1Z1A.webm"
+                },
+                {
+                  "rect": [
+                    96,
+                    41,
+                    129,
+                    59
+                  ],
+                  "action": "play",
+                  "target": "QSND1Z0A",
+                  "url": "/content/animations/PRINCIPL/QSND/QSND1Z0A.webm"
+                },
+                {
+                  "rect": [
+                    58,
+                    298,
+                    93,
+                    317
+                  ],
+                  "action": "play",
+                  "target": "QSND1Z0A",
+                  "url": "/content/animations/PRINCIPL/QSND/QSND1Z0A.webm"
                 }
               ]
             },
@@ -48267,6 +49081,17 @@
                   "action": "open",
                   "target": "QSND1M",
                   "url": "/content/images/PRINCIPL/QSND/QSND1M.webp"
+                },
+                {
+                  "rect": [
+                    58,
+                    298,
+                    93,
+                    317
+                  ],
+                  "action": "play",
+                  "target": "QSND2Z0A",
+                  "url": "/content/animations/PRINCIPL/QSND/QSND2Z0A.webm"
                 }
               ]
             },
@@ -48403,9 +49228,10 @@
                     208,
                     224
                   ],
-                  "action": "open",
-                  "target": "QSND0N",
-                  "url": "/content/images/PRINCIPL/QSND/QSND0N.webp"
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
                 }
               ]
             }
@@ -48655,9 +49481,10 @@
                     288,
                     256
                   ],
-                  "action": "open",
-                  "target": "QSND0N",
-                  "url": "/content/images/PRINCIPL/QSND/QSND0N.webp"
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
                 }
               ]
             },
@@ -48997,9 +49824,10 @@
                     73,
                     165
                   ],
-                  "action": "open",
-                  "target": "QSND0N",
-                  "url": "/content/images/PRINCIPL/QSND/QSND0N.webp"
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
                 },
                 {
                   "rect": [
@@ -49011,6 +49839,17 @@
                   "action": "open",
                   "target": "CLOK1N",
                   "url": "/content/images/ARTICLE1/CLOK/CLOK1N.webp"
+                },
+                {
+                  "rect": [
+                    145,
+                    197,
+                    180,
+                    216
+                  ],
+                  "action": "play",
+                  "target": "QTEL1M0A",
+                  "url": "/content/animations/PRINCIPL/QTEL/QTEL1M0A.webm"
                 }
               ]
             },
@@ -49322,9 +50161,10 @@
                     87,
                     317
                   ],
-                  "action": "open",
-                  "target": "QSND0N",
-                  "url": "/content/images/PRINCIPL/QSND/QSND0N.webp"
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
                 },
                 {
                   "rect": [
@@ -49365,9 +50205,10 @@
                     58,
                     74
                   ],
-                  "action": "open",
-                  "target": "QSND0N",
-                  "url": "/content/images/PRINCIPL/QSND/QSND0N.webp"
+                  "action": "navigate",
+                  "target": "Pressure",
+                  "url": "#/topic/PRINCIPL%2FQPRE",
+                  "topicId": "PRINCIPL/QPRE"
                 },
                 {
                   "rect": [

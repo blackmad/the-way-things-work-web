@@ -42,6 +42,7 @@ export const INVENTOR_TAB_HANDLERS = new Map([
 
 export const PRINCIPLE_CROSS_REFERENCES = new Map([
   ['current', 'QELE'],
+  ['electricity', 'QELE'],
   ['heat', 'QHEA'],
   ['heats', 'QHEA'],
   ['buoyant', 'QFLO'],
@@ -49,6 +50,24 @@ export const PRINCIPLE_CROSS_REFERENCES = new Map([
   ['dense', 'QFLO'],
   ['density', 'QFLO'],
   ['lessdense', 'QFLO'],
+  ['floating', 'QFLO'],
+  ['friction', 'QFRI'],
+  ['pressure', 'QPRE'],
+  ['light', 'QLIT'],
+  ['sound', 'QSND'],
+  ['magnetism', 'QMAG'],
+  ['magnetic', 'QMAG'],
+  ['gears', 'QGEA'],
+  ['levers', 'QLVR'],
+  ['springs', 'QSPR'],
+  ['waves', 'QWAV'],
+  ['flying', 'QFLY'],
+  ['computers', 'QCOM'],
+  ['photography', 'QPHO'],
+  ['telecommunications', 'QTEL'],
+  ['screws', 'QSCR'],
+  ['wheels', 'QWHE'],
+  ['cams', 'QCAM'],
 ])
 
 async function command(program, args, options = {}) {
