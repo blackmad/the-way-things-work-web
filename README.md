@@ -12,7 +12,7 @@ Classic mode: <https://blackmad.github.io/the-way-things-work-web/classic/>
 - 7-Zip (`7z`)
 - ImageMagick (`magick`)
 - FFmpeg (`ffmpeg`)
-- Tesseract (`tesseract`, optional but recommended for topic titles)
+- Tesseract (`tesseract`, optional, only used to read topic titles)
 - A legally obtained copy of the original ISO
 
 ## Import and run
@@ -35,23 +35,25 @@ TWTW_JOBS=4 npm run import -- "/absolute/path/to/Way Things Work.iso"
 
 - All bitmap screens are converted losslessly to WebP.
 - All Microsoft ADPCM sounds are converted to MP3.
-- Proprietary ANI sequences are decoded into browser-playable VP9/Opus WebM when their matching base screen is available; originals are always preserved.
-- Every discovered section and topic is routed and searchable.
-- The fixed 540×450-era compositions scale down without cropping on small screens.
-- `/classic` presents the original screens as a centered CD-ROM-style stage with in-place cards, animations, contents, and page controls. Loading `/classic/` plays the authored title sequence and lands on the Workshop home screen. Detail cards and principle panels expose their own animation when one exists.
+- Proprietary ANI sequences are decoded into browser-playable VP9/Opus WebM; originals are always preserved.
+- Every link, card, sound, and film control is decoded from the compiled Penge content database (`DKCODE/TWTW.PNG`), so the web edition has the same 10,000-plus interactive areas as the disc. Cards open at their authored positions, red words open their glossary entries, and See Also panels lead to the right subjects.
+- The Index is decoded from the same database: 1,856 headings that show a page and open its card.
+- `/classic` presents the original window: the navigation panel on the left, the page in its frame, the authored title sequence on load, and "Mammoth Movies" pages that play on arrival.
+- The History of Machines era dial, the A–Z dial, and the Principles of Science map are wired in the original executable rather than the database, so their controls are authored by hand in `scripts/builtin-hotspots.mjs`.
 
-The importer recovers authored animation, page/card, red-label, See Also, related-subject, and Inventors-book navigation rectangles from the compiled Penge database. Decoded indirect handler identities are the source of truth; OCR remains a conservative fallback for handlers that have not yet been decoded and never invents a hit area. Remaining compatibility work covers the wider long-tail of indirect concept handlers and one alternate ANI variant used by two lever-principle files. See [docs/PORTING.md](docs/PORTING.md).
+See [docs/PORTING.md](docs/PORTING.md) for the file formats.
 
 ## Commands
 
 ```sh
-npm test
+npm test            # unit tests for the ANI codec and the Penge decoder
 npm run build
-npm run validate
+npm run validate    # checks every manifest link against the converted media
 npm run preview
-npm run hotspots
+npm run hotspots    # re-extract links and the index without reconverting media
+npm run animations  # re-render animations without reconverting images or sounds
 ```
 
-`npm run hotspots` re-runs authored-hotspot extraction against the existing `public/content` manifest without reconverting media. It reads `DKCODE/TWTW.PNG` from `.cache/twtw/raw` by default; set `TWTW_PENGE=/path/to/TWTW.PNG` to point at another copy.
+`npm run hotspots` and `npm run animations` read from `.cache/twtw/raw` by default; set `TWTW_PENGE=/path/to/TWTW.PNG` or `TWTW_CACHE=/path/to/extracted/disc` to point elsewhere.
 
 The converted media in this repository is published with the rights holder's authorization. The original ISO and Windows runtime are not distributed here.

@@ -23,7 +23,7 @@ export function attachAuthoredHotspots({
     images.toSorted(imageCompare).forEach((asset, index) => screenIndex.set(asset, index))
   }
 
-  const { records, unresolved } = parsePenge(pengeBuffer)
+  const { records, unresolved, index: indexEntries } = parsePenge(pengeBuffer)
   const stats = { hotspots: 0, records: records.length, unresolvedReferences: unresolved, missingPages: new Set(), missingTargets: new Set(), skippedActions: 0 }
   const attached = new Set()
 
@@ -120,9 +120,22 @@ export function attachAuthoredHotspots({
     stats.hotspots++
   }
 
-  log(`Attached ${stats.hotspots} authored hotspots from ${stats.records} Penge records.`)
+  const index = []
+  for (const entry of indexEntries) {
+    const page = imageFor(entry.page)
+    if (!page) continue
+    const popup = entry.popups.map((record) => imageFor(record)).find(Boolean)
+    index.push({
+      label: entry.label,
+      topicId: page.topicPath,
+      screen: screenIndex.get(page) || 0,
+      ...(popup ? { open: popup.id, url: popup.url } : {}),
+    })
+  }
+
+  log(`Attached ${stats.hotspots} authored hotspots from ${stats.records} Penge records and ${index.length} index entries.`)
   if (stats.unresolvedReferences) log(`${stats.unresolvedReferences} hotspot references did not resolve to a record.`)
   if (stats.missingPages.size) log(`${stats.missingPages.size} authored pages have no converted bitmap: ${[...stats.missingPages].slice(0, 10).join(', ')}`)
   if (stats.missingTargets.size) log(`${stats.missingTargets.size} link targets have no converted media: ${[...stats.missingTargets].slice(0, 10).join(', ')}`)
-  return { hotspotCount: stats.hotspots, stats }
+  return { hotspotCount: stats.hotspots, index, stats }
 }

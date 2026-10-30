@@ -28,7 +28,7 @@ for (const topic of topics) {
   }
 }
 
-const { hotspotCount } = attachAuthoredHotspots({
+const { hotspotCount, index } = attachAuthoredHotspots({
   pengeBuffer: await readFile(pengePath),
   imageAssets: assets.images,
   animationAssets: assets.animations,
@@ -39,5 +39,6 @@ const { hotspotCount } = attachAuthoredHotspots({
 
 for (const asset of Object.values(assets).flat()) delete asset.topicPath
 manifest.totals.hotspots = hotspotCount
+manifest.index = index
 await writeFile(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`)
-console.log(`Wrote ${hotspotCount} hotspots to public/content/manifest.json`)
+console.log(`Wrote ${hotspotCount} hotspots and ${index.length} index entries to public/content/manifest.json`)

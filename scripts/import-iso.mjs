@@ -194,8 +194,9 @@ async function main() {
 
   const pengeData = filesByPath.get(join(cache, 'DKCODE', 'TWTW.PNG').toLowerCase())
   let hotspotCount = 0
+  let index = []
   if (pengeData) {
-    ({ hotspotCount } = attachAuthoredHotspots({
+    ({ hotspotCount, index } = attachAuthoredHotspots({
       pengeBuffer: await readFile(pengeData),
       imageAssets: assets.filter((asset) => asset.type === 'images'),
       animationAssets: assets.filter((asset) => asset.type === 'animations'),
@@ -255,6 +256,7 @@ async function main() {
       hotspots: hotspotCount,
     },
     sections,
+    index,
   }
   await writeFile(join(output, 'manifest.json'), `${JSON.stringify(manifest, null, 2)}\n`)
   console.log(`Imported ${manifest.totals.topics} topics, ${assets.length} media assets, and ${hotspotCount} authored hotspots.`)

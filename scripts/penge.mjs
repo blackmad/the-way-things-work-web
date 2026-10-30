@@ -165,5 +165,61 @@ export function parsePenge(buffer) {
       }
     }
   }
-  return { strings, records, unresolved }
+  const index = parseIndex(buffer, dataOffset, records[0]?.offset ?? buffer.length, strings, recordsByOffset)
+  return { strings, records, unresolved, index }
+}
+
+// The region between the string table and the first page record is the
+// Index. It is a run of rows in alphabetical order:
+//
+//   u16 label          0-based string reference
+//   u16 flags
+//   u16 0
+//   u32 page           record reference of a base page
+//   u16 count
+//   u32 × count        popups to open on arrival (cards, panels)
+//
+// The page block in each row belongs to the heading in the row before it,
+// so a heading's destination is read from the following row. A heading can
+// repeat when it has several destinations. A few template records precede
+// the table, so the longest non-decreasing run of rows is used.
+function parseIndex(buffer, start, end, strings, recordsByOffset) {
+  const rows = []
+  let offset = start
+  while (offset + 12 <= end) {
+    const label = buffer.readUInt16BE(offset)
+    const count = buffer.readUInt16BE(offset + 10)
+    const page = recordsByOffset.get(RECORD_REFERENCE_BASE + buffer.readUInt32BE(offset + 6))
+    const valid = buffer.readUInt16BE(offset + 4) === 0 && label < strings.length && count <= 8 && page && offset + 12 + count * 4 <= end
+    const popups = []
+    if (valid) {
+      for (let item = 0; item < count; item++) {
+        const popup = recordsByOffset.get(RECORD_REFERENCE_BASE + buffer.readUInt32BE(offset + 12 + item * 4))
+        if (!popup) break
+        popups.push(popup)
+      }
+    }
+    if (!valid || popups.length !== count) {
+      offset++
+      continue
+    }
+    rows.push({ offset, label: strings[label], labelIndex: label, page, popups })
+    offset += 12 + count * 4
+  }
+  let best = [], run = []
+  for (const row of rows) {
+    if (run.length && (row.labelIndex < run.at(-1).labelIndex || row.offset !== run.at(-1).offset + 12 + run.at(-1).popups.length * 4)) {
+      if (run.length > best.length) best = run
+      run = []
+    }
+    run.push(row)
+  }
+  const table = run.length > best.length ? run : best
+  return table.slice(0, -1).map((row, index) => ({
+    offset: row.offset,
+    label: row.label,
+    labelIndex: row.labelIndex,
+    page: table[index + 1].page,
+    popups: table[index + 1].popups,
+  }))
 }

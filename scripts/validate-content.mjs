@@ -72,6 +72,12 @@ async function main() {
     }
   }
 
+  for (const entry of manifest.index || []) {
+    const topic = topicsById.get(entry.topicId)
+    if (!topic || (entry.screen || 0) >= topic.images.length) failures.push(`Index entry points nowhere: ${entry.label}`)
+    if (entry.open && !allImages.some((image) => image.id === entry.open && image.url === entry.url)) failures.push(`Index entry opens a missing card: ${entry.label}`)
+  }
+
   for (const key of ['topics', 'images', 'animations', 'audio']) {
     if (counts[key] !== manifest.totals[key]) failures.push(`Manifest ${key}: expected ${manifest.totals[key]}, found ${counts[key]}`)
   }

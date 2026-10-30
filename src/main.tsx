@@ -1,6 +1,6 @@
 import { StrictMode, useEffect, useMemo, useRef, useState } from 'react'
 import { createRoot } from 'react-dom/client'
-import type { ContentManifest, Hotspot, MediaAsset, Section, Topic } from './types'
+import type { ContentManifest, Hotspot, IndexEntry, MediaAsset, Section, Topic } from './types'
 import './styles.css'
 
 const BASE_PATH = import.meta.env.BASE_URL.replace(/\/$/, '')
@@ -56,6 +56,52 @@ const playHotspot = (animation: MediaAsset): Hotspot => ({ rect: [0, 0, 0, 0], a
 function nextInSequence(sequence: MediaAsset[], current: Hotspot | null) {
   const index = current ? sequence.findIndex((animation) => animation.url === current.url) : -1
   return index >= 0 && index + 1 < sequence.length ? playHotspot(sequence[index + 1]) : null
+}
+
+// The Index screen is a text field and a list box drawn into the INDE00
+// artwork. Choosing an entry shows its page and then opens its card.
+const INDEX_FIELD = { left: 26, top: 85, width: 312, height: 21 }
+const INDEX_LIST = { left: 26, top: 136, width: 312, height: 174 }
+let pendingCard: IndexEntry | null = null
+
+function IndexPanel({ entries, image }: { entries: IndexEntry[]; image: MediaAsset }) {
+  const [query, setQuery] = useState('')
+  const visible = useMemo(() => {
+    const needle = query.trim().toLowerCase()
+    return needle ? entries.filter((entry) => entry.label.toLowerCase().includes(needle)) : entries
+  }, [query, entries])
+  const box = (area: typeof INDEX_FIELD) => percentBox(area.left, area.top, area.width, area.height, image.width!, image.height!)
+  return <>
+    <input
+      className="index-field"
+      style={box(INDEX_FIELD)}
+      value={query}
+      onChange={(event) => setQuery(event.target.value)}
+      placeholder="Type a word"
+      aria-label="Find an index entry"
+      autoFocus
+    />
+    <ul className="index-list" style={box(INDEX_LIST)} aria-label="Index entries">
+      {visible.map((entry, position) => (
+        <li key={`${entry.label}-${position}`}>
+          <button onClick={() => {
+            pendingCard = entry.open ? entry : null
+            navigate(entry.topicId, entry.screen)
+          }}>{entry.label}</button>
+        </li>
+      ))}
+      {visible.length === 0 && <li className="index-empty">Nothing matches “{query}”.</li>}
+    </ul>
+  </>
+}
+
+// After arriving from the Index, open the entry's card where its page would.
+function takePendingCard(topic: Topic | undefined, image: MediaAsset | undefined): Hotspot | null {
+  const entry = pendingCard
+  if (!entry || !topic || !image || topic.id !== entry.topicId || !entry.url) return null
+  pendingCard = null
+  const authored = topic.images.flatMap((candidate) => candidate.hotspots || []).find((hotspot) => hotspot.action === 'open' && hotspot.url === entry.url)
+  return { rect: [0, 0, 0, 0], action: 'open', target: entry.open!, url: entry.url, ...(authored?.at ? { at: authored.at } : {}) }
 }
 
 // The original window: a 94×460 navigation panel on the left and the 540×450
@@ -217,6 +263,19 @@ function CardOverlay({ asset, fallback, close, activate, animation, playAnimatio
   const at = fallback.at && page && fallback.at[0] + width <= page.width + 1 && fallback.at[1] + height <= page.height + 1
     ? percentBox(fallback.at[0], fallback.at[1], width, height, page.width, page.height)
     : null
+  // A card's own animation paints into a blank area of its artwork, so the
+  // film is shown in place: it starts at once unless the card has a film
+  // icon, in which case the first frame waits for a click.
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const inlineFilm = animation && animation.width === width && animation.height === height ? animation : undefined
+  const waitsForClick = Boolean(asset?.hotspots?.some((hotspot) => hotspot.action === 'play'))
+  function playInline() {
+    const video = videoRef.current
+    if (!video) return false
+    video.currentTime = 0
+    video.play().catch(() => { /* Autoplay policies can refuse; the control stays usable. */ })
+    return true
+  }
   return <div
     className={`card-backdrop${classic ? ' classic-card-backdrop' : ''}${at ? ' positioned' : ''}`}
     role="dialog"
@@ -226,9 +285,19 @@ function CardOverlay({ asset, fallback, close, activate, animation, playAnimatio
   >
     <div className="card-surface" style={at ? { ...at, aspectRatio: `${width} / ${height}` } : { aspectRatio: `${width} / ${height}` }}>
       <img src={assetUrl(fallback.url)} alt={`Information card ${fallback.target}`} />
+      {inlineFilm && <video
+        ref={videoRef}
+        className="card-film"
+        src={assetUrl(inlineFilm.url)}
+        preload="auto"
+        playsInline
+        autoPlay={!waitsForClick}
+        onClick={(event) => event.stopPropagation()}
+        aria-label={`Original animation ${inlineFilm.id}`}
+      />}
       {animation && playAnimation && <button className="card-play" onClick={(event) => {
         event.stopPropagation()
-        playAnimation()
+        if (!playInline()) playAnimation()
       }}>▶ Play animation</button>}
       {asset?.hotspots?.map((hotspot, index) => (
         <button
@@ -237,6 +306,7 @@ function CardOverlay({ asset, fallback, close, activate, animation, playAnimatio
           style={hotspotStyle(hotspot, width, height)}
           onClick={(event) => {
             event.stopPropagation()
+            if (hotspot.action === 'play' && inlineFilm && hotspot.url === inlineFilm.url && playInline()) return
             activate(hotspot)
           }}
           aria-label={hotspotLabel(hotspot)}
@@ -248,7 +318,7 @@ function CardOverlay({ asset, fallback, close, activate, animation, playAnimatio
   </div>
 }
 
-function TopicViewer({ topic, initialScreen, imagesByUrl }: { topic: Topic; initialScreen: number; imagesByUrl: Map<string, MediaAsset> }) {
+function TopicViewer({ topic, initialScreen, imagesByUrl, index }: { topic: Topic; initialScreen: number; imagesByUrl: Map<string, MediaAsset>; index: IndexEntry[] }) {
   const [screen, setScreen] = useState(Math.min(initialScreen, Math.max(0, topic.images.length - 1)))
   const [activeAnimation, setActiveAnimation] = useState<Hotspot | null>(null)
   useEffect(() => {
@@ -258,7 +328,9 @@ function TopicViewer({ topic, initialScreen, imagesByUrl }: { topic: Topic; init
   const image = topic.images[screen]
   const movie = movieSequence(topic, image)
   useEffect(() => {
-    if (movie.length) setActiveAnimation(playHotspot(movie[0]))
+    const card = takePendingCard(topic, image)
+    if (card) setActiveAnimation(card)
+    else if (movie.length) setActiveAnimation(playHotspot(movie[0]))
   }, [topic.id, screen])
   const cardAnimation = activeAnimation ? topic.animations.find((animation) =>
     animation.baseId === activeAnimation.target || animation.id.startsWith(`${activeAnimation.target}0`),
@@ -300,7 +372,10 @@ function TopicViewer({ topic, initialScreen, imagesByUrl }: { topic: Topic; init
                   {activeAnimation.action === 'play'
                     ? <video key={activeAnimation.url} src={assetUrl(activeAnimation.url)} autoPlay controls onEnded={() => setActiveAnimation(nextInSequence(movie, activeAnimation))} aria-label={`Original animation ${activeAnimation.target}`} />
                     : <CardOverlay asset={imagesByUrl.get(activeAnimation.url)} fallback={activeAnimation} close={() => setActiveAnimation(null)} activate={activate} animation={cardAnimation} page={{ width: image.width!, height: image.height! }} playAnimation={() => cardAnimation && setActiveAnimation({ rect: [0, 0, 0, 0], action: 'play', target: cardAnimation.id, url: cardAnimation.url })} />}
-                  {activeAnimation.action === 'play' && <button className="close-animation" onClick={() => setActiveAnimation(null)} aria-label="Close animation">×</button>}
+                  {activeAnimation.action === 'play' && <button className="close-animation" onClick={() => {
+                    if (movie.length && screen > 0) choose(0)
+                    else setActiveAnimation(null)
+                  }} aria-label="Close animation">×</button>}
                 </>
               ) : (
                 <>
@@ -312,6 +387,7 @@ function TopicViewer({ topic, initialScreen, imagesByUrl }: { topic: Topic; init
                     alt={`${topic.title}, original screen ${screen + 1} of ${topic.images.length}`}
                   />
                   {movie.length > 0 && <button className="replay-movie" onClick={() => setActiveAnimation(playHotspot(movie[0]))}>▶ Play the film again</button>}
+                  {topic.id === 'INDEX' && <IndexPanel entries={index} image={image} />}
                   {image.hotspots?.map((hotspot, index) => (
                     <button
                       key={`${hotspot.target}-${index}`}
@@ -446,7 +522,9 @@ function ClassicApp({ manifest, topic, initialScreen }: { manifest: ContentManif
   const image = topic?.images[screen]
   const movie = movieSequence(topic, image)
   useEffect(() => {
-    if (movie.length) setActive(playHotspot(movie[0]))
+    const card = takePendingCard(topic, image)
+    if (card) setActive(card)
+    else if (movie.length) setActive(playHotspot(movie[0]))
   }, [topic?.id, screen])
   const cardAnimation = active?.action === 'open' ? topic?.animations.find((animation) =>
     animation.baseId === active.target || animation.id.startsWith(`${active.target}0`),
@@ -540,7 +618,12 @@ function ClassicApp({ manifest, topic, initialScreen }: { manifest: ContentManif
                 />
               ))}
               {!active && movie.length > 0 && <button className="replay-movie" onClick={() => setActive(playHotspot(movie[0]))}>▶ Play the film again</button>}
-              {active?.action === 'play' && <div className="classic-media-overlay"><video key={active.url} src={assetUrl(active.url)} autoPlay controls onEnded={() => setActive(nextInSequence(movie, active))} /><button onClick={() => setActive(null)} aria-label="Close animation">×</button></div>}
+              {!active && topic?.id === 'INDEX' && <IndexPanel entries={manifest.index || []} image={image} />}
+              {active?.action === 'play' && <div className="classic-media-overlay"><video key={active.url} src={assetUrl(active.url)} autoPlay controls onEnded={() => setActive(nextInSequence(movie, active))} /><button onClick={() => {
+                // Leaving a film page returns to the article it belongs to.
+                if (movie.length && topic && screen > 0) navigate(topic.id, 0)
+                else setActive(null)
+              }} aria-label="Close animation">×</button></div>}
               {active?.action === 'open' && <CardOverlay asset={imagesByUrl.get(active.url)} fallback={active} close={() => setActive(null)} activate={activate} animation={cardAnimation} page={{ width: image.width!, height: image.height! }} playAnimation={() => cardAnimation && setActive({ rect: [0, 0, 0, 0], action: 'play', target: cardAnimation.id, url: cardAnimation.url })} classic />}
             </div>
           </div>
@@ -618,7 +701,7 @@ function App() {
           <a className="classic-link" href={pageUrl(topic ? `/classic#/topic/${encodeURIComponent(topic.id)}${route.screen ? `?screen=${route.screen}` : ''}` : '/classic#/')}>Classic mode</a>
           {topic && <button className="surprise" onClick={() => navigate(topics[Math.floor(Math.random() * topics.length)].id)}>Surprise me</button>}
         </div>
-        {topic ? <TopicViewer topic={topic} initialScreen={route.screen} imagesByUrl={imagesByUrl} /> : <Welcome manifest={manifest} openTopic={navigate} />}
+        {topic ? <TopicViewer topic={topic} initialScreen={route.screen} imagesByUrl={imagesByUrl} index={manifest.index || []} /> : <Welcome manifest={manifest} openTopic={navigate} />}
         <footer>Private preservation build · Source image {manifest.source.sha256.slice(0, 12)}…</footer>
       </div>
       <button className="backdrop" aria-label="Close contents" onClick={() => setMenuOpen(false)} />

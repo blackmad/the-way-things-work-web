@@ -203,3 +203,15 @@ footer { margin-top: auto; padding: 20px clamp(20px, 4vw, 64px); border-top: 1px
 .card-backdrop.positioned .card-surface { position: absolute; max-height: none; }
 .replay-movie { position: absolute; z-index: 3; left: 50%; bottom: 6%; transform: translateX(-50%); padding: 8px 14px; border: 1px solid #173734; color: #f6ecd2; background: rgba(23,55,52,.9); font: 600 9px 'DM Mono', monospace; text-transform: uppercase; letter-spacing: .06em; cursor: pointer; white-space: nowrap; }
 .replay-movie:hover, .replay-movie:focus-visible { background: #b82f26; }
+
+/* Films drawn into a card's blank area, and the Index screen's controls. */
+.card-film { position: absolute; inset: 0; z-index: 1; display: block; width: 100%; height: 100%; object-fit: contain; }
+.index-field, .index-list { position: absolute; z-index: 2; margin: 0; box-sizing: border-box; border: 0; color: #173734; background: #fff; font: 400 clamp(10px, 2.6cqw, 15px) Georgia, serif; }
+.classic-screen, .screen-frame { container-type: inline-size; }
+.index-field { padding: 0 2%; outline: none; }
+.index-field:focus { box-shadow: inset 0 0 0 2px #b82f26; }
+.index-list { padding: 0; overflow-y: auto; list-style: none; }
+.index-list li { margin: 0; }
+.index-list button { display: block; width: 100%; padding: 1% 3%; border: 0; color: inherit; background: transparent; font: inherit; text-align: left; cursor: pointer; }
+.index-list button:hover, .index-list button:focus-visible { color: #fff; background: #173734; outline: none; }
+.index-empty { padding: 2% 3%; opacity: .6; }

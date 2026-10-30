@@ -45,10 +45,20 @@ export interface Section {
   topics: Topic[]
 }
 
+export interface IndexEntry {
+  label: string
+  topicId: string
+  screen: number
+  /** Card to open once the page is showing. */
+  open?: string
+  url?: string
+}
+
 export interface ContentManifest {
   schemaVersion: number
   source: { label: string; sha256: string }
   generatedAt: string
   totals: { topics: number; images: number; animations: number; audio: number; hotspots?: number }
   sections: Section[]
+  index?: IndexEntry[]
 }

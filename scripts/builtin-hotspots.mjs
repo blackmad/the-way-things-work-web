@@ -46,10 +46,19 @@ export function builtinHotspots() {
     entries.push(['TIMELINE', image, [414, 298, 462, 326], 'TIMELINE', next.image])
     entries.push(['TIMELINE', image, [310, 366, 356, 420], 'TIMELINE', page])
   })
-  entries.push(['AZAZ', 'AZAZ0M', [150, 70, 390, 215], 'AZAZ', 'AZ000M'])
-  entries.push(['AZAZ', 'AZAZ0M', [170, 215, 235, 250], 'AZAZ', 'AZ000M'])
-  entries.push(['AZAZ', 'AZAZ0M', [300, 215, 365, 250], 'AZAZ', 'AZ000M'])
-  entries.push(['AZAZ', 'AZAZ0M', [320, 295, 370, 322], 'AZAZ', 'AZ000M'])
+  // The A–Z dial: 26 letters on a ring of radius 90 around (270, 217), with
+  // A just right of the top and the alphabet running clockwise. Letters map
+  // to the same pages as the alphabet strip along the bottom of the A–Z list.
+  const LETTER_PAGES = ['AZ000M', 'AZ010M', 'AZ030M', 'AZ060M', 'AZ070M', 'AZ090M', 'AZ100M', 'AZ110M', 'AZ120M', 'AZ130M', 'AZ140M', 'AZ150M', 'AZ170M', 'AZ190M', 'AZ200M', 'AZ210M', 'AZ230M', 'AZ240M', 'AZ250M', 'AZ280M', 'AZ300M', 'AZ310M', 'AZ320M', 'AZ330M', 'AZ330M', 'AZ330M']
+  LETTER_PAGES.forEach((page, letter) => {
+    const angle = (-90 + (letter + 0.5) * (360 / 26)) * Math.PI / 180
+    const x = Math.round(270 + 90 * Math.cos(angle))
+    const y = Math.round(217 + 90 * Math.sin(angle))
+    entries.push(['AZAZ', 'AZAZ0M', [x - 11, y - 11, x + 11, y + 11], 'AZAZ', page])
+  })
+  entries.push(['AZAZ', 'AZAZ0M', [177, 297, 217, 317], 'AZAZ', 'AZ330M'])
+  entries.push(['AZAZ', 'AZAZ0M', [323, 297, 363, 317], 'AZAZ', 'AZ010M'])
+  entries.push(['AZAZ', 'AZAZ0M', [320, 335, 370, 370], 'AZAZ', 'AZ000M'])
   for (const [code, rect] of Object.entries(PRINCIPLE_LABELS)) entries.push(['PRINCIPL', 'QQQQ0M', rect, `PRINCIPL/${code}`, `${code}0M`])
   return entries
 }
